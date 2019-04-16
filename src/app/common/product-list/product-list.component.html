@@ -1,0 +1,30 @@
+<div class="product-list-container">
+  <h5 [innerHtml]="title" class="title pb-3"></h5>
+  <p [innerHtml]="description" class="pt-3"></p>
+  <div class="product-list row">
+    <div class="product col-sm-12 col-md-4 col-lg-4 text-center mb-3" *ngFor="let product of products">
+      <div class="product-content p-3">
+          <img class="mb-2" [src]="product.logo" />
+          <div [innerHtml]="product.name" class="font-weight-bold"></div>
+          <div class="price">₹ {{product.price}}</div>
+          <div class="row">
+            <div class="col-6 pr-1">
+                <input type="number" class="float-right quantity mr-1" step="1" min="0" max="" name="quantity" value="1">
+            </div>
+            <div class="col-6 pl-1">
+                <button type="submit" class="float-left button add-to-cart alt">add to cart</button>
+            </div>
+          </div>
+          <div class="p-3">
+            <span *ngIf="product.quantity">
+                {{ product.quantity }} {{product.measuringUnit}}
+            </span>
+            <span *ngIf="product.noOfDays">No of days: {{product.noOfDays}}</span>
+          </div>
+          <div class="ingredient">
+            {{ product.ingredient || product.benefits}}
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
