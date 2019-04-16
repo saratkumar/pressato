@@ -1,0 +1,16 @@
+.title {
+    font-size: 1rem;
+    color: #179b39;
+    border-bottom: 1px solid;
+}
+.menu .menu-item {
+    height: 55px;
+    line-height: 55px;
+    padding-left: 8px;
+    outline: none;
+    cursor: pointer;
+}
+.menu .menu-item.active,
+.menu .menu-item:hover {
+    background: #179b39
+}
