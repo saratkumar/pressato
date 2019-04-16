@@ -1,0 +1,202 @@
+<nav class="navbar navbar-expand-lg green-theme navbar-light">
+  <div class="col-md-12 col-sm-12">
+    <div class="row share-icon">
+      <!-- <div class="col-md-5 col-sm-5">
+      <i class="fa fa-facebook color-white cursor-pointer" aria-hidden="true"></i>
+      <i class="fa fa-instagram p-l-10 color-white cursor-pointer" aria-hidden="true"></i>
+    </div> -->
+      <div class="col-md-2 col-sm-2">
+        <img src="./assets/logo/title-logo.png" style="width:85%" class="black-theme">
+      </div>
+      <div class="col-md-10 col-sm-10">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto text-uppercase header-top-menu">
+            <li class="nav-item active">
+              <a class="nav-link menu-text" href="#">about us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link menu-text" href="#">contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link menu-text" href="#">cart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link menu-text" href="#">login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link menu-text" href="#">signup</a>
+            </li>
+          </ul>
+        </div>
+        <button class="navbar-toggler white-theme float-right" type="button" data-toggle="collapse"
+          data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+          aria-label="Toggle navigation" (click)="openNav()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+</nav>
+<nav class="navbar navbar-expand-lg black-theme navbar-light category-menu">
+
+    <div class="collapse navbar-collapse justify-content-right">
+        <form class="form-inline my-2 my-lg-0">
+            <ul class="navbar-nav mr-auto text-uppercase">
+              <li class="nav-item">
+                <a class="nav-link menu-text text-align-left dropdown" href="#">
+                  <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Cold Pressed </span>
+                  <div class="dropdown-menu m-l-5" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">chalco</a>
+                    <a class="dropdown-item" href="#">Charger</a>
+                    <a class="dropdown-item" href="#">citrus slap</a>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link menu-text text-align-left" href="#">probiotic</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link menu-text text-align-left" href="#">salads</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link menu-text text-align-left" href="#">soomthies</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link menu-text text-align-left" href="#">packages</a>
+              </li>
+            </ul>
+          </form>
+    </div>
+  </nav>
+
+<div id="mySidenav" class="sidenav">
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-sm-10">
+        <img src="./assets/logo/title-logo.png" style="width:85%" class="black-theme">
+      </div>
+      <div class="col-md-2">
+        <a href="javascript:void(0)" class="closebtn" (click)="openNav()">
+          &times;</a>
+      </div>
+    </div>
+  </div>
+
+
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+<!-- <div class="fixed-top">
+
+  <nav class="navbar navbar-expand-lg green-theme navbar-light">
+    <div class="col-sm-12">
+      <div class="row ">
+        <div class="non-minimal-device">
+          <div class="col-sm-5 share-icon">
+            <a class="navbar-brand"><i class="fa fa-facebook color-white cursor-pointer" aria-hidden="true"></i>
+              <i class="fa fa-instagram p-l-10 color-white cursor-pointer" aria-hidden="true"></i></a>
+          </div>
+          <div class="col-sm-2">
+            <a class="navbar-brand justify-content-center">
+              <img src="./assets/logo/title-logo.png" style="width:75%" class="black-theme">
+            </a>
+
+          </div>
+          <div class="col-sm-5">
+            <div class="collapse navbar-collapse justify-content-right">
+              <form class="form-inline my-2 my-lg-0">
+                <ul class="navbar-nav mr-auto text-uppercase">
+                  <li class="nav-item active">
+                    <a class="nav-link menu-text" href="#">home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link menu-text" href="#">contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link menu-text" href="#">cart</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link menu-text" href="#">login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link menu-text" href="#">signup</a>
+                  </li>
+                </ul>
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="row minimal-device">
+        <div class='col-sm-10'>
+          <a class="navbar-brand justify-content-center">
+            <img src="./assets/logo/title-logo.png" style="width:75%" class="black-theme">
+          </a>
+        </div>
+        <div class="col-sm-2">
+          <button class="navbar-toggler white-theme background-transparent" type="button" data-toggle="collapse"
+            data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+            aria-label="Toggle navigation" (click)="openNav()">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg black-theme navbar-light category-menu">
+
+
+    <div class="collapse navbar-collapse justify-content-right" id="navbarTogglerDemo01">
+
+
+      <form class="form-inline my-2 my-lg-0">
+        <ul class="navbar-nav mr-auto text-uppercase">
+          <li class="nav-item active">
+            <a class="nav-link menu-text text-align-left" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link menu-text text-align-left dropdown" href="#">
+              <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">Cold Pressed </span>
+              <div class="dropdown-menu m-l-5" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">chalco</a>
+                <a class="dropdown-item" href="#">Charger</a>
+                <a class="dropdown-item" href="#">citrus slap</a>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link menu-text text-align-left" href="#">probiotic</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link menu-text text-align-left" href="#">salads</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link menu-text text-align-left" href="#">soomthies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link menu-text text-align-left" href="#">packages</a>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </nav>
+
+</div>
+
+
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" (click)="openNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div> -->
