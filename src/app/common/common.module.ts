@@ -4,6 +4,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { NewUserComponent } from './new-user/new-user.component';
 
 @NgModule({
     imports: [
@@ -13,7 +15,9 @@ import { FormsModule } from '@angular/forms';
     ],
     declarations: [
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        LoginComponent,
+        NewUserComponent
     ],
     providers: [],
     exports: [
@@ -21,7 +25,9 @@ import { FormsModule } from '@angular/forms';
         RouterModule,
         FooterComponent,
         HeaderComponent,
-        FormsModule
+        FormsModule,
+        LoginComponent,
+        NewUserComponent
     ]
 })
 

@@ -22,10 +22,10 @@
                 <a class="nav-link menu-text" href="#">cart</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link menu-text" href="#">login</a>
+                <a class="nav-link menu-text" (click)="signIn = true;" data-toggle="modal" data-target="#myModal">login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link menu-text" href="#">signup</a>
+                <a class="nav-link menu-text" (click)="signIn = false;" data-toggle="modal" data-target="#myModal">signup</a>
               </li>
             </ul>
           </div>
@@ -162,4 +162,11 @@
     <a href="#">Clients</a>
     <a href="#">Contact</a>
   </div>
+</div>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
+      <app-login *ngIf="signIn" (signUp)="signIn = !signIn"></app-login>
+      <app-new-user *ngIf="!signIn" (signIn)="signIn = !signIn"></app-new-user>
+    </div>
 </div>
