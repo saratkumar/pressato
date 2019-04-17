@@ -4,8 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
-import { NewUserComponent } from './new-user/new-user.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 @NgModule({
     imports: [
@@ -16,8 +15,7 @@ import { NewUserComponent } from './new-user/new-user.component';
     declarations: [
         HeaderComponent,
         FooterComponent,
-        LoginComponent,
-        NewUserComponent
+        ProductListComponent
     ],
     providers: [],
     exports: [
@@ -25,9 +23,8 @@ import { NewUserComponent } from './new-user/new-user.component';
         RouterModule,
         FooterComponent,
         HeaderComponent,
-        FormsModule,
-        LoginComponent,
-        NewUserComponent
+        ProductListComponent,
+        FormsModule
     ]
 })
 

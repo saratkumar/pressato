@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ProductListComponent } from "./../common/product-list/product-list.component";
 @Component({
   selector: 'app-coldpress',
   templateUrl: './coldpress.component.html',
@@ -10,7 +10,7 @@ export class ColdpressComponent implements OnInit {
   title: string;
   products: {}[];
   constructor() {
-    this.title = 'Salads'
+    this.title = 'Cold pressed'
     this.description = 'Cold-pressed juice is made with a hydraulic press that uses pressure to extract the maximum amount of liquid from raw fresh fruits and vegetables. No additional heat or oxygen is used in the process, meaning that no nutrients are lost in the heat of traditional pasteurization. Fruits and vegetables are great sources of vitamins, minerals and antioxidants. We provide you a way to get a lot of these compounds in one sitting.'
     this.products = [
       {
