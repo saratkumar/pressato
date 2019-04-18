@@ -13,6 +13,7 @@ import { ProbioticsComponent } from './probiotics/probiotics.component';
 import { SaladsComponent } from './salads/salads.component';
 import { SmoothiesComponent } from './smoothies/smoothies.component';
 import { PackagesComponent } from './packages/packages.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PackagesComponent } from './packages/packages.component';
     ProbioticsComponent,
     SaladsComponent,
     SmoothiesComponent,
-    PackagesComponent
+    PackagesComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,6 @@ export class HeaderComponent implements OnInit {
 
   openNav() {
     this.showSideMenu = !this.showSideMenu;
-    this.showSideMenu ? document.getElementById("mySidenav").style.width = "250px" : document.getElementById("mySidenav").style.width = "0";
+    this.showSideMenu ? document.getElementById("mySidenav").style.width = "100%" : document.getElementById("mySidenav").style.width = "0";
   }
 }

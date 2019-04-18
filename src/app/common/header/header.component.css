@@ -77,8 +77,8 @@ width: 100%;
   /* Position and style the close button (top right corner) */
   .sidenav .closebtn {
     position: absolute;
-    top:-30px;
-    right: 15px;
+    top:-38px;
+    right:10px;
     font-size: 70px;
     margin-left: 50px;
   }
@@ -176,11 +176,43 @@ width: 100%;
   margin-bottom: 3px;
 }
 
-.mega-dropdown:hover .dropdown-menu.show {
+.mega-dropdown:hover .dropdown-menu {
   display: block;
 }
 
-.dropdown-menu:active .dropdown-menu.show{
+.dropdown-menu:active .dropdown-menu{
   display:block
 }
 
+
+/*** for Accoridan ***/
+
+.accordian-menu {
+  padding: 5px;
+  background: #111111;
+  color: white;
+  text-transform: uppercase;
+}
+
+.active-submenu.collapsed:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active-submenu:after{
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+.accordian-submenu {
+  cursor: pointer;
+}
+.accordian-submenu:hover {
+  background-color: #109B48 !important;
+}
+/*Ends here**/ 
