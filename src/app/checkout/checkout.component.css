@@ -1,0 +1,54 @@
+.price:before {
+    content: "₹ "
+}
+
+.stock-text {
+    color: #109B48;
+}
+
+.stock-text:after {
+    content : "|"
+}
+
+.cart-summary {
+    border: 2px solid #dee2e6;
+}
+
+.payment-background {
+    background: #ebe9eb;
+    border: 1px solid #ebe9eb;
+    margin-top:20px
+}
+
+.payment-box {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1em;
+    margin: 1em 0;
+    font-size: .92em;
+    border-radius: 2px;
+    line-height: 1.5;
+    background-color: #dfdcde;
+    color: #515151;
+}
+
+.payment-box:before {
+    content: '';
+    display: block;
+    border: 1em solid #dfdcde;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    position: absolute;
+    top: -.75em;
+    left: 0;
+    margin: -1em 0 0 2em;
+}
+
+.add-cart-button {
+    background: #109b48;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: capitalize;
+}

@@ -14,6 +14,9 @@ import { SaladsComponent } from './salads/salads.component';
 import { SmoothiesComponent } from './smoothies/smoothies.component';
 import { PackagesComponent } from './packages/packages.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { PriceSummaryComponent } from './price-summary/price-summary.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     SaladsComponent,
     SmoothiesComponent,
     PackagesComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartComponent,
+    CheckoutComponent,
+    PriceSummaryComponent
   ],
   imports: [
     BrowserModule,

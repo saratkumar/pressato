@@ -1,0 +1,37 @@
+<h3> Shopping Cart</h3>
+<div class="p-10">
+  <div class="col-12 col-sm-12 col-md-12">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-7">
+        <div class="row">
+          <div class="col-7"></div>
+          <div class="col-3">Price</div>
+          <div class="col-2">Quantity</div>
+        </div>
+        <div class="row p-t-10">
+          <div class="col-7">
+            <div class="row">
+              <div class="col-3 col-sm-3 col-md-3 d-none d-md-block">
+                <img src="./assets/products-image/eden.jpg" class="w-100 h-100">
+              </div>
+              <div class="col-9 col-sm-9 col-md-9">
+                <h4 class="product-name"> Eden - Cold Pressed</h4>
+                <p><span class="stock-text"> In stock </span> <span
+                    class="p-l-10 delete-error text-underline">Delete</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3"> <span class="price error">1500000</span></div>
+          <div class="col-2"><input type="number" [(ngModel)]="quantity" class="w-100"></div>
+        </div>
+        <div class="row p-t-20 justify-content-center">
+          <span type="button" class="add-cart-button p-1 w-25 text-center" [routerLink]="'/checkout'">Proceed</span>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-5 cart-summary">
+        <app-price-summary></app-price-summary>
+
+      </div>
+    </div>
+  </div>
+</div>

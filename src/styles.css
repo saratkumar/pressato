@@ -53,7 +53,11 @@
 }
 
 .text-uppercase {
-    text-transform: uppercase 
+    text-transform: uppercase;
+}
+
+.text-underline {
+    text-decoration: underline; 
 }
 
 .black-theme {
@@ -93,9 +97,21 @@
     color: white
 }
 
+.color-green-theme {
+    color: #109B48;
+}
+
 .hyperlink {
     text-decoration: underline;
     color: #109B48;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-right {
+    justify-content: right;
 }
 
 @media only screen and (max-width: 600px) {

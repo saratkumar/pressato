@@ -1,0 +1,42 @@
+
+.thead {
+    border-bottom: 2px solid #dee2e6;
+}
+
+.price:before {
+    content: "₹ "
+}
+
+.stock-text {
+    color: #109B48;
+}
+
+.stock-text:after {
+    content : "|"
+}
+
+.delete-error {
+    color: red;
+}
+.delete-error:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+
+
+.sub-total-table {
+    border-top: 2px solid #dee2e6;
+}
+
+.cart-summary {
+    border: 2px solid #dee2e6;
+}
+
+.add-cart-button {
+    background: #109b48;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: capitalize;
+}

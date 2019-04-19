@@ -1,0 +1,13 @@
+.cart-summary {
+    border: 2px solid #dee2e6;
+}
+
+.order-details-heading {
+    padding: 10px;
+    justify-content: center;
+    /* border: 1px solid #dee2e6; */
+    text-transform: uppercase;
+    background:#333;
+    color:white;
+    font-weight:bold
+}
