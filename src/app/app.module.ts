@@ -17,6 +17,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { PriceSummaryComponent } from './price-summary/price-summary.component';
+import { HttpService } from './common/http.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { PriceSummaryComponent } from './price-summary/price-summary.component';
     CommonModules,
     RouterModule.forRoot(AppRoutes),
   ],
-  providers: [],
+  providers: [ HttpService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

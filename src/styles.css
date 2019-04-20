@@ -114,6 +114,14 @@
     justify-content: right;
 }
 
+.btn:hover {
+    color: white;
+}
+
+.btn.disabled, .btn:disabled {
+    cursor: not-allowed;
+}
+
 @media only screen and (max-width: 600px) {
 }
   

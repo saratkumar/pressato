@@ -2,14 +2,14 @@
   <nav class="navbar navbar-expand-lg green-theme navbar-light">
     <div class="col-12">
       <div class="row share-icon">
-        <div class="col-5 d-none d-md-block d-lg-block">
+        <div class="col-5 d-none d-md-block d-lg-block margin-auto">
           <i class="fa fa-facebook color-white cursor-pointer" aria-hidden="true"></i>
           <i class="fa fa-instagram p-l-10 color-white cursor-pointer" aria-hidden="true"></i>
         </div>
         <div class="col-md-2 col-sm-2 col-7 margin-auto">
           <img src="./assets/logo/title-logo.png" style="width:85%" class="black-theme">
         </div>
-        <div class="col-md-5 col-sm-10 col-5">
+        <div class="col-md-5 col-sm-10 col-5 margin-auto">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto text-uppercase header-top-menu">
               <li class="nav-item active">
@@ -22,11 +22,11 @@
                 <a class="nav-link menu-text" [routerLink]="'cart'">cart</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link menu-text" (click)="signIn = true;" data-toggle="modal"
+                <a class="nav-link menu-text cursor-pointer" (click)="signIn = true;" data-toggle="modal"
                   data-target="#myModal">login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link menu-text" (click)="signIn = false;" data-toggle="modal"
+                <a class="nav-link menu-text cursor-pointer" (click)="signIn = false;" data-toggle="modal"
                   data-target="#myModal">signup</a>
               </li>
             </ul>
@@ -47,40 +47,23 @@
     <div class="collapse navbar-collapse justify-content-right">
       <form class="form-inline my-2 my-lg-0">
         <ul class="navbar-nav mr-auto text-uppercase">
-          <!-- <li class="nav-item">
-            <a class="nav-link menu-text text-align-left dropdown" href="#">
-              <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">Cold Pressed </span>
-              <div class="dropdown-menu m-l-5" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">chalco</a>
-                <a class="dropdown-item" href="#">Charger</a>
-                <a class="dropdown-item" href="#">citrus slap</a>
-              </div>
-            </a>
-          </li> -->
           <li class="dropdown mega-dropdown nav-item">
             <a class="nav-link menu-text text-align-left dropdown-toggle" routerLink="category/coldpress">Cold
               Pressed</a>
             <div class="dropdown-menu mega-dropdown-menu row">
               <div class="col-12 col-md-12 col-sm-12">
                 <div class="row font-bold  cursor-pointer">
-                  <div class="col-3 col-md-3 col-sm-3 p-10" routerLink="category/coldpress/chalko">chalko</div>
-                  <div class="col-3 col-md-3 col-sm-3 p-10" routerLink="category/coldpress/charger">charger</div>
-                  <div class="col-3 col-md-3 col-sm-3 p-10" routerLink="category/coldpress/citrus-slap">citrus slap</div>
-                  <div class="col-3 col-md-3 col-sm-3 p-10" routerLink="category/coldpress/eden"> eden</div>
-
-                </div>
-                <div class="row font-bold  cursor-pointer">
-                  <div class="col-3 col-md-3 col-sm-3 p-10"routerLink="category/coldpress/french"> french</div>
-                  <div class="col-3 col-md-3 col-sm-3 p-10"routerLink="category/coldpress/greeny"> greeny</div>
-                  <div class="col-3 col-md-3 col-sm-3 p-10"routerLink="category/coldpress/jade"> jade</div>
-                  <div class="col-3 col-md-3 col-sm-3 p-10"routerLink="category/coldpress/orange-owl"> orange owl</div>
-
-                </div>
-                <div class="row font-bold  cursor-pointer">
-                  <div class="col-3 col-md-3 col-sm-3 p-10"routerLink="category/coldpress/pomo-grenade"> pomo-grenadel</div>
-                  <div class="col-3 col-md-3 col-sm-3 p-10"routerLink="category/coldpress/punk-grenade"> punk</div>
-                  <div class="col-3 col-md-3 col-sm-3 p-10"routerLink="category/coldpress/stonned-rabbit"> stonned rabbit</div>
+                  <div class="col-3 col-md-2 col-sm-3 p-10" routerLink="category/coldpress/chalko">chalko</div>
+                  <div class="col-3 col-md-2 col-sm-3 p-10" routerLink="category/coldpress/charger">charger</div>
+                  <div class="col-3 col-md-2 col-sm-3 p-10" routerLink="category/coldpress/citrus-slap">citrus slap</div>
+                  <div class="col-3 col-md-2 col-sm-3 p-10" routerLink="category/coldpress/eden"> eden</div>
+                  <div class="col-3 col-md-2 col-sm-3 p-10"routerLink="category/coldpress/french"> french</div>
+                  <div class="col-3 col-md-2 col-sm-3 p-10"routerLink="category/coldpress/greeny"> greeny</div>
+                  <div class="col-3 col-md-2 col-sm-3 p-10"routerLink="category/coldpress/jade"> jade</div>
+                  <div class="col-3 col-md-2 col-sm-3 p-10"routerLink="category/coldpress/orange-owl"> orange owl</div>
+                  <div class="col-3 col-md-2 col-sm-3 p-10"routerLink="category/coldpress/pomo-grenade"> pomo-grenadel</div>
+                  <div class="col-3 col-md-2 col-sm-3 p-10"routerLink="category/coldpress/punk-grenade"> punk</div>
+                  <div class="col-3 col-md-2 col-sm-3 p-10"routerLink="category/coldpress/stonned-rabbit"> stonned rabbit</div>
                 </div>
 
               </div>
