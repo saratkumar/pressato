@@ -4,7 +4,7 @@
 const devUrl='http://127.0.0.1:3344'
 export const environment = {
   production: false,
-  loginService: devUrl + '/v1/sessions',
+  devUrl: devUrl
 };
 
 /*

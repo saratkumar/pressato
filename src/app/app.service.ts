@@ -11,7 +11,8 @@ export class AppService {
   ) { }
 
   appServiceConst = {
-    'login' : environment.loginService
+    'login' : environment.devUrl +  '/v1/sessions',
+    'newUser': environment.devUrl + '/v1/users'
     
   }
 
@@ -20,6 +21,6 @@ export class AppService {
   }
 
   postNewUser(data, successFn, errorFn) {
-    return this.httpService.postHttp(this.appServiceConst.login, data, successFn, errorFn);
+    return this.httpService.postHttp(this.appServiceConst.newUser, data, successFn, errorFn);
   }
 }
