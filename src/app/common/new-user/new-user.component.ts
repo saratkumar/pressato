@@ -12,6 +12,8 @@ declare var jQuery:any;
 
 export class NewUserComponent implements OnInit {
   newUserObj:any = {};
+  showTermsandConditionsError: boolean = false;
+  showPasswordError: boolean = false;
   form: Form
   @Output() signIn = new EventEmitter();
   constructor(
@@ -26,9 +28,21 @@ export class NewUserComponent implements OnInit {
   }
 
   onSignUp() {
-    this.appService.postNewUser(this.newUserObj, (success) => {
-      jQuery("#myModal").modal("hide");
-    }, (error) => {})
+    this.showTermsandConditionsError = false;
+    this.showPasswordError = false;
+    if(this.newUserObj.termsAndConditions && this.passwordCheck()) {
+      this.appService.postNewUser(this.newUserObj, (success) => {
+        jQuery("#myModal").modal("hide");
+      }, (error) => {});
+    } else if(!this.newUserObj.termsAndConditions){
+      this.showTermsandConditionsError = true;
+    } else {
+      this.showPasswordError = true;
+    } 
+  }
+
+  passwordCheck() {
+    return this.newUserObj.password === this.newUserObj.confirmPassword;
   }
 
 }

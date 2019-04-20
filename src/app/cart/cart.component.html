@@ -1,5 +1,6 @@
-<h3> Shopping Cart</h3>
+
 <div class="p-10">
+    <h3 > Shopping Cart</h3>
   <div class="col-12 col-sm-12 col-md-12">
     <div class="row">
       <div class="col-12 col-sm-12 col-md-7">
@@ -25,7 +26,8 @@
           <div class="col-2"><input type="number" [(ngModel)]="quantity" class="w-100"></div>
         </div>
         <div class="row p-t-20 justify-content-center">
-          <span type="button" class="add-cart-button p-1 w-25 text-center" [routerLink]="'/checkout'">Proceed</span>
+          <!-- <span type="button" class="btn add-cart-button p-1 w-25 text-center" [routerLink]="'/checkout'">Proceed</span> -->
+          <button type="submit" class="btn add-cart-button" [routerLink]="'/checkout'">Proceed</button>
         </div>
       </div>
       <div class="col-12 col-sm-12 col-md-5 cart-summary">

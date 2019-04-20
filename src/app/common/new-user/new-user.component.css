@@ -27,3 +27,7 @@
 .modal-body {
     min-height:400px;
   }
+.termsError {
+    color: red;
+    font-size:12px;
+}  

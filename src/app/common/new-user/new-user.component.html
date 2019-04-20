@@ -9,7 +9,7 @@
         </div>
         <div class="col-12 col-sm-6 col-md-6">
           <p class="text-uppercase text-center p-1"> sign up</p>
-          <p class="text-uppercase text-center p-1"> ALREADY REGISTERED? <span class="cursor-pointer"
+          <p class="text-uppercase text-center p-1"> ALREADY REGISTERED? <span class="cursor-pointer hyperlink"
               (click)="onSignIn()">SIGN IN</span></p>
           <div class="col-md-12 col-12 col-sm-12 margin-auto text-left p-20">
             <form name="form" (ngSubmit)="f.form.valid && onSignUp()" #f="ngForm" novalidate>
@@ -17,9 +17,10 @@
                 <!-- <label for="email"><span class="error">*</span>Email:</label> -->
                 <input type="email" class="form-control custom-input" placeholder="Email" name="email"
                   [(ngModel)]="newUserObj.email" #email="ngModel"
-                  [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required>
+                  [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email>
                 <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-                  <div *ngIf="email?.errors?.required">Required</div>
+                  <div *ngIf="email?.errors?.required">Required.</div>
+                  <div *ngIf="email?.errors?.email">Please provide valid email.</div>
                 </div>
               </div>
               <div class="form-group">
@@ -29,14 +30,14 @@
                       [(ngModel)]="newUserObj.firstName" #firstName="ngModel"
                       [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
                     <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
-                      <div *ngIf="firstName?.errors?.required">First Name is required</div>
+                      <div *ngIf="firstName?.errors?.required">First Name is required.</div>
                     </div>
                   </div>
                   <div class="col-6 col-md-6 col-sm-6 text-right"><input type="text" class="form-control custom-input"
                       placeholder="Last Name" name="lastName" [(ngModel)]="newUserObj.lastName" #lastName="ngModel"
                       [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required />
                     <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
-                      <div *ngIf="lastName?.errors?.required">Last Name is required</div>
+                      <div *ngIf="lastName?.errors?.required">Last Name is required.</div>
                     </div>
                   </div>
                 </div>
@@ -46,7 +47,7 @@
                   [(ngModel)]="newUserObj.password" #password="ngModel"
                   [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required />
                 <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
-                  <div *ngIf="password?.errors?.required">Password is required</div>
+                  <div *ngIf="password?.errors?.required">Password is required.</div>
                 </div>
               </div>
               <div class="form-group">
@@ -54,13 +55,17 @@
                   name="confirmPassword" [(ngModel)]="newUserObj.confirmPassword" #confirmPassword="ngModel"
                   [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.invalid }" required />
                 <div *ngIf="f.submitted && confirmPassword.invalid" class="invalid-feedback">
-                  <div *ngIf="confirmPassword?.errors?.required">Confirm password is required</div>
+                  <div *ngIf="confirmPassword?.errors?.required">Confirm password is required.</div>
                 </div>
+                <p *ngIf="showPasswordError" class="termsError">Password doesn't match.</p>
               </div>
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="termsAndConditions" [(ngModel)]="newUserObj.termsAndConditions">
                 <label class="form-check-label" for="exampleCheck1">I accept the <span class="hyperlink">Terms of
-                    Service and Privacy Policy</span></label>
+                    Service</span> and <span class="hyperlink">Privacy Policy</span></label>
+                  <p *ngIf="showTermsandConditionsError" class="termsError">
+                    Required
+                  </p>    
               </div>
               <div class="p-t-10">
                 <button type="submit" class="btn w-100 text-uppercase black-theme color-white ">register</button>
