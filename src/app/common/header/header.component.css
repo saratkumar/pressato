@@ -112,8 +112,15 @@ width: 100%;
   box-shadow: none;
   -webkit-box-shadow: none;
   margin-top: -10px;
+  background: #333;
+  color:white;
+  font-size:13px;
 }
 
+.sub-menu-text:hover {
+text-decoration: underline;
+color: #109B48;
+}
 /* .mega-dropdown-menu:before {
   content: "";
   border-bottom: 15px solid #fff;
