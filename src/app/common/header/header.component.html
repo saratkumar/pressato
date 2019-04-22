@@ -16,11 +16,12 @@
                 <a class="nav-link menu-text" href="#">about us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link menu-text" href="#">contact</a>
+                <a class="nav-link menu-text" href="#">contact us</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link menu-text" [routerLink]="'cart'">cart</a>
               </li>
+              <ng-container *ngIf="!isUserLoggedIn">
               <li class="nav-item">
                 <a class="nav-link menu-text cursor-pointer" (click)="signIn = true;" data-toggle="modal"
                   data-target="#myModal">login</a>
@@ -29,9 +30,9 @@
                 <a class="nav-link menu-text cursor-pointer" (click)="signIn = false;" data-toggle="modal"
                   data-target="#myModal">signup</a>
               </li>
-              <li class="nav-item">
-                  <a class="nav-link menu-text cursor-pointer"  data-toggle="modal"
-                    data-target="#myModal">logout</a>
+            </ng-container>
+              <li class="nav-item" *ngIf="isUserLoggedIn">
+                  <a class="nav-link menu-text cursor-pointer"  (click)="onLogout()">logout</a>
               </li>
             </ul>
           </div>
@@ -51,25 +52,32 @@
     <div class="collapse navbar-collapse justify-content-right">
       <form class="form-inline my-2 my-lg-0">
         <ul class="navbar-nav mr-auto text-uppercase">
-          <li class="dropdown mega-dropdown nav-item">
-            <a class="nav-link menu-text text-align-left dropdown-toggle" routerLink="category/coldpress">Cold
-              Pressed</a>
+          <li class="dropdown mega-dropdown nav-item" *ngFor="let category of categoryList;">
+            <a class="nav-link menu-text text-align-left dropdown-toggle" routerLink="category/{{category?._id}}">{{category.name}}</a>
             <div class="dropdown-menu mega-dropdown-menu row">
               <div class="col-12 col-md-12 col-sm-12">
                 <div class="row font-bold">
-                  <div class="col-3 col-md-2 col-sm-3 p-10 p-l-20">
+                  <div class="col-md-4 col-sm-6 col-6">
+                    <div class="row">
+                        <div class="col-3 col-md-6 col-sm-3 p-10 p-l-20"  *ngFor="let product of category.products">
+                            <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
+                                routerLink="category/{{category._id}}/{{product._id}}">{{product.name}}</span> </p>
+                         </div>           
+                    </div>
+                  </div>
+                  <!-- <div class="col-3 col-md-2 col-sm-3 p-10 p-l-20"  *ngFor="let product of category.products">
                     <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
-                        routerLink="category/coldpress/chalko">chalko</span> </p>
-                    <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
+                        routerLink="category/{{category._id}}/{{product._id}}">{{product.name}}</span> </p> -->
+                    <!-- <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
                         routerLink="category/coldpress/charger">charger </span></p>
                     <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
                         routerLink="category/coldpress/eden">eden</span> </p>
                     <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
                         routerLink="category/coldpress/french">french </span></p>
                     <p class="p-r-20 mb-0"> <span class="cursor-pointer sub-menu-text"
-                        routerLink="category/coldpress/greeny">greeny </span></p>
-                  </div>
-                  <div class="col-3 col-md-2 col-sm-3 p-10 p-l-20">
+                        routerLink="category/coldpress/greeny">greeny </span></p> -->
+                  <!-- </div> -->
+                  <!-- <div class="col-3 col-md-2 col-sm-3 p-10 p-l-20">
                     <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
                         routerLink="category/coldpress/jade">jade </span></p>
                     <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
@@ -80,13 +88,13 @@
                         routerLink="category/coldpress/punk">punk</span> </p>
                     <p class="p-r-20 mb-0"> <span class="cursor-pointer sub-menu-text"
                         routerLink="category/coldpress/stonned-rabbit">stonned rabbit</span> </p>
-                  </div>
+                  </div> -->
                 </div>
 
               </div>
             </div>
           </li>
-          <li class="dropdown mega-dropdown nav-item">
+          <!-- <li class="dropdown mega-dropdown nav-item">
             <a class="nav-link menu-text text-align-left dropdown-toggle" routerLink="category/proboitic">proboitic</a>
             <div class="dropdown-menu mega-dropdown-menu row">
               <div class="col-12 col-md-12 col-sm-12">
@@ -104,8 +112,8 @@
                 </div>
               </div>
             </div>
-          </li>
-          <li class="dropdown mega-dropdown nav-item">
+          </li> -->
+          <!-- <li class="dropdown mega-dropdown nav-item">
             <a class="nav-link menu-text text-align-left dropdown-toggle" routerLink="category/salads">salads</a>
             <div class="dropdown-menu mega-dropdown-menu row">
               <div class="col-12 col-md-12 col-sm-12">
@@ -121,8 +129,8 @@
                 </div>
               </div>
             </div>
-          </li>
-          <li class="dropdown mega-dropdown nav-item">
+          </li> -->
+          <!-- <li class="dropdown mega-dropdown nav-item">
             <a class="nav-link menu-text text-align-left dropdown-toggle" routerLink="category/smootheis">smoothies</a>
             <div class="dropdown-menu mega-dropdown-menu row">
               <div class="col-12 col-md-12 col-sm-12">
@@ -155,10 +163,10 @@
                 </div>
               </div>
             </div>
-          </li>
-          <li class="nav-item">
+          </li> -->
+          <!-- <li class="nav-item">
             <a class="nav-link menu-text text-align-left" routerLink="category/packages">packages</a>
-          </li>
+          </li> -->
         </ul>
       </form>
     </div>
@@ -180,22 +188,14 @@
 
     <div class="col-12 col-sm-12 p-t-20 text-uppercase">
       <p class="accordian-menu" [routerLink]="" (click)="openNav()">home</p>
-      <p data-toggle="collapse" data-target="#cold-pressed" class="accordian-menu active-submenu collapsed">cold pressed
+      <ng-container *ngFor="let category of categoryList;">
+      <p data-toggle="collapse" [attr.data-target]="'#'+category._id" class="accordian-menu active-submenu collapsed" >{{category.name}}
       </p>
-      <div id="cold-pressed" class="collapse  ml-2 color-white" (click)="openNav()">
-        <div class="p-10 accordian-submenu" routerLink="category/coldpress/chalko">chalko</div>
-        <div class="p-10 accordian-submenu" routerLink="category/coldpress/charger">charger</div>
-        <div class="p-10 accordian-submenu" routerLink="category/coldpress/citrus-slap">citrus slap</div>
-        <div class="p-10 accordian-submenu" routerLink="category/coldpress/eden"> eden</div>
-        <div class="p-10 accordian-submenu" routerLink="category/coldpress/french"> french</div>
-        <div class="p-10 accordian-submenu" routerLink="category/coldpress/greeny"> greeny</div>
-        <div class="p-10 accordian-submenu" routerLink="category/coldpress/jade"> jade</div>
-        <div class="p-10 accordian-submenu" routerLink="category/coldpress/orange-owl"> orange owl</div>
-        <div class="p-10 accordian-submenu" routerLink="category/coldpress/pomo-grenade-owl"> pomo-grenadel</div>
-        <div class="p-10 accordian-submenu" routerLink="category/coldpress/punk-grenade-owl"> punk</div>
-        <div class="p-10 accordian-submenu" routerLink="category/coldpress/stonned-rabbit"> stonned rabbit</div>
+      <div [attr.id]="category._id" class="collapse  ml-2 color-white" (click)="openNav()">
+        <div class="p-10 accordian-submenu" routerLink="category/{{category._id}}/{{product._id}}" *ngFor="let product of category.products">{{product.name}}</div>
       </div>
-      <p data-toggle="collapse" data-target="#probiotic" class="accordian-menu active-submenu collapsed">proboitic
+    </ng-container>
+      <!-- <p data-toggle="collapse" data-target="#probiotic" class="accordian-menu active-submenu collapsed">proboitic
       </p>
       <div id="probiotic" class="collapse ml-2 color-white" (click)="openNav()">
         <div class="accordian-submenu p-10" routerLink="category/proboitic/assassin">Assassin</div>
@@ -224,12 +224,14 @@
         <div class="accordian-submenu p-10" routerLink="category/smootheis/super-nova">super nova</div>
         <div class="accordian-submenu p-10" routerLink="category/smootheis/swag">super nova</div>
         <div class="accordian-submenu p-10" routerLink="category/smootheis/thalaiva">thalaiva</div>
-      </div>
+      </div> -->
+      <ng-container *ngIf="!isUserLoggedIn">
       <p class="accordian-menu" [routerLink]="" (click)="openNav();signIn = true;" data-toggle="modal"
       data-target="#myModal">login</p>
       <p class="accordian-menu" [routerLink]="" (click)="openNav();signIn = false;" data-toggle="modal"
       data-target="#myModal">register</p>
-      <p class="accordian-menu" [routerLink]="" (click)="openNav()">logout</p>
+    </ng-container>
+      <p class="accordian-menu" [routerLink]="" (click)="openNav();onLogout()" *ngIf="isUserLoggedIn">logout</p>
     </div>
   </div>
 </div>

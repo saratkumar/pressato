@@ -1,18 +1,18 @@
 <div class="col-12 col-md-12 col-sm-12">
   <div class="row">
-    <div class="col-sm-12 col-12 col-md-5">
-      <img src="./assets/products-image/eden.jpg" class="w-100 h-95">
+    <div class="col-sm-12 col-12 col-md-5 p-t-15">
+      <img src="{{productDetails.logo}}" class="w-100 h-95 banner-border">
     </div>
     <div class="col-sm-12 col-12 col-md-7">
-      <h3 class="product-name p-t-20"> EDEN</h3>
-      <p class="product-price">200</p>
+      <h3 class="product-name p-t-20 text-capitalize"> {{productDetails.name}}</h3>
+      <p class="product-price">{{productDetails.price}}</p>
       <div>
         <span>
-          {{ 300 }} {{'ml'}}
+          {{ 300 }} {{productDetails.measuringUnit}}
         </span>
       </div>
       <div class="ingredient p-t-b-10">
-        {{ 'Cucumber, Spinach, Bottle Gourd, Coriander, Ginger, Mint, Lemon, Himalayan Salt' }}
+        {{ productDetails.ingredient }}
       </div>
       <div class="row p-t-b-10">
         <div class="col-3 col-sm-3 col-md-2">
@@ -103,19 +103,16 @@
   <h3 class="p-t-b-10">Related Products</h3>
   <div class="col-12 col-md-12 col-sm-12 m-t-b-10">
     <div class="row">
-      <div class="col-12 col-sm-12 col-md-3 pad-5">
+      <div class="col-12 col-sm-12 col-md-3 pad-5" *ngFor="let product of listOfRelatedProduct">
         <div class="product-card">
-          <div class="related-product-banner text-center">
-            <img src="./assets/products-image/cold_crea.jpg" class="w-100 h-100 related-product-image">
+          <div class="related-product-banner text-center" routerLink='/category/{{product.category}}/{{product._id}}'>
+            <img [src]="product.logo" class="w-100 h-100 related-product-image">
           </div>
           <div class="margin-auto text-center">
-            <p class="text-uppercase m-0 font-bold">pomo-gerande</p>
-            <p class="product-price m-0">200 <span>
-                {{ '-' + 300 }} {{'ml'}}
+            <p class="text-uppercase m-0 font-bold">{{product.name}}</p>
+            <p class="product-price m-0">{{product.price}}<span>
+                {{ '-' + 300 }} {{product.measuringUnit}}
               </span></p>
-            <div>
-
-            </div>
             <div class="row p-t-b-10 justify-center">
               <input type="number" class="quantity mr-1 w-25" step="1" min="0" max="" name="quantity" value="1">
               <span class="float-left add-cart-button pad-5">add to cart</span>
@@ -123,28 +120,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-12 col-md-3 pad-5">
-        <div class="product-card">
-          <div class="related-product-banner text-center">
-            <img src="./assets/products-image/cold_crea.jpg" class="w-100 h-100 related-product-image">
-          </div>
-          <div class="margin-auto text-center">
-            <p class="text-uppercase m-0 font-bold">pomo-gerande</p>
-            <p class="product-price m-0">200 <span>
-                {{ '-' + 300 }} {{'ml'}}
-              </span></p>
-            <div>
-
-            </div>
-            <div class="row p-t-b-10 justify-center">
-              <input type="number" class="quantity mr-1 w-25" step="1" min="0" max="" name="quantity" value="1">
-              <span class="float-left add-cart-button pad-5">add to cart</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-12 col-md-3 pad-5">
+      <!-- <div class="col-12 col-sm-12 col-md-3 pad-5">
         <div class="product-card">
           <div class="related-product-banner text-center">
             <img src="./assets/products-image/cold_crea.jpg" class="w-100 h-100 related-product-image">
@@ -185,6 +161,27 @@
           </div>
         </div>
       </div>
+
+      <div class="col-12 col-sm-12 col-md-3 pad-5">
+        <div class="product-card">
+          <div class="related-product-banner text-center">
+            <img src="./assets/products-image/cold_crea.jpg" class="w-100 h-100 related-product-image">
+          </div>
+          <div class="margin-auto text-center">
+            <p class="text-uppercase m-0 font-bold">pomo-gerande</p>
+            <p class="product-price m-0">200 <span>
+                {{ '-' + 300 }} {{'ml'}}
+              </span></p>
+            <div>
+
+            </div>
+            <div class="row p-t-b-10 justify-center">
+              <input type="number" class="quantity mr-1 w-25" step="1" min="0" max="" name="quantity" value="1">
+              <span class="float-left add-cart-button pad-5">add to cart</span>
+            </div>
+          </div>
+        </div>
+      </div> -->
     </div>
   </div>
 

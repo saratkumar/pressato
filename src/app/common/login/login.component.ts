@@ -1,5 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { AppService } from '../../app.service'
+import { AppService } from '../../app.service';
+import { SharedService } from '../shared.service';
+declare var jQuery:any; 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +13,8 @@ export class LoginComponent implements OnInit {
   showError: boolean = false;
   @Output() signUp = new EventEmitter();
   constructor(
-    private appService: AppService
+    private appService: AppService,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit() {
@@ -23,6 +27,9 @@ export class LoginComponent implements OnInit {
 
   onLoginIn() {
     this.appService.postLoginUser(this.params, (success) => {
+      localStorage.setItem('token', JSON.stringify(success.data.authToken));
+      this.sharedService.authBehaviourSubj.next(true);
+      jQuery("#myModal").modal("hide");
     }, (error)=> {
       this.showError = true;
     });

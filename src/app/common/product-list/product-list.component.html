@@ -1,8 +1,7 @@
 <div class="product-list-container">
-  <h5 [innerHtml]="title" class="title pb-3"></h5>
-  <p [innerHtml]="description" class="pt-3"></p>
+  
   <div class="product-list row">
-    <div class="product col-sm-12 col-md-4 col-lg-4 text-center mb-3" *ngFor="let product of products">
+    <div class="product col-sm-12 col-md-4 col-lg-4 text-center mb-3" *ngFor="let product of productsList" [routerLink]="product._id">
       <div class="product-content p-3">
           <img class="mb-2" [src]="product.logo" />
           <div [innerHtml]="product.name" class="font-weight-bold"></div>

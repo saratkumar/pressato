@@ -18,4 +18,8 @@ export class HttpService {
   postHttp(apiUrl, data, successFunc, errorFunc) {
     return this.http.post(apiUrl, data).subscribe(successFunc, errorFunc);
   }
+
+  deleteHttp(apiUrl, successFunc, errorFunc) {
+    return this.http.delete(apiUrl).subscribe(successFunc, errorFunc);
+  }
 }

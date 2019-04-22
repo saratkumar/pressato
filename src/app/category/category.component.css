@@ -24,3 +24,8 @@
         display: block;
     }
 }
+
+.title {
+    border-bottom: 1px solid #f3f3f3;   
+    text-transform: capitalize;
+}

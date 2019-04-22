@@ -10,6 +10,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { HttpService } from './http.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from '../app.interceptor';
+import { SharedService } from './shared.service';
 
 @NgModule({
     imports: [
@@ -25,10 +26,10 @@ import { TokenInterceptor } from '../app.interceptor';
         LoginComponent,
         NewUserComponent,
     ],
-    providers: [ HttpService, {
+    providers: [ HttpService, SharedService, {
         provide: HTTP_INTERCEPTORS,
         useClass: TokenInterceptor,
-        multi: true
+        multi: true,
     } ],
     exports: [
         CommonModule,

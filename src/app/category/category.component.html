@@ -2,15 +2,17 @@
     <div class="col-md-2 col-sm-12  font-weight-bold">
       <h3 class="title p-2 m-0">CATEGORIES</h3>
       <div class="menu">
-          <div class="menu-item" (click)="navigateTo('/category/coldpress')"> Cold Pressed</div>
-          <div class="menu-item" (click)="navigateTo('/category/packages')"> Packages</div>
+          <div class="menu-item" (click)="getProductsList(category)" *ngFor="let category of categoryList"> {{category.name}}</div>
+          <!-- <div class="menu-item" (click)="navigateTo('/category/packages')"> Packages</div>
           <div class="menu-item" (click)="navigateTo('/category/probiotic')"> Probiotics</div>
           <div class="menu-item" (click)="navigateTo('/category/salads')"> Salads</div>
-          <div class="menu-item" (click)="navigateTo('/category/smoothies')"> Smoothies</div>
+          <div class="menu-item" (click)="navigateTo('/category/smoothies')"> Smoothies</div> -->
       </div>
     </div>
     <div class="col-md-10 col-sm-12 product-list">
         <!-- <router-outlet></router-outlet> -->
-        <app-products></app-products>
+        <h5 class="title pb-3"> {{title}} </h5>
+        <p class="pt-3">{{description}} </p>
+        <app-products [productsList]="productsList" *ngIf="productsList"></app-products>
     </div>
 </div>
