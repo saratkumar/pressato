@@ -18,6 +18,7 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { PriceSummaryComponent } from './price-summary/price-summary.component';
 import { HttpService } from './common/http.service';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HttpService } from './common/http.service';
     ProductDetailsComponent,
     CartComponent,
     CheckoutComponent,
-    PriceSummaryComponent
+    PriceSummaryComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
