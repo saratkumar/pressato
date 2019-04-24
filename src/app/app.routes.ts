@@ -12,6 +12,10 @@ import { CategoryComponent } from './category/category.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { ReturnPolicyComponent } from './return-policy/return-policy.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 export const AppRoutes: Routes = [
   
@@ -26,6 +30,10 @@ export const AppRoutes: Routes = [
   {path: 'cart', component: CartComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'contact-us', component: ContactUsComponent},
+  {path: 'terms-conditions', component: TermsAndConditionsComponent},
+  {path: 'privacy-policy', component: PrivacyPolicyComponent},
+  {path: 'return-policy', component: ReturnPolicyComponent},
+  {path: 'about-us', component: AboutUsComponent}
   
 //   {
 //     path: '',

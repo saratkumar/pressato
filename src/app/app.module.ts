@@ -19,6 +19,10 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { PriceSummaryComponent } from './price-summary/price-summary.component';
 import { HttpService } from './common/http.service';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { ReturnPolicyComponent } from './return-policy/return-policy.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     CartComponent,
     CheckoutComponent,
     PriceSummaryComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    TermsAndConditionsComponent,
+    PrivacyPolicyComponent,
+    ReturnPolicyComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
