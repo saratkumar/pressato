@@ -12,15 +12,13 @@
         <div class="col-md-5 col-sm-10 col-5 margin-auto">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto text-uppercase header-top-menu">
-              <li class="nav-item active">
+              <!-- <li class="nav-item active">
                 <a class="nav-link menu-text" [routerLink]="'about-us'">about us</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link menu-text" [routerLink]="'contact-us'">contact us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link menu-text" [routerLink]="'cart'">cart</a>
-              </li>
+              </li> -->
+              
               <ng-container *ngIf="!isUserLoggedIn">
               <li class="nav-item">
                 <a class="nav-link menu-text cursor-pointer" (click)="signIn = true;" data-toggle="modal"
@@ -30,9 +28,14 @@
                 <a class="nav-link menu-text cursor-pointer" (click)="signIn = false;" data-toggle="modal"
                   data-target="#myModal">signup</a>
               </li>
+
+              
             </ng-container>
               <li class="nav-item" *ngIf="isUserLoggedIn">
                   <a class="nav-link menu-text cursor-pointer"  (click)="onLogout()">logout</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link menu-text" [routerLink]="'cart'">cart <i class="fa fa-shopping-cart"><span class="badge badge-danger" *ngIf="orderCount">{{orderCount.length}}</span></i></a>
               </li>
             </ul>
           </div>
@@ -65,30 +68,6 @@
                          </div>           
                     </div>
                   </div>
-                  <!-- <div class="col-3 col-md-2 col-sm-3 p-10 p-l-20"  *ngFor="let product of category.products">
-                    <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
-                        routerLink="category/{{category._id}}/{{product._id}}">{{product.name}}</span> </p> -->
-                    <!-- <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
-                        routerLink="category/coldpress/charger">charger </span></p>
-                    <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
-                        routerLink="category/coldpress/eden">eden</span> </p>
-                    <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
-                        routerLink="category/coldpress/french">french </span></p>
-                    <p class="p-r-20 mb-0"> <span class="cursor-pointer sub-menu-text"
-                        routerLink="category/coldpress/greeny">greeny </span></p> -->
-                  <!-- </div> -->
-                  <!-- <div class="col-3 col-md-2 col-sm-3 p-10 p-l-20">
-                    <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
-                        routerLink="category/coldpress/jade">jade </span></p>
-                    <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
-                        routerLink="category/coldpress/orange-owl">orange owl</span> </p>
-                    <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
-                        routerLink="category/coldpress/pomo-grenade">pomo-grenade </span></p>
-                    <p class="p-r-20"> <span class="cursor-pointer sub-menu-text"
-                        routerLink="category/coldpress/punk">punk</span> </p>
-                    <p class="p-r-20 mb-0"> <span class="cursor-pointer sub-menu-text"
-                        routerLink="category/coldpress/stonned-rabbit">stonned rabbit</span> </p>
-                  </div> -->
                 </div>
 
               </div>

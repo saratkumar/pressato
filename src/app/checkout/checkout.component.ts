@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
   listOfUserAddress: Array<any> = [];
-  constructor() { }
+  addressObj: any = {};
+  constructor(private appService: AppService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    this.appService.postAddress(this.addressObj, (success)=> {
+      this.router.navigateByUrl('');
+    }, (error)=> {});
   }
 
 }

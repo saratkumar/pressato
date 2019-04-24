@@ -1,83 +1,121 @@
 <div class="p-10">
-  <div class="col-12 col-sm-12 col-md-12">
-    <div class="row">
-      <div class="col-12 col-sm-12 col-md-7">
-        <h4> Delivery Address</h4>
-        <!-- <p *ngIf="!listOfUserAddress.length" data-toggle="collapse" data-target="#addAddress"
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <div class="col-12 col-sm-12 col-md-12">
+
+      <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-7">
+          <h4> Delivery Address</h4>
+          <!-- <p *ngIf="!listOfUserAddress.length" data-toggle="collapse" data-target="#addAddress"
           class="text-underline cursor-pointer p-t-10"> <i class="fa fa-plus" aria-hidden="true"></i> Add new address
         </p> -->
-        <!-- <div id="addAddress" class="collapse"> -->
-        <div id="addAddress" class="p-t-20">
-          <form>
+          <!-- <div id="addAddress" class="collapse"> -->
+          <div id="addAddress" class="p-t-20">
+
             <div class="row justify-content-center">
               <div class="col-sm-12 col-12 col-md-5">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Name" name="username">
+                  <input type="text" class="form-control" placeholder="Name" name="username"
+                    [(ngModel)]="addressObj.name" #username="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && username.invalid }" required>
+                  <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
+                    <div *ngIf="username?.errors?.required">Required.</div>
+                  </div>
                 </div>
               </div>
               <div class="col-sm-12 col-12 col-md-5">
                 <div class="form-group">
-                  <input type="number" class="form-control" placeholder="Phone No." name="phonenumber">
+                  <input type="number" class="form-control" placeholder="Phone No." name="phonenumber"
+                    [(ngModel)]="addressObj.phone" #phone="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && phone.invalid }" required>
+                  <div *ngIf="f.submitted && phone.invalid" class="invalid-feedback">
+                    <div *ngIf="phone?.errors?.required">Required.</div>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-sm-12 col-12 col-md-10">
-                    <div class="form-group">
-                        <textarea name="message" rows="3" class="w-100 form-control resize-none" placeholder="Address"></textarea>
-                    </div>
-                  </div>
+              <div class="col-sm-12 col-12 col-md-10">
+                <div class="form-group">
+                  <textarea rows="3" class="w-100 form-control resize-none" placeholder="Address" name="address"
+                    [(ngModel)]="addressObj.addressLine1" #address="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && address.invalid }" required>
+                      <div *ngIf="f.submitted && address.invalid" class="invalid-feedback">
+                        <div *ngIf="address?.errors?.required">Required.</div>
+                      </div></textarea>
+                </div>
+              </div>
             </div>
             <div class="row justify-content-center">
               <div class="col-sm-12 col-12 col-md-5">
                 <div class="form-group">
-                  <input type="text" class="form-control" name="locality" placeholder="Locality">
+                  <input type="text" class="form-control" name="locality" placeholder="Locality"
+                    [(ngModel)]="addressObj.addressLine2" #locality="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && locality.invalid }" required>
+                  <div *ngIf="f.submitted && locality.invalid" class="invalid-feedback">
+                    <div *ngIf="locality?.errors?.required">Required.</div>
+                  </div>
                 </div>
               </div>
               <div class="col-sm-12 col-12 col-md-5">
                 <div class="form-group">
-                  <input type="number" class="form-control" name="city" placeholder="City/District/Town">
+                  <input type="text" class="form-control" name="city" placeholder="City/District/Town"
+                    [(ngModel)]="addressObj.city" #city="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && city.invalid }" required>
+                  <div *ngIf="f.submitted && city.invalid" class="invalid-feedback">
+                    <div *ngIf="city?.errors?.required">Required.</div>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-sm-12 col-12 col-md-5">
-                  <div class="form-group">
-                      <select class="form-control" name="state">
-                          <option value="-">-Please select state-</option>
-                          <option value="volvo">TamilNadu</option>
-                          <option value="saab">Delhi</option>
-                        </select>
-                  </div>
-                </div>
-                <div class="col-sm-12 col-12 col-md-5">
-                  <div class="form-group">
-                    <input type="number" class="form-control" name="pincode" placeholder="Pincode/Zipcode">
+              <div class="col-sm-12 col-12 col-md-5">
+                <div class="form-group">
+                  <select class="form-control" name="state" [(ngModel)]="addressObj.state" #state="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && state.invalid }" required>
+                    <option value="volvo">TamilNadu</option>
+                  </select>
+                  <div *ngIf="f.submitted && state.invalid" class="invalid-feedback">
+                    <div *ngIf="state?.errors?.required">Required.</div>
                   </div>
                 </div>
               </div>
+              <div class="col-sm-12 col-12 col-md-5">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="pincode" placeholder="Pincode/Zipcode"
+                    [(ngModel)]="addressObj.pincode" #pincode="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && pincode.invalid }" required>
+                  <div *ngIf="f.submitted && pincode.invalid" class="invalid-feedback">
+                    <div *ngIf="pincode?.errors?.required">Required.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
 
-          </form>
+
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-5 cart-summary">
+          <app-price-summary></app-price-summary>
         </div>
       </div>
-      <div class="col-12 col-sm-12 col-md-5 cart-summary">
-        <app-price-summary></app-price-summary>
-      </div>
-    </div>
-    <div class="row">
-    <div class="col-md-12 col-12 col-sm-12 payment-background">
-      <p><span>Credit Card/Debit Card/NetBanking</span><span class="p-l-10"><img src="./assets/logo/razorpay.png"></span></p>
-      <div class="payment-box">
-          <p>Pay securely by Credit or Debit card or Internet Banking through Razorpay.</p>
-      </div>
-      <hr class="w-100">
-      <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <span class="hyperlink cursor-pointer">privacy policy</span>.</p>
-      <div class="row p-t-20">
-          <button type="button" class="btn add-cart-button">Place Order</button>
+      <div class="row">
+        <div class="col-md-12 col-12 col-sm-12 payment-background">
+          <p><span>Credit Card/Debit Card/NetBanking</span><span class="p-l-10"><img
+                src="./assets/logo/razorpay.png"></span></p>
+          <div class="payment-box">
+            <p>Pay securely by Credit or Debit card or Internet Banking through Razorpay.</p>
+          </div>
+          <hr class="w-100">
+          <p>Your personal data will be used to process your order, support your experience throughout this website, and
+            for other purposes described in our <span class="hyperlink cursor-pointer">privacy policy</span>.</p>
+          <div class="row p-t-20">
+            <button type="submit" class="btn add-cart-button">Place Order</button>
+          </div>
         </div>
+      </div>
     </div>
-    </div>
-  </div>
+  </form>
 </div>

@@ -191,6 +191,9 @@ color: #109B48;
   display:block
 }
 
+.fa-shopping-cart:before {
+  font-size: 19px;
+}
 
 /*** for Accoridan ***/
 

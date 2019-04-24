@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppService } from 'src/app/app.service';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-products',
@@ -10,12 +11,21 @@ import { AppService } from 'src/app/app.service';
 
 export class ProductListComponent implements OnInit {
   @Input('productsList') productsList: Array<any>;
-  constructor(public router: Router, private appService: AppService, private activatedRoute: ActivatedRoute) {
+  constructor(public router: Router, private appService: AppService, private activatedRoute: ActivatedRoute, private sharedService: SharedService) {
   }
 
   ngOnInit() {
-    // this.activatedRoute.params.subscribe((params: Params) => {
-    // });
+    setTimeout(() => {
+      this.productsList.forEach(product => {
+        product.quantity = product.quantity ? product.quantity : 1;
+      });  
+    }, 200);
+    
+  }
+
+
+  addToCart(product) {
+    this.sharedService.addItemToCart(product);
   }
 
 }

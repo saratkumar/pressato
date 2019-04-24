@@ -18,6 +18,10 @@ export class AppService {
     'products': environment.devUrl + '/v1/products',
     'productOnCategory': environment.devUrl + '/v1/products/category/',
     'relatedProduct': environment.devUrl + '/v1/products/category/',
+    'currentUser': environment.devUrl + '/v1/users/me',
+    'currentUserOrderDetail': environment.devUrl + '/v1/order/user/',
+    'order': environment.devUrl + '/v1/order',
+    'address': environment.devUrl + '/v1/address'
   }
 
   postLoginUser(data, successFn, errorFn) {
@@ -56,5 +60,29 @@ export class AppService {
   logout(successFn, errorFn) {
     return this.httpService.deleteHttp(this.appServiceConst.logout, successFn, errorFn);
   }
+
+  getCurrentUser(successFn, errorFn) {
+    return this.httpService.getHttp(this.appServiceConst.currentUser, successFn, errorFn);
+  }
+
+  getCurrentUserOrderDetail(userId, successFn, errorFn) {
+    return this.httpService.getHttp(this.appServiceConst.currentUserOrderDetail + userId, successFn, errorFn);
+  } 
+
+  postAddToCart(data, successFn, errorFn) {
+    return this.httpService.postHttp(this.appServiceConst.order, data, successFn, errorFn);
+  }
   
+
+  updateCart(data, successFn, errorFn) {
+    return this.httpService.putHttp(this.appServiceConst.order + '/' + data._id, data, successFn, errorFn);
+  }
+
+  deleteProductFromCart(order, successFn, errorFn) {
+    return this.httpService.deleteHttp(this.appServiceConst.order + '/' + order._id, successFn, errorFn, order);
+  }
+
+  postAddress(data, successFn, errorFn) {
+    return this.httpService.postHttp(this.appServiceConst.address, data, successFn, errorFn);
+  }
 }

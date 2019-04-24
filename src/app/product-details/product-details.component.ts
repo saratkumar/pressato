@@ -16,7 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.appService.getProductById(params['product'], (success) => {
-        this.productDetails = success.data.find(data => data._id === params['product']);
+        this.productDetails = success.data;
       }, (error) => {});
       this.appService.getRelatedProducts(params['category'], params['product'], (success) => {
         this.listOfRelatedProduct = success.data;

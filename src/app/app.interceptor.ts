@@ -34,7 +34,7 @@ export class TokenInterceptor implements HttpInterceptor {
         let headersObj = {};
         let optimusToken = localStorage.getItem('token');
         if(optimusToken) {
-            headersObj['x-pressato-auth'] = 'Bearer ' + JSON.parse(optimusToken);
+            headersObj['x-pressato-auth'] = JSON.parse(optimusToken);
         }   
         request = request.clone({ 
             setHeaders: headersObj
