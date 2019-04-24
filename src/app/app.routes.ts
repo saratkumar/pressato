@@ -16,6 +16,7 @@ import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-co
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ReturnPolicyComponent } from './return-policy/return-policy.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { FaqComponent } from './faq/faq.component';
 
 export const AppRoutes: Routes = [
   
@@ -33,7 +34,8 @@ export const AppRoutes: Routes = [
   {path: 'terms-conditions', component: TermsAndConditionsComponent},
   {path: 'privacy-policy', component: PrivacyPolicyComponent},
   {path: 'return-policy', component: ReturnPolicyComponent},
-  {path: 'about-us', component: AboutUsComponent}
+  {path: 'about-us', component: AboutUsComponent},
+  {path: 'faq', component: FaqComponent}
   
 //   {
 //     path: '',

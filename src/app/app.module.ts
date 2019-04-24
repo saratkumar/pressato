@@ -23,6 +23,7 @@ import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-co
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ReturnPolicyComponent } from './return-policy/return-policy.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     TermsAndConditionsComponent,
     PrivacyPolicyComponent,
     ReturnPolicyComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
