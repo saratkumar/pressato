@@ -3,11 +3,11 @@
     <div class="col-12">
       <div class="row share-icon">
         <div class="col-5 d-none d-md-block d-lg-block margin-auto">
-          <i class="fa fa-facebook color-white cursor-pointer" aria-hidden="true"></i>
-          <i class="fa fa-instagram p-l-10 color-white cursor-pointer" aria-hidden="true"></i>
+          <a href="https://www.facebook.com/Pressato-650871208648529/" target="_blank"><i class="fa fa-facebook color-white cursor-pointer" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/pressatoindia/" target="_blank"><i class="fa fa-instagram p-l-10 color-white cursor-pointer" aria-hidden="true"></i></a>
         </div>
         <div class="col-md-2 col-sm-2 col-7 margin-auto">
-          <img src="./assets/logo/title-logo.png" style="width:85%" class="black-theme">
+          <img src="./assets/logo/title-logo.png" style="width:85%" class="black-theme cursor-pointer" [routerLink]="'/'">
         </div>
         <div class="col-md-5 col-sm-10 col-5 margin-auto">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -35,7 +35,7 @@
                   <a class="nav-link menu-text cursor-pointer"  (click)="onLogout()">logout</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link menu-text" [routerLink]="'cart'">cart <i class="fa fa-shopping-cart"><span class="badge badge-danger" *ngIf="orderCount">{{orderCount.length}}</span></i></a>
+                  <a class="nav-link menu-text" [routerLink]="'cart'">cart <i class="fa fa-shopping-cart"><span class="badge badge-danger" *ngIf="orderCount && orderCount.length">{{orderCount.length}}</span></i></a>
               </li>
             </ul>
           </div>

@@ -1,10 +1,9 @@
-
 <div class="p-10">
-    <h3 > Shopping Cart</h3>
+  <h3> Shopping Cart</h3>
   <div class="col-12 col-sm-12 col-md-12">
-    <div class="row">
+    <div class="row" *ngIf="listOfOrder && listOfOrder.length">
       <div class="col-12 col-sm-12 col-md-7">
-        <div class="row" *ngIf="listOfOrder && listOfOrder.length">
+        <div class="row">
           <div class="col-7"></div>
           <div class="col-3">Price</div>
           <div class="col-2">Quantity</div>
@@ -17,26 +16,29 @@
               </div>
               <div class="col-9 col-sm-9 col-md-9">
                 <h4 class="product-name"> {{cart.name}}</h4>
-                <p><span class="stock-text"> In stock </span> <span
-                    class="p-l-10 delete-error text-underline" (click)="removeFromCart(index, cart.order)">Delete</span></p>
+                <p><span class="stock-text"> In stock </span> <span class="p-l-10 delete-error text-underline"
+                    (click)="removeFromCart(index, cart.order)">Delete</span></p>
               </div>
             </div>
           </div>
           <div class="col-3"> <span class="price error">{{cart.price}}</span></div>
-          <div class="col-2"><input type="number" [(ngModel)]="cart.order.quantity" class="w-100" (blur)="addToCart(cart.order)"></div>
+          <div class="col-2"><input type="number" [(ngModel)]="cart.order.quantity" class="w-100"
+              (blur)="addToCart(cart.order)"></div>
         </div>
         <div class="row p-t-20 justify-content-center" *ngIf="listOfOrder && listOfOrder.length">
           <!-- <span type="button" class="btn add-cart-button p-1 w-25 text-center" [routerLink]="'/checkout'">Proceed</span> -->
           <button type="submit" class="btn add-cart-button" [routerLink]="'/checkout'">Proceed</button>
         </div>
-        <div class="row" *ngIf="(!listOfOrder || !listOfOrder.length)">
-          <p>No items found on cart. <span class="hyperlink" [routerLink]="'/category/cold-pressed'">Continue Shopping</span></p>
-        </div>
+
       </div>
       <div class="col-12 col-sm-12 col-md-5 cart-summary">
         <app-price-summary></app-price-summary>
 
       </div>
+    </div>
+    <div class="row" *ngIf="(!listOfOrder || !listOfOrder.length)">
+      <p>No items found on cart. <span class="hyperlink cursor-pointer" (click)="routeToCategory()">Continue
+          Shopping</span></p>
     </div>
   </div>
 </div>

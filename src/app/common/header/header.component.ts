@@ -20,12 +20,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.getCategoryList();
-    let token = localStorage.getItem('token');
-    this.isUserLoggedIn = token ? true : false;
+    this.sharedService.authBehaviourSubj.subscribe(data => {
+      let token = localStorage.getItem('token');
+      this.isUserLoggedIn = token ? true : false;
+      this.isUserLoggedIn && this.getCurrentUserDetail();
+    });
     this.sharedService.cartBehaviourSubj.subscribe(data => {
       this.orderCount = data;
     });
-    this.isUserLoggedIn && this.getCurrentUserDetail();
+    
   }
   getCurrentUserDetail() {
     this.appService.getCurrentUser((success) => {
@@ -68,6 +71,7 @@ export class HeaderComponent implements OnInit {
     this.appService.logout((success) => {
       localStorage.removeItem('token');
       this.sharedService.authBehaviourSubj.next(false);
+      this.sharedService.cartBehaviourSubj.next([]);
       this.router.navigateByUrl('');
 
     }, (error) => {});

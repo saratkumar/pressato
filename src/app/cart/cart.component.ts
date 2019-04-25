@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../common/shared.service';
 import { AppService } from '../app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +12,7 @@ export class CartComponent implements OnInit {
   quantity: number;
   proceedFurther: boolean = false;
   listOfOrder: Array<any> = [];
-  constructor(private sharedService: SharedService, private appService: AppService) { }
+  constructor(private sharedService: SharedService, private appService: AppService, private router: Router) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -25,7 +26,6 @@ export class CartComponent implements OnInit {
           } 
         });
       });  
-      console.log(this.listOfOrder, 'dfads')
     }, 500);
   }
 
@@ -38,7 +38,12 @@ export class CartComponent implements OnInit {
       this.listOfOrder.splice(productIndex, 1);
       this.sharedService.getOrderDetail().splice(productIndex, 1);
       this.sharedService.cartBehaviourSubj.next(this.listOfOrder);
-    }, (error)=> {})
+    }, (error)=> {});
     
+  }
+
+  routeToCategory() {
+    let categoryId = this.sharedService.getCategoryList()[0]['_id'];
+    this.router.navigateByUrl('/category/'+categoryId);
   }
 }

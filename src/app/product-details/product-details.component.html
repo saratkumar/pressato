@@ -16,10 +16,10 @@
       </div>
       <div class="row p-t-b-10">
         <div class="col-3 col-sm-3 col-md-2">
-          <input type="number" class="quantity mr-1 w-100" step="1" min="0" max="" name="quantity" value="1">
+          <input type="number" class="quantity mr-1 w-100" step="1" min="0" max="" name="quantity" value="1" [(ngModel)]="productDetails.quantity">
         </div>
         <div class="col-5 p-0 p-l-5 col-sm-5 col-md-5">
-          <span class="float-left add-cart-button pad-5">add to cart</span>
+          <button class="btn float-left add-cart-button pad-5" (click)=addToCart(productDetails)>add to cart</button>
         </div>
       </div>
     </div>
@@ -114,8 +114,8 @@
                 {{ '-' + 300 }} {{product.measuringUnit}}
               </span></p>
             <div class="row p-t-b-10 justify-center">
-              <input type="number" class="quantity mr-1 w-25" step="1" min="0" max="" name="quantity" value="1">
-              <span class="float-left add-cart-button pad-5">add to cart</span>
+              <input type="number" class="quantity mr-1 w-25" step="1" min="0" max="" name="quantity" value="1" [(ngModel)]="product.quantity">
+              <button class="btn float-left add-cart-button pad-5" (click)=addToCart(productDetails)>add to cart</button>
             </div>
           </div>
         </div>

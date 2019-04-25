@@ -17,15 +17,18 @@ export class CategoryComponent implements OnInit {
   ngOnInit() {
     this.sharedService.categoryBehaviourSubj.subscribe(data => {
       this.categoryList = data;
-      if (this.categoryList && this.categoryList.length) {
-        this.productsList = this.categoryList[0].products;  
-        this.title = this.categoryList[0].name;
-        this.description = this.categoryList[0].description;
-      }
+      this.activatedRoute.params.subscribe((params: Params) => {
+        let category = this.categoryList.find(data => data._id === params['category']);
+        if (this.categoryList && this.categoryList.length) {
+          this.productsList = category ? category.products : this.categoryList[0].products;  
+          this.title = category? category.name : this.categoryList[0].name;
+          this.description = category? category.description : this.categoryList[0].description;
+        }
+      });
+      
       
     })
-    // this.activatedRoute.params.subscribe((params: Params) => {
-    // });
+    
     
   }
 

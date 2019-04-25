@@ -4,20 +4,17 @@
     <div class="col">
       <h2 class="margin-auto p-20">Products </h2>
       <div class="row" id="wrapper">
-        <div class="col p-20">
-          <!-- <div class="card-product">
-
-          </div> -->
+        <div class="col p-20" *ngFor="let category of listOfCategory" [hidden]="category.hide">
           <div class="circle-section">
-              <p><img class="alignnone wp-image-382 size-full" src="./src/assets/products-image/cold_crea.jpg" alt=""></p>
+              <p><img class="alignnone wp-image-382 size-full" [src]="category.logo" alt=""></p>
               <div class="content">
-                  <h2>Cold Pressed</h2>
-                  <p>Cold pressed juice is made with a hydraulic press that uses pressure to extract the maximum amount of liquid from raw fresh fruits and vegetables.</p>
-                  <p><a class="btn" href="#">Shop Now</a></p>
+                  <h2 class="text-capitalize">{{category.name}}</h2>
+                  <!-- <p>{{category.description}}</p> -->
+                  <p><a class="btn" [routerLink]="'/category/'+category._id">Shop Now</a></p>
                   </div>
               </div>
         </div>
-        <div class="col p-20">
+        <!-- <div class="col p-20">
             <div class="circle-section">
                 <p><img class="alignnone wp-image-382 size-full" src="./src/assets/products-image/prob_crea.jpg" alt=""></p>
                 <div class="content">
@@ -46,7 +43,7 @@
                     <p><a class="btn" href="#">Shop Now</a></p>
                     </div>
                 </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

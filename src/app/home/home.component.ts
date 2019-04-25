@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../common/shared.service';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,16 @@ export class HomeComponent implements OnInit {
   userName: string;
   email:string;
   phone:number
-  constructor() { }
+  listOfCategory: any =[];
+  constructor(private sharedService: SharedService) { }
 
   ngOnInit() {
+    this.sharedService.categoryBehaviourSubj.subscribe(data => {
+      this.listOfCategory = data;
+      this.listOfCategory.forEach(data => {
+        data.hide = data.name.indexOf('package') > -1 ? true : false;
+      })
+    });
   }
 
 }

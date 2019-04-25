@@ -41,6 +41,10 @@
     padding-right: 20px;
 }
 
+.p-b-20 {
+    padding-bottom: 20px;
+}
+
 .m-l-5 {
     margin-left: 5px;
 }
@@ -154,6 +158,10 @@
 @media (min-width: 992px) {
     .sidenav {
         display: none;
+    }
+
+    .main-body {
+        min-height: 424px !important;
     }
 }
 

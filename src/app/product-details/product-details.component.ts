@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AppService } from '../app.service';
+import { SharedService } from '../common/shared.service';
 
 @Component({
   selector: 'app-product-details',
@@ -11,15 +12,19 @@ export class ProductDetailsComponent implements OnInit {
   currentTab: string = 'ingredients';
   listOfRelatedProduct: Array<any> = [];
   productDetails: any;
-  constructor(public router: Router, private appService: AppService, private activatedRoute: ActivatedRoute) { }
+  constructor(public router: Router, private appService: AppService, private activatedRoute: ActivatedRoute, private sharedService: SharedService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.appService.getProductById(params['product'], (success) => {
         this.productDetails = success.data;
+        this.productDetails.quantity = 1;
       }, (error) => {});
       this.appService.getRelatedProducts(params['category'], params['product'], (success) => {
         this.listOfRelatedProduct = success.data;
+        this.listOfRelatedProduct.forEach(product => {
+          product.quantity = 1;
+        })
       }, (error)=> {});
     });
   }
@@ -27,5 +32,9 @@ export class ProductDetailsComponent implements OnInit {
 
   tabChange(tab) {
     this.currentTab = tab;
+  }
+
+  addToCart(product) {
+    this.sharedService.addItemToCart(product);
   }
 }
