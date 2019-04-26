@@ -12,6 +12,7 @@ export class CategoryComponent implements OnInit {
   constructor(public router: Router, private appService: AppService, private activatedRoute: ActivatedRoute, private sharedService: SharedService) { }
   categoryList: Array<any> = [];
   productsList: Array<any> = [];
+  selectedCategoryIndex: number = 0
   title: string = '';
   description: string =  '';
   ngOnInit() {
@@ -19,6 +20,7 @@ export class CategoryComponent implements OnInit {
       this.categoryList = data;
       this.activatedRoute.params.subscribe((params: Params) => {
         let category = this.categoryList.find(data => data._id === params['category']);
+        this.selectedCategoryIndex = this.categoryList.findIndex(data => data._id === params['category']);
         if (this.categoryList && this.categoryList.length) {
           this.productsList = category ? category.products : this.categoryList[0].products;  
           this.title = category? category.name : this.categoryList[0].name;
@@ -36,7 +38,7 @@ export class CategoryComponent implements OnInit {
     this.title = selectedCategory.name;
     this.description = selectedCategory.description;
     this.productsList = this.categoryList.find(category=> category._id === selectedCategory._id)['products'];
-    this.router.navigateByUrl('/'+selectedCategory._id)
+    this.router.navigateByUrl('/category/'+selectedCategory._id)
   }
 
 }

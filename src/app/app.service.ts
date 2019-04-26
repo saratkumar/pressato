@@ -19,8 +19,8 @@ export class AppService {
     'productOnCategory': environment.devUrl + '/v1/products/category/',
     'relatedProduct': environment.devUrl + '/v1/products/category/',
     'currentUser': environment.devUrl + '/v1/users/me',
-    'currentUserOrderDetail': environment.devUrl + '/v1/order/user/',
-    'order': environment.devUrl + '/v1/order',
+    'currentUserOrderDetail': environment.devUrl + '/v1/cart/user/',
+    'cart': environment.devUrl + '/v1/cart',
     'address': environment.devUrl + '/v1/address'
   }
 
@@ -70,16 +70,16 @@ export class AppService {
   } 
 
   postAddToCart(data, successFn, errorFn) {
-    return this.httpService.postHttp(this.appServiceConst.order, data, successFn, errorFn);
+    return this.httpService.postHttp(this.appServiceConst.cart, data, successFn, errorFn);
   }
   
 
   updateCart(data, successFn, errorFn) {
-    return this.httpService.putHttp(this.appServiceConst.order + '/' + data._id, data, successFn, errorFn);
+    return this.httpService.putHttp(this.appServiceConst.cart + '/' + data._id, data, successFn, errorFn);
   }
 
   deleteProductFromCart(order, successFn, errorFn) {
-    return this.httpService.deleteHttp(this.appServiceConst.order + '/' + order._id, successFn, errorFn, order);
+    return this.httpService.deleteHttp(this.appServiceConst.cart + '/' + order._id, successFn, errorFn, order);
   }
 
   postAddress(data, successFn, errorFn) {

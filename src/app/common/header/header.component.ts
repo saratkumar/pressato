@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../app.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SharedService } from '../shared.service';
 
 @Component({
@@ -16,7 +16,11 @@ export class HeaderComponent implements OnInit {
   userObj: any;
   orderDetail: any =[]
   orderCount: any;
-  constructor(private appService: AppService, private router: Router, private sharedService: SharedService) { }
+  categorySelectedMenuIndex: number = -1;
+  productSelectedMenuIndex: number = -1;
+  categoryId: any;
+  productId: any;
+  constructor(private appService: AppService, private router: Router, private sharedService: SharedService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.getCategoryList();
@@ -28,6 +32,8 @@ export class HeaderComponent implements OnInit {
     this.sharedService.cartBehaviourSubj.subscribe(data => {
       this.orderCount = data;
     });
+
+    
     
   }
   getCurrentUserDetail() {
@@ -46,14 +52,18 @@ export class HeaderComponent implements OnInit {
   }
 
   getCategoryList() {
-    this.appService.getCategory((success)=> {
+   this.appService.getCategory((success)=> {
       this.categoryList = success.data;
+      let tempUrl = this.router.url.split('/');
       this.appService.getProduct((success) => {
         this.sharedService.setProductList(success.data);
-        this.categoryList.forEach(category => {
+        this.categoryList.forEach((category, index) => {
+          this.categorySelectedMenuIndex = (this.categorySelectedMenuIndex < 0 && category._id === tempUrl[2]) ? index : this.categorySelectedMenuIndex;
           category.products = success.data.filter(el => el.category === category._id);
+          this.productSelectedMenuIndex = this.productSelectedMenuIndex < 0 ? category.products.findIndex(data => data._id === tempUrl[3]) : this.productSelectedMenuIndex;
         });
         this.sharedService.setCategoryList(this.categoryList);
+        
       }, (error) => {})
     }, (error)=> {});
   }

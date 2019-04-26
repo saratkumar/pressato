@@ -19,7 +19,7 @@ export class ProductListComponent implements OnInit {
       this.productsList.forEach(product => {
         product.quantity = product.quantity ? product.quantity : 1;
       });  
-    }, 200);
+    }, 300);
     
   }
 

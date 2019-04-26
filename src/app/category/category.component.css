@@ -13,11 +13,12 @@
     padding-left: 0.5rem;
     outline: none;
     cursor: pointer;
+    text-transform: uppercase
 }
-.menu .menu-item.active,
+/* .menu .menu-item.active,
 .menu .menu-item:hover {
-    background: #179b39
-}
+    color:white;
+} */
 
 @media (max-width: 425px) {
     .category {
