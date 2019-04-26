@@ -15,11 +15,6 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.productsList.forEach(product => {
-        product.quantity = product.quantity ? product.quantity : 1;
-      });  
-    }, 300);
     
   }
 

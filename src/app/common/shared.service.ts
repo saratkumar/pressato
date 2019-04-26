@@ -10,6 +10,7 @@ export class SharedService {
 categoryBehaviourSubj = new BehaviorSubject([]);
 authBehaviourSubj = new BehaviorSubject(false);
 cartBehaviourSubj = new BehaviorSubject([]);
+headerActiveCategoryBehaviourSubj = new BehaviorSubject({'categorySelectedMenuIndex': -1, 'productSelectedMenuIndex': -1});
 categoryList: Array<any> = [];
 orderDetail: any = [];
   userData: any;

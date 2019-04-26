@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../app.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SharedService } from '../shared.service';
-
+declare var jQuery: any;
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   productSelectedMenuIndex: number = -1;
   categoryId: any;
   productId: any;
+  showAddedCartAlert: boolean = false;
   constructor(private appService: AppService, private router: Router, private sharedService: SharedService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -32,8 +33,10 @@ export class HeaderComponent implements OnInit {
     this.sharedService.cartBehaviourSubj.subscribe(data => {
       this.orderCount = data;
     });
-
-    
+    this.sharedService.headerActiveCategoryBehaviourSubj.subscribe(data => {
+      this.categorySelectedMenuIndex = data.categorySelectedMenuIndex;
+      this.productSelectedMenuIndex = data.productSelectedMenuIndex;
+    });
     
   }
   getCurrentUserDetail() {
@@ -60,6 +63,9 @@ export class HeaderComponent implements OnInit {
         this.categoryList.forEach((category, index) => {
           this.categorySelectedMenuIndex = (this.categorySelectedMenuIndex < 0 && category._id === tempUrl[2]) ? index : this.categorySelectedMenuIndex;
           category.products = success.data.filter(el => el.category === category._id);
+          category.products.forEach(product => {
+            product.quantity = product.quantity ? product.quantity : 1;
+          });
           this.productSelectedMenuIndex = this.productSelectedMenuIndex < 0 ? category.products.findIndex(data => data._id === tempUrl[3]) : this.productSelectedMenuIndex;
         });
         this.sharedService.setCategoryList(this.categoryList);

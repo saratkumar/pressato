@@ -21,6 +21,7 @@ export class CategoryComponent implements OnInit {
       this.activatedRoute.params.subscribe((params: Params) => {
         let category = this.categoryList.find(data => data._id === params['category']);
         this.selectedCategoryIndex = this.categoryList.findIndex(data => data._id === params['category']);
+        this.sharedService.headerActiveCategoryBehaviourSubj.next({'categorySelectedMenuIndex': this.selectedCategoryIndex, 'productSelectedMenuIndex': -1})
         if (this.categoryList && this.categoryList.length) {
           this.productsList = category ? category.products : this.categoryList[0].products;  
           this.title = category? category.name : this.categoryList[0].name;

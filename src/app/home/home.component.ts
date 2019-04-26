@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
         data.hide = data.name.indexOf('package') > -1 ? true : false;
       })
     });
+    this.sharedService.headerActiveCategoryBehaviourSubj.next({'categorySelectedMenuIndex': -1, 'productSelectedMenuIndex': -1});
   }
 
 }
