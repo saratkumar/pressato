@@ -15,6 +15,7 @@ export class ProductDetailsComponent implements OnInit {
   constructor(public router: Router, private appService: AppService, private activatedRoute: ActivatedRoute, private sharedService: SharedService) { }
 
   ngOnInit() {
+    this.sharedService.ScrollToTop();
     this.activatedRoute.params.subscribe((params: Params) => {
       this.appService.getProductById(params['product'], (success) => {
         this.productDetails = success.data;
@@ -36,5 +37,9 @@ export class ProductDetailsComponent implements OnInit {
 
   addToCart(product) {
     this.sharedService.addItemToCart(product);
+  }
+
+  goToRelatedProduct(product) {
+    this.sharedService.ScrollToTop();
   }
 }

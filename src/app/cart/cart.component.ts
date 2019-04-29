@@ -26,14 +26,18 @@ export class CartComponent implements OnInit {
     this.appService.getCurrentUserOrderDetail(this.sharedService.getUserData()['_id'], (success) => {
       
       this.sharedService.cartBehaviourSubj.next(success.data);
-      success.data.carts.forEach(cart => {
-        products.forEach(prod => {
-          if(prod._id === cart.product) {
-            prod.order = cart;
-            this.listOfOrder.push(prod);
-          } 
-        });
-      });  
+      this.listOfOrder = [];
+      if(success.data && success.data.carts) {
+        success.data.carts.forEach(cart => {
+          products.forEach(prod => {
+            if(prod._id === cart.product) {
+              prod.order = cart;
+              this.listOfOrder.push(prod);
+            } 
+          });
+        });  
+      }
+      
       
     }, (error) => {}); 
   }

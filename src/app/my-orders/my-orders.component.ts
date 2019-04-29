@@ -13,12 +13,16 @@ export class MyOrdersComponent implements OnInit {
   constructor(private sharedService: SharedService,private appService: AppService) { }
 
   ngOnInit() {
-    this.getOrderDetails();
+    setTimeout(() => {
+      this.getOrderDetails();  
+    }, 100);
+    
   }
 
   getOrderDetails() {
     this.appService.getUserOrders(this.sharedService.getUserData()['_id'], (success) => {
-      this.appService.getAddress('', (success) => {}, (error) => {});
+      this.listOfOrders = success.data;
+      // this.appService.getAddress('', (success) => {}, (error) => {});
     }, (error) =>{});
   }
 }

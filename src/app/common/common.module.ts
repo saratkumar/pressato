@@ -11,13 +11,14 @@ import { HttpService } from './http.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from '../app.interceptor';
 import { SharedService } from './shared.service';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
     imports: [
         CommonModule,
         RouterModule,
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
+        MatSnackBarModule
     ],
     declarations: [
         HeaderComponent,
@@ -41,7 +42,8 @@ import { SharedService } from './shared.service';
         NewUserComponent,
         ProductListComponent,
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
+        MatSnackBarModule
     ]
 })
 

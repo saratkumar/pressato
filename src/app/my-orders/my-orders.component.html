@@ -2,21 +2,25 @@
 
 <div class="col-12 col-sm-12 col-md-12">
 
-  <div class="row">
+  <div class="row font-bold" >
+      <div class="col-1">S.No.</div>
     <div class="col-2">Order Reference No.</div>
     <div class="col-3">Payment Method</div>
     <div class="col-2">Status</div>
-    <div class="col-5">Shipping Address</div>
+    <div class="col-4">Shipping Address</div>
   </div>
   <hr class="w-100">
-  <div class="row p-t-10">
-      <div class="col-2">AFSFADSFDAFA</div>
+  <div class="row p-t-10" *ngFor="let data of listOfOrders;let index=index">
+      <div class="col-1">{{index+1}}</div>
+      <div class="col-2">{{data._id}}</div>
       <div class="col-3">Pay on Cash</div>
       <div class="col-2">Waiting</div>
-      <div class="col-5">
-        <p>No 6, Dhubai,</p>
-        <p>No 6, Dhubai,</p>
-        <p>No 6, Dhubai,</p>
+      <div class="col-4">
+          <p>{{data.address.name}}</p>
+        <p>{{data.address.addressLine1 + ',' + data.address.addressLine2}}</p>
+        <p>{{data.address.city + ',' + data.address.state}}</p>
+        <p>{{'India' + ',' + data.address.pincode}}</p>
+        <p>{{data.address.phoneExt + ' ' + data.address.phone}}</p>
       </div>
   </div>
 </div>
