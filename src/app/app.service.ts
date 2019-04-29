@@ -21,7 +21,8 @@ export class AppService {
     'currentUser': environment.devUrl + '/v1/users/me',
     'currentUserOrderDetail': environment.devUrl + '/v1/cart/user/',
     'cart': environment.devUrl + '/v1/cart',
-    'address': environment.devUrl + '/v1/address'
+    'address': environment.devUrl + '/v1/address',
+    'order': environment.devUrl + '/v1/order'
   }
 
   postLoginUser(data, successFn, errorFn) {
@@ -84,5 +85,17 @@ export class AppService {
 
   postAddress(data, successFn, errorFn) {
     return this.httpService.postHttp(this.appServiceConst.address, data, successFn, errorFn);
+  }
+
+  createOrder(data, successFn,errorFn) {
+    return this.httpService.postHttp(this.appServiceConst.order, data, successFn, errorFn);
+  }
+
+  getUserOrders(userId, successFn,errorFn) {
+    return this.httpService.getHttp(this.appServiceConst.order+ '/user/' + userId, successFn, errorFn);
+  }
+
+  getAddress(addressId, successFn, errorFn) {
+    return this.httpService.getHttp(this.appServiceConst.address+ addressId, successFn, errorFn);
   }
 }

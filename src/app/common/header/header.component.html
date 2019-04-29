@@ -35,12 +35,30 @@
 
               </ng-container>
               <li class="nav-item" *ngIf="isUserLoggedIn">
-                <a class="nav-link menu-text cursor-pointer" (click)="onLogout()">logout</a>
+                  <!-- <a class="nav-link menu-text cursor-pointer btn-group" (click)="onLogout()">logout</a>
+                    
+                      <span type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Hi, User
+                      </span>
+                      <div class="dropdown-menu">
+                          <a class="dropdown-item" [routerLink]="'my-orders'">My Orders</a>
+                        <a class="dropdown-item" (click)="onLogout()">Logout</a>
+                      </div>
+                <a class="nav-link menu-text cursor-pointer" (click)="onLogout()">logout</a> -->
+                <div class="dropdown">
+                    <a class="dropdown-toggle nav-link menu-text cursor-pointer" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Hi User!
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" [routerLink]="'my-orders'">My Orders</a>
+                        <a class="dropdown-item" (click)="onLogout()">Logout</a>
+                    </div>
+                  </div>
               </li>
               <li class="nav-item">
                 <a class="nav-link menu-text" [routerLink]="'cart'">cart <i class="fa fa-shopping-cart"><span
                       class="badge badge-danger"
-                      *ngIf="orderCount && orderCount.length">{{orderCount.length}}</span></i></a>
+                      *ngIf="orderCount && orderCount.carts?.length">{{orderCount.carts.length}}</span></i></a>
               </li>
             </ul>
           </div>

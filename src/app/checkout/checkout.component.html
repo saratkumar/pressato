@@ -25,7 +25,7 @@
               </div>
               <div class="col-sm-12 col-12 col-md-5">
                 <div class="form-group">
-                  <input type="number" class="form-control" placeholder="Phone No." name="phonenumber"
+                  <input type="text" class="form-control" placeholder="Phone No." name="phonenumber"
                     [(ngModel)]="addressObj.phone" #phone="ngModel"
                     [ngClass]="{ 'is-invalid': f.submitted && phone.invalid }" required>
                   <div *ngIf="f.submitted && phone.invalid" class="invalid-feedback">

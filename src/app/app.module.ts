@@ -24,6 +24,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { ReturnPolicyComponent } from './return-policy/return-policy.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { FaqComponent } from './faq/faq.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { FaqComponent } from './faq/faq.component';
     PrivacyPolicyComponent,
     ReturnPolicyComponent,
     AboutUsComponent,
-    FaqComponent
+    FaqComponent,
+    MyOrdersComponent
   ],
   imports: [
     BrowserModule,

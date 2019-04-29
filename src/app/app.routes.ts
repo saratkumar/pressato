@@ -17,6 +17,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { ReturnPolicyComponent } from './return-policy/return-policy.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { FaqComponent } from './faq/faq.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 export const AppRoutes: Routes = [
   
@@ -35,7 +36,8 @@ export const AppRoutes: Routes = [
   {path: 'privacy-policy', component: PrivacyPolicyComponent},
   {path: 'return-policy', component: ReturnPolicyComponent},
   {path: 'about-us', component: AboutUsComponent},
-  {path: 'faq', component: FaqComponent}
+  {path: 'faq', component: FaqComponent},
+  {path: 'my-orders', component: MyOrdersComponent},
   
 //   {
 //     path: '',

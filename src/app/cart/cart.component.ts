@@ -12,13 +12,21 @@ export class CartComponent implements OnInit {
   quantity: number;
   proceedFurther: boolean = false;
   listOfOrder: Array<any> = [];
+  
   constructor(private sharedService: SharedService, private appService: AppService, private router: Router) { }
 
   ngOnInit() {
     setTimeout(() => {
-      let orderDetail = this.sharedService.getOrderDetail();
-      let products = this.sharedService.getProductList();
-      orderDetail.forEach(cart => {
+      this.getCartDetails();   
+    }, 200);
+   
+  }
+  getCartDetails() {
+    let products = this.sharedService.getProductList();
+    this.appService.getCurrentUserOrderDetail(this.sharedService.getUserData()['_id'], (success) => {
+      
+      this.sharedService.cartBehaviourSubj.next(success.data);
+      success.data.carts.forEach(cart => {
         products.forEach(prod => {
           if(prod._id === cart.product) {
             prod.order = cart;
@@ -26,8 +34,11 @@ export class CartComponent implements OnInit {
           } 
         });
       });  
-    }, 500);
+      
+    }, (error) => {}); 
   }
+
+  
 
   addToCart(product) {
     this.sharedService.addItemToCart(product);
@@ -35,10 +46,8 @@ export class CartComponent implements OnInit {
 
   removeFromCart(productIndex, order) {
     this.appService.deleteProductFromCart(order, (success) => {
-      this.listOfOrder.splice(productIndex, 1);
-      this.sharedService.getOrderDetail().splice(productIndex, 1);
-      this.sharedService.cartBehaviourSubj.next(this.listOfOrder);
-    }, (error)=> {});
+      this.getCartDetails();
+    }, (error) => {});
     
   }
 

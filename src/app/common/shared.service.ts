@@ -41,6 +41,7 @@ setAuth(authDetails: any) {
 
 setOrderDetail(orderDetail) {
   this.orderDetail = orderDetail;
+  this.cartBehaviourSubj.next(orderDetail);
 }
 
 getOrderDetail() {
@@ -51,8 +52,12 @@ setUserData(userObj) {
   this.userData = userObj;
 }
 
+getUserData() {
+  return this.userData;
+}
+
 addItemToCart(product) {
-  let params = this.orderDetail.find(data => data.product === product._id);
+  let params = this.orderDetail.carts.find(data => data.product === product._id);
   let method; 
   if(params) {
     params.quantity = product.quantity;
@@ -63,16 +68,9 @@ addItemToCart(product) {
   }
   
   this.appService[method](params, (successFn) => {
-    if(method === 'postAddToCart') {
-      this.orderDetail.push(params);
-    }
-    else {
-      this.orderDetail.find(data => data.product === product._id)['quantity'] = params.quantity;
-    }
-    this.cartBehaviourSubj.next(this.orderDetail);
-  }, (errorFn) =>{
-    
-  });
+    this.appService.getCurrentUserOrderDetail(this.userData['_id'], (success) => {
+      this.cartBehaviourSubj.next(success.data);
+    },(error) =>{});
 }
 
 
