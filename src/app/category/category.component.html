@@ -12,7 +12,7 @@
     <div class="col-md-10 col-sm-12 product-list">
         <!-- <router-outlet></router-outlet> -->
         <h5 class="title pb-3"> {{title}} </h5>
-        <p class="pt-3">{{description}} </p>
+        <p class="pt-3" *ngIf="description">{{description}} </p>
         <app-products [productsList]="productsList" *ngIf="productsList"></app-products>
     </div>
 </div>
