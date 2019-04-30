@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../common/shared.service';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-price-summary',
@@ -11,13 +12,20 @@ export class PriceSummaryComponent implements OnInit {
   totalPrice: any;
   isShippingFree: boolean = false;
   shippingAmt: number = 0;
-  constructor(private sharedService: SharedService) { }
+  showCouponError: boolean = false;
+  constructor(private sharedService: SharedService, private appService: AppService) { }
 
   ngOnInit() {
     this.sharedService.cartBehaviourSubj.subscribe(data => {
       this.totalPrice = data['totalPrice'];
       this.isShippingFree = data['isShippingFree'];
-      this.shippingAmt = this.isShippingFree ? 0 : 250;
+      this.shippingAmt = data['deliveryCharge'] ? data['deliveryCharge'] : 0
+    });
+  }
+
+  applyCoupon() {
+    this.appService.getApplyCoupon(this.couponCode, (success) => {}, (error)=> {
+      this.showCouponError = true;
     });
   }
 

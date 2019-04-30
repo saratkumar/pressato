@@ -1,8 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Form } from '@angular/forms';
 import { AppService } from 'src/app/app.service';
+import { SharedService } from '../shared.service';
 declare var jQuery:any; 
-
 @Component({
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',
@@ -17,10 +17,12 @@ export class NewUserComponent implements OnInit {
   form: Form
   @Output() signIn = new EventEmitter();
   constructor(
-    private appService: AppService
+    private appService: AppService,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit() {
+    this.newUserObj = {};
   }
 
   onSignIn() {
@@ -32,7 +34,9 @@ export class NewUserComponent implements OnInit {
     this.showPasswordError = false;
     if(this.newUserObj.termsAndConditions && this.passwordCheck()) {
       this.appService.postNewUser(this.newUserObj, (success) => {
+        
         jQuery("#myModal").modal("hide");
+        this.sharedService.showNotification.next('signup')
       }, (error) => {});
     } else if(!this.newUserObj.termsAndConditions){
       this.showTermsandConditionsError = true;

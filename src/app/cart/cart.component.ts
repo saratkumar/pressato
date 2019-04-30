@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
   }
   getCartDetails() {
     let products = this.sharedService.getProductList();
-    this.appService.getCurrentUserOrderDetail(this.sharedService.getUserData()['_id'], (success) => {
+    this.appService.getCurrentUserOrderDetail((success) => {
       
       this.sharedService.cartBehaviourSubj.next(success.data);
       this.listOfOrder = [];

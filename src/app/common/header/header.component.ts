@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../app.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SharedService } from '../shared.service';
+import { NotifierService } from 'angular-notifier';
 declare var jQuery: any;
 @Component({
   selector: 'app-header',
@@ -21,10 +22,13 @@ export class HeaderComponent implements OnInit {
   categoryId: any;
   productId: any;
   showAddedCartAlert: boolean = false;
-  constructor(private appService: AppService, private router: Router, private sharedService: SharedService, private activatedRoute: ActivatedRoute) { }
+  notifier: NotifierService;
+  constructor(private appService: AppService, private router: Router, private sharedService: SharedService, private activatedRoute: ActivatedRoute,
+    notifierService: NotifierService) {this.notifier = notifierService; }
 
   ngOnInit() {
     this.getCategoryList();
+    
     this.sharedService.authBehaviourSubj.subscribe(data => {
       let token = localStorage.getItem('token');
       this.isUserLoggedIn = token ? true : false;
@@ -32,6 +36,22 @@ export class HeaderComponent implements OnInit {
     });
     this.sharedService.cartBehaviourSubj.subscribe(data => {
       this.orderCount = data;
+    });
+    this.sharedService.showNotification.subscribe(data => {
+      if(data === 'cart') {
+        this.notifier.hideAll();
+        this.notifier.notify( 'error', 'Item successfully added to cart.');
+      }else if(data === 'signup') {
+        this.notifier.hideAll();
+        this.notifier.notify( 'success', 'Activation link successfully sent to your mail id.');
+      }else if(data === 'subscription') {
+        this.notifier.hideAll();
+        this.notifier.notify( 'success', 'Subscribed Successfully');
+      }else if(data === 'contact') {
+        this.notifier.hideAll();
+        this.notifier.notify( 'success', 'Thank you for your queries. We will get back to you soon');
+      }
+
     });
     this.sharedService.headerActiveCategoryBehaviourSubj.subscribe(data => {
       this.categorySelectedMenuIndex = data.categorySelectedMenuIndex;
@@ -43,7 +63,7 @@ export class HeaderComponent implements OnInit {
     this.appService.getCurrentUser((success) => {
       this.userObj = success.data;
       this.sharedService.setUserData(this.userObj);
-      this.appService.getCurrentUserOrderDetail(this.userObj._id, (success)=> {
+      this.appService.getCurrentUserOrderDetail((success)=> {
         this.orderCount = success.data;
         this.sharedService.setOrderDetail(this.orderCount);
       }, (error)=> {})

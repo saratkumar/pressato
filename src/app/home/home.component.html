@@ -9,7 +9,7 @@
               <p><img class="alignnone wp-image-382 size-full" [src]="category.logo" alt=""></p>
               <div class="content">
                   <h2 class="text-capitalize">{{category.name}}</h2>
-                  <!-- <p>{{category.description}}</p> -->
+                  <p>{{category.shortDescription}}</p>
                   <p><a class="btn" [routerLink]="'/category/'+category._id">Shop Now</a></p>
                   </div>
               </div>
@@ -68,7 +68,7 @@
                 <label for="pwd">Phone (Optional)</label>
                 <input type="number" class="form-control custom-input" [(ngModel)]="phone" name="phone">
               </div>
-              <button type="submit" class="btn add-cart-button">Submit</button>
+              <button type="submit" class="btn add-cart-button" (click)="subscribe()">Submit</button>
             </form>
           </div>
       </div>

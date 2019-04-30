@@ -10,6 +10,7 @@ export class SharedService {
   categoryBehaviourSubj = new BehaviorSubject([]);
   authBehaviourSubj = new BehaviorSubject(false);
   cartBehaviourSubj = new BehaviorSubject([]);
+  showNotification = new BehaviorSubject('');
   headerActiveCategoryBehaviourSubj = new BehaviorSubject({ 'categorySelectedMenuIndex': -1, 'productSelectedMenuIndex': -1 });
   categoryList: Array<any> = [];
   orderDetail: any = [];
@@ -68,7 +69,12 @@ export class SharedService {
     }
 
     this.appService[method](params, (successFn) => {
-      this.appService.getCurrentUserOrderDetail(this.userData['_id'], (success) => { this.cartBehaviourSubj.next(success.data); }, (error) => { });
+      this.appService.getCurrentUserOrderDetail((success) => { 
+        this.cartBehaviourSubj.next(success.data); 
+        if(method === 'postAddToCart') {
+          this.showNotification.next('cart');
+        }
+      }, (error) => { });
     }, (error) => { });
 
   }

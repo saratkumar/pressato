@@ -11,3 +11,11 @@
     color:white;
     font-weight:bold
 }
+
+.btn {
+    color: #109B48;
+}
+
+.btn:hover {
+    color: #109B48;
+}

@@ -8,8 +8,8 @@
 
         </div>
         <div class="col-12 col-sm-6 col-md-6">
-          <p class="text-uppercase text-center p-10 "> sign in</p>
-          <p class="text-uppercase text-center p-1"> NOT REGISTERED? <span class="cursor-pointer hyperlink"
+          <p class="text-uppercase text-center p-10 m-0"> sign in</p>
+          <p class="text-uppercase text-center p-1 m-0"> NOT REGISTERED? <span class="cursor-pointer hyperlink"
               (click)="onSignUp()">SIGN UP</span></p>
           <div class="alert alert-danger" *ngIf="showError" role="alert">
             Please provide registered user details.
@@ -17,11 +17,11 @@
           <div class="col-md-12 col-12 col-sm-12 margin-auto text-left p-20">
             <form name="form" (ngSubmit)="onLoginIn()" #f="ngForm" novalidate>
               <div class="form-group">
-                <label for="email"><span class="error">*</span>Usernme/Email:</label>
+                <label for="email"><span class="error">*</span>Email:</label>
                 <input type="text" class="form-control custom-input" [(ngModel)]="params['email']" name="username"
                   #username="ngModel" required>
                 <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
-                  <div *ngIf="username.errors['required']" class="error">Username is required</div>
+                  <div *ngIf="username.errors['required']" class="error">Email is required</div>
                 </div>
               </div>
               <div class="form-group">
@@ -32,12 +32,12 @@
                   <div *ngIf="password.errors['required']" class="error">Password is required</div>
                 </div>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <div class="row">
-                  <div class="col-6 col-md-6 col-sm-6">Remember me</div>
-                  <div class="col-6 col-md-6 col-sm-6 text-right">Forgot Password?</div>
+                  <div class="col-6 col-md-6 col-sm-6"></div>
+                  <div class="col-6 col-md-6 col-sm-6 text-right hyperlink">Forgot Password?</div>
                 </div>
-              </div>
+              </div> -->
 
               <button type="submit" class="btn w-100 text-uppercase black-theme color-white"
                 [disabled]="!f.form.valid">signin</button>

@@ -16,18 +16,22 @@
   </div>
   <div class="col-4 col-sm-4 col-md-4">
     <span class="color-green-theme" *ngIf="isShippingFree">FREE</span>
-    <span class="price error" *ngIf="!isShippingFree">₹ 250</span>
+    <span class="price error" *ngIf="!isShippingFree">₹ {{shippingAmt}}</span>
   </div>
 </div>
 <p class="hyperlink cursor-pointer p-t-10" data-toggle="collapse" data-target="#demo">Apply Coupon</p>
 <div class="row collapse" id="demo">
   <div class="col-8 col-sm-8 col-md-8">
-    <span class="font-bold">Coupon Code:</span>
+    <span class="font-bold">Coupon Code:</span><span class="color-green-theme"><input type="text" [(ngModel)]="couponCode" class="w-100"></span>
   </div>
+  <!-- <div class="col-2 col-sm-2 col-md-2">
+    
+  </div> -->
   <div class="col-4 col-sm-4 col-md-4">
-    <span class="color-green-theme"><input type="text" [(ngModel)]="couponCode" class="w-100"></span>
+      <button type="submit" class="btn btn-link" (click)="applyCoupon()" [disabled]="!couponCode"> Apply</button>
   </div>
 </div>
+<p *ngIf="showCouponError && couponCode" class="error">Invalid coupon code!</p>
 <hr class="w-100">
 <div class="row">
   <div class="col-8 col-sm-8 col-md-8">

@@ -33,15 +33,15 @@
               </div>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control custom-input" placeholder="Subject" name="subject"
+              <input type="text" class="form-control custom-input" placeholder="Subject" name="subject"
                 [(ngModel)]="contactObj.subject" #subject="ngModel"
-                [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" />
+                [ngClass]="{ 'is-invalid': f.submitted && subject.invalid }" />
               <!-- <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
                 <div *ngIf="password?.errors?.required">Password is required.</div>
               </div> -->
             </div>
             <div class="form-group">
-                <textarea name="message" rows="3" class="w-100 form-control resize-none" placeholder="Address"></textarea>
+                <textarea name="message" rows="3" class="w-100 form-control resize-none" placeholder="Message" [(ngModel)]="contactObj.message"></textarea>
             </div>
             <div class="p-t-10">
               <button type="submit" class="btn w-100 text-uppercase black-theme color-white ">Submit</button>

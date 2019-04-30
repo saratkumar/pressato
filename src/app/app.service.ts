@@ -19,10 +19,14 @@ export class AppService {
     'productOnCategory': environment.devUrl + '/v1/products/category/',
     'relatedProduct': environment.devUrl + '/v1/products/category/',
     'currentUser': environment.devUrl + '/v1/users/me',
-    'currentUserOrderDetail': environment.devUrl + '/v1/cart/user/',
+    'currentUserOrderDetail': environment.devUrl + '/v1/cart/user',
     'cart': environment.devUrl + '/v1/cart',
     'address': environment.devUrl + '/v1/address',
-    'order': environment.devUrl + '/v1/order'
+    'order': environment.devUrl + '/v1/order',
+    'coupon': environment.devUrl + '/v1/applyCoupon/',
+    'userAddress': environment.devUrl + '/v1/address/user',
+    'subscription': environment.devUrl + '/v1/subscription',
+    'contactUs': environment.devUrl + '/v1/contactus',
   }
 
   postLoginUser(data, successFn, errorFn) {
@@ -66,8 +70,8 @@ export class AppService {
     return this.httpService.getHttp(this.appServiceConst.currentUser, successFn, errorFn);
   }
 
-  getCurrentUserOrderDetail(userId, successFn, errorFn) {
-    return this.httpService.getHttp(this.appServiceConst.currentUserOrderDetail + userId, successFn, errorFn);
+  getCurrentUserOrderDetail(successFn, errorFn) {
+    return this.httpService.getHttp(this.appServiceConst.currentUserOrderDetail, successFn, errorFn);
   } 
 
   postAddToCart(data, successFn, errorFn) {
@@ -91,11 +95,27 @@ export class AppService {
     return this.httpService.postHttp(this.appServiceConst.order, data, successFn, errorFn);
   }
 
-  getUserOrders(userId, successFn,errorFn) {
-    return this.httpService.getHttp(this.appServiceConst.order+ '/user/' + userId, successFn, errorFn);
+  getUserOrders( successFn,errorFn) {
+    return this.httpService.getHttp(this.appServiceConst.order+ '/user', successFn, errorFn);
   }
 
   getAddress(addressId, successFn, errorFn) {
     return this.httpService.getHttp(this.appServiceConst.address+ addressId, successFn, errorFn);
+  }
+
+  getApplyCoupon(couponId, successFn, errorFn) {
+    return this.httpService.getHttp(this.appServiceConst.coupon+ couponId, successFn, errorFn);
+  }
+
+  getUserAddress(successFn, errorFn) {
+    return this.httpService.getHttp(this.appServiceConst.userAddress, successFn, errorFn);
+  }
+
+  postSubscription(data, successFn, errorFn) {
+    return this.httpService.postHttp(this.appServiceConst.subscription, data, successFn, errorFn);
+  }
+
+  postContactUs(data, successFn, errorFn) {
+    return this.httpService.postHttp(this.appServiceConst.contactUs, data, successFn, errorFn);
   }
 }

@@ -20,9 +20,20 @@ export class MyOrdersComponent implements OnInit {
   }
 
   getOrderDetails() {
-    this.appService.getUserOrders(this.sharedService.getUserData()['_id'], (success) => {
+    this.appService.getUserOrders((success) => {
       this.listOfOrders = success.data;
-      // this.appService.getAddress('', (success) => {}, (error) => {});
+      let listOfProductList = this.sharedService.getProductList();
+      this.listOfOrders.forEach(order => {
+        order.cartIds.forEach(cartData => {
+          listOfProductList.forEach(prod => {
+            if(cartData.product === prod._id) {
+              cartData.productDetail = prod;
+            }
+          });
+        });
+        
+      });
+      console.log(this.listOfOrders, 'afdsafa')
     }, (error) =>{});
   }
 }

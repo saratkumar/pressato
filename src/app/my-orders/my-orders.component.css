@@ -1,0 +1,20 @@
+/* .order-data:hover,  .order-data:focus {
+    box-shadow: 1px 0px 1px 1px;
+    cursor: pointer;
+}
+.order-data:active, .order-data:visited{
+    box-shadow: 1px 0px 1px 1px;
+    cursor: pointer;
+} */
+.order-row {
+    border: 1px solid #d8c7c7;
+    box-shadow: 1px 1px 1px 1px #cacaca;
+}
+
+.b-b-1 {
+    border-bottom: 1px solid #d8c7c7;
+}
+
+.b-r-1 {
+    border-right: 1px solid #d8c7c7;
+}
