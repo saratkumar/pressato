@@ -1,12 +1,25 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule }       from '@angular/core';
+import { BrowserModule }  from '@angular/platform-browser';
+import { FormsModule }    from '@angular/forms';
+import { HttpClientModule }    from '@angular/common/http';
 
-import { AppComponent } from './app.component';
-import { CommonModules } from './common/common.module';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService }  from './in-memory-data.service';
+
+import { AppRoutingModule }     from './app-routing.module';
+
+import { AppComponent }         from './app.component';
+// import { DashboardComponent }   from './dashboard/dashboard.component';
+// import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
+// import { HeroesComponent }      from './heroes/heroes.component';
+// import { HeroSearchComponent }  from './hero-search/hero-search.component';
+// import { HeroService }          from './hero.service';
+// import { MessageService }       from './message.service';
+// import { MessagesComponent }    from './messages/messages.component';
+
+import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { HomeComponent } from './home/home.component';
-import { AppRoutes } from './app.routes';
-import { RouterModule } from '@angular/router';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { CategoryComponent } from './category/category.component';
 import { ColdpressComponent } from './coldpress/coldpress.component';
 import { ProbioticsComponent } from './probiotics/probiotics.component';
@@ -17,7 +30,6 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { PriceSummaryComponent } from './price-summary/price-summary.component';
-import { HttpService } from './common/http.service';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
@@ -25,10 +37,30 @@ import { ReturnPolicyComponent } from './return-policy/return-policy.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { FaqComponent } from './faq/faq.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { CommonModules } from './common/common.module';
+import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { AppService } from './app.service';
 
 @NgModule({
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'tour-of-heroes' }),
+    FormsModule,
+    CommonModules,
+    AppRoutingModule,
+    NgtUniversalModule,
+    HttpClientModule,
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, { dataEncapsulation: false }
+    // )
+  ],
   declarations: [
     AppComponent,
+    // DashboardComponent,
+    // HeroesComponent,
+    // HeroDetailComponent,
+    // MessagesComponent,
+    // HeroSearchComponent,
+
     HomeComponent,
     CategoryComponent,
     ColdpressComponent,
@@ -48,13 +80,15 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     FaqComponent,
     MyOrdersComponent
   ],
-  imports: [
-    BrowserModule,
-    NoopAnimationsModule,
-    CommonModules,
-    RouterModule.forRoot(AppRoutes),
-  ],
-  providers: [ HttpService ],
-  bootstrap: [AppComponent]
+  providers: [ AppService ],
+  bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(APP_ID) private appId: string) {
+    const platform = isPlatformBrowser(platformId) ?
+      'in the browser' : 'on the server';
+    console.log(`Running ${platform} with appId=${appId}`);
+  }
+}

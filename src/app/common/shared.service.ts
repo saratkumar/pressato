@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AppService } from '../app.service';
+import { LOCAL_STORAGE, WINDOW } from '@ng-toolkit/universal';
+import { isPlatformBrowser } from '@angular/common';
 declare var jQuery: any;
 
 @Injectable({
@@ -16,7 +18,10 @@ export class SharedService {
   orderDetail: any = [];
   userData: any;
   productList: any;
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(WINDOW) private window: Window,
+    @Inject(LOCAL_STORAGE) private localStorage: any) { }
 
 
   setCategoryList(categoryList) {
@@ -69,9 +74,9 @@ export class SharedService {
     }
 
     this.appService[method](params, (successFn) => {
-      this.appService.getCurrentUserOrderDetail((success) => { 
-        this.cartBehaviourSubj.next(success.data); 
-        if(method === 'postAddToCart') {
+      this.appService.getCurrentUserOrderDetail((success) => {
+        this.cartBehaviourSubj.next(success.data);
+        if (method === 'postAddToCart') {
           this.showNotification.next('cart');
         }
       }, (error) => { });
@@ -80,13 +85,15 @@ export class SharedService {
   }
 
   ScrollToTop() {
-    let scrollToTop = window.setInterval(() => {
-      let pos = window.pageYOffset;
-      if (pos > 0) {
+    if (isPlatformBrowser(this.platformId)) {
+      let scrollToTop = window.setInterval(() => {
+        let pos = window.pageYOffset;
+        if (pos > 0) {
           window.scrollTo(0, pos - 20); // how far to scroll on each step
-      } else {
+        } else {
           window.clearInterval(scrollToTop);
-      }
-  }, 16);
+        }
+      }, 16);
+    }
   }
 }

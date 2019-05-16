@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Form } from '@angular/forms';
-import { AppService } from 'src/app/app.service';
+import { AppService } from '../../app.service';
 import { SharedService } from '../shared.service';
 declare var jQuery:any; 
 @Component({

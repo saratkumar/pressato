@@ -9,9 +9,10 @@ import { NewUserComponent } from './new-user/new-user.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { HttpService } from './http.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenInterceptor } from '../app.interceptor';
+// import { TokenInterceptor } from '../app.interceptor';
 import { SharedService } from './shared.service';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { AppService } from '../app.service';
 
 const customNotifierOptions: NotifierOptions = {
     position: {
@@ -68,11 +69,7 @@ const customNotifierOptions: NotifierOptions = {
         LoginComponent,
         NewUserComponent,
     ],
-    providers: [ HttpService, SharedService, {
-        provide: HTTP_INTERCEPTORS,
-        useClass: TokenInterceptor,
-        multi: true,
-    } ],
+    providers: [ HttpService, SharedService, AppService ],
     exports: [
         CommonModule,
         RouterModule,

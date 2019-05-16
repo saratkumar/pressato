@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { AppService } from '../../app.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SharedService } from '../shared.service';
 import { NotifierService } from 'angular-notifier';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal'; 
+import { isPlatformBrowser } from '@angular/common';
 declare var jQuery: any;
 @Component({
   selector: 'app-header',
@@ -24,13 +26,19 @@ export class HeaderComponent implements OnInit {
   showAddedCartAlert: boolean = false;
   notifier: NotifierService;
   constructor(private appService: AppService, private router: Router, private sharedService: SharedService, private activatedRoute: ActivatedRoute,
-    notifierService: NotifierService) {this.notifier = notifierService; }
+    notifierService: NotifierService,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(LOCAL_STORAGE) private localStorage: any
+    ) {this.notifier = notifierService; }
 
   ngOnInit() {
     this.getCategoryList();
     
     this.sharedService.authBehaviourSubj.subscribe(data => {
-      let token = localStorage.getItem('token');
+      let token: string;
+      if (isPlatformBrowser(this.platformId)) {
+        token = this.localStorage.getItem('token');
+      }
       this.isUserLoggedIn = token ? true : false;
       this.isUserLoggedIn && this.getCurrentUserDetail();
     });
@@ -90,8 +98,10 @@ export class HeaderComponent implements OnInit {
         });
         this.sharedService.setCategoryList(this.categoryList);
         
-      }, (error) => {})
-    }, (error)=> {});
+      }, (error) => {
+      })
+    }, (error)=> {
+    });
   }
 
   openNav() {
@@ -105,7 +115,9 @@ export class HeaderComponent implements OnInit {
 
   onLogout() {
     this.appService.logout((success) => {
-      localStorage.removeItem('token');
+      if (isPlatformBrowser(this.platformId)) { 
+        this.localStorage.removeItem('token');
+      }
       this.sharedService.authBehaviourSubj.next(false);
       this.sharedService.cartBehaviourSubj.next([]);
       this.router.navigateByUrl('');
