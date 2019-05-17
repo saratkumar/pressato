@@ -15,6 +15,26 @@ export class CheckoutComponent implements OnInit {
   selectedAddress: any;
   showNewForm: boolean = false;
   rzp1: any;
+  options = {
+    "key": "rzp_test_YxH5LHChmDM45y",
+    "amount": "29935",
+    "name": "Acme Corp",
+    "description": "A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami",
+    "image": "http://example.com/your_logo.png",
+    "handler": function (response){
+        this.routeToMyOrder();
+        console.log(response.razorpay_payment_id);
+    },
+    "callback_url": 'http://localhost:4200/my-orders',
+    /**
+      * You can track the modal lifecycle by * adding the below code in your options
+      */
+    "modal": {
+        "ondismiss": function(){
+            console.log('Checkout form closed');
+        }
+    }
+};
   constructor(
     private appService: AppService, private router: Router, private sharedService: SharedService) { }
 
@@ -34,30 +54,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit() {
-    var options = {
-      "key": "rzp_test_awg6RqSTi7PC21",
-      "amount": "29935", // INR 299.35
-      "name": "Acme Corp",
-      "description": "A Wild Sheep Chase is the third novel by Japanese author  Haruki Murakami",
-      "image": "https://example.com/your_logo",
-      "order_id": "order_9A33XWu170gUtm",
-      "handler": function (response){
-          alert(response.razorpay_payment_id);
-      },
-      "prefill": {
-          "name": "Gaurav Kumar",
-          "email": "gaurav.kumar@example.com"
-      },
-      "notes": {
-          "address": "note value"
-      },
-      "theme": {
-          "color": "#F37254"
-      }
-  };
-  this.rzp1 = new this.nativeWindow.Razorpay(options);
-  this.rzp1.open();
-    return;
     this.sharedService.cartBehaviourSubj.subscribe(data => {
       if(data && data['carts'] &&  data['carts'].length) {
         data['carts'].forEach(data => {
@@ -77,8 +73,14 @@ export class CheckoutComponent implements OnInit {
     let params = { 'cartIds': this.listOfCartProducts, 'address': addressId}
     this.appService.createOrder(params, (success) => {
       this.sharedService.cartBehaviourSubj.next([]);
-      this.router.navigateByUrl('/my-orders');
+      this.rzp1 = new this.nativeWindow.Razorpay(this.options);
+      this.rzp1.open();
+      
     }, (error)=>{});
+  }
+
+  routeToMyOrder() {
+    this.router.navigateByUrl('/my-orders');
   }
 }
 
