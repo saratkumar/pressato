@@ -10,27 +10,26 @@ import { SharedService } from '../common/shared.service';
 })
 export class CheckoutComponent implements OnInit {
   listOfUserAddress: Array<any> = [];
-  addressObj: any = {"phoneExt": "+91", "state": "TamilNadu"};
+  addressObj: any = {'phoneExt': '+91', 'state': 'TamilNadu'};
   listOfCartProducts: any = [];
   selectedAddress: any;
   showNewForm: boolean = false;
   rzp1: any;
   options = {
-    "key": "rzp_test_YxH5LHChmDM45y",
-    "amount": "29935",
-    "name": "Acme Corp",
-    "description": "A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami",
-    "image": "http://example.com/your_logo.png",
-    "handler": function (response){
-        this.routeToMyOrder();
-        console.log(response.razorpay_payment_id);
+    'key': 'rzp_test_YxH5LHChmDM45y',
+    'amount': '29935',
+    'name': 'Acme Corp',
+    'description': 'A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami',
+    'image': 'http://example.com/your_logo.png',
+    'handler': (response) => {
+      this.createOrder(response);
     },
-    "callback_url": 'http://localhost:4200/my-orders',
+    // 'callback_url': 'http://localhost:4200/my-orders',
     /**
       * You can track the modal lifecycle by * adding the below code in your options
       */
-    "modal": {
-        "ondismiss": function(){
+    'modal': {
+        'ondismiss': function(){
             console.log('Checkout form closed');
         }
     }
@@ -60,28 +59,35 @@ export class CheckoutComponent implements OnInit {
           this.listOfCartProducts.push(data._id);
         })
       }
-      
     });
     if(this.selectedAddress) {
-      this.createOrder(this.selectedAddress);
+      this.rzp1 = new this.nativeWindow.Razorpay(this.options);
+      this.rzp1.open();
     }else {
-      this.appService.postAddress(this.addressObj, (success)=> {this.createOrder(success.data._id);}, (error)=> {});
+      this.appService.postAddress(this.addressObj, (success)=> {
+        this.selectedAddress = success.data._id;
+        this.rzp1 = new this.nativeWindow.Razorpay(this.options);
+        this.rzp1.open();
+      }, (error) => {});
     }
     
   }
-  createOrder(addressId) {
-    let params = { 'cartIds': this.listOfCartProducts, 'address': addressId}
+  createOrder(response) {
+    const params = {
+      'orderObj': { 'cartIds': this.listOfCartProducts, 'address': this.selectedAddress},
+      'trans': { 'paymentId': response.razorpay_payment_id, 'gateway': 'sds', 'isSuccess': true}
+    };
     this.appService.createOrder(params, (success) => {
-      this.sharedService.cartBehaviourSubj.next([]);
-      this.rzp1 = new this.nativeWindow.Razorpay(this.options);
-      this.rzp1.open();
-      
-    }, (error)=>{});
+    this.sharedService.cartBehaviourSubj.next([]);
+    setTimeout(() => {
+      this.router.navigateByUrl('/my-orders');  
+    }, 100);
+    }, (error) => {});
   }
 
-  routeToMyOrder() {
-    this.router.navigateByUrl('/my-orders');
-  }
+  // routeToMyOrder() {
+  //   this.router.navigateByUrl('/my-orders');
+  // }
 }
 
 

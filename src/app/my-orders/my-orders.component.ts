@@ -13,16 +13,16 @@ export class MyOrdersComponent implements OnInit {
   constructor(private sharedService: SharedService,private appService: AppService) { }
 
   ngOnInit() {
+    alert(1)
     setTimeout(() => {
-      this.getOrderDetails();  
+      this.getOrderDetails();
     }, 100);
-    
   }
 
   getOrderDetails() {
     this.appService.getUserOrders((success) => {
       this.listOfOrders = success.data;
-      let listOfProductList = this.sharedService.getProductList();
+      const listOfProductList = this.sharedService.getProductList();
       this.listOfOrders.forEach(order => {
         order.cartIds.forEach(cartData => {
           listOfProductList.forEach(prod => {
@@ -31,9 +31,7 @@ export class MyOrdersComponent implements OnInit {
             }
           });
         });
-        
       });
-      console.log(this.listOfOrders, 'afdsafa')
     }, (error) =>{});
   }
 }
