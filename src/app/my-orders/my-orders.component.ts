@@ -13,7 +13,6 @@ export class MyOrdersComponent implements OnInit {
   constructor(private sharedService: SharedService,private appService: AppService) { }
 
   ngOnInit() {
-    alert(1)
     setTimeout(() => {
       this.getOrderDetails();
     }, 100);
