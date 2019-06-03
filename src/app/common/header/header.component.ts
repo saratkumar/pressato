@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
   productId: any;
   showAddedCartAlert: boolean = false;
   notifier: NotifierService;
+  authToken: string;
   constructor(private appService: AppService, private router: Router, private sharedService: SharedService, private activatedRoute: ActivatedRoute,
     notifierService: NotifierService,
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -35,11 +36,10 @@ export class HeaderComponent implements OnInit {
     this.getCategoryList();
     
     this.sharedService.authBehaviourSubj.subscribe(data => {
-      let token: string;
       if (isPlatformBrowser(this.platformId)) {
-        token = this.localStorage.getItem('token');
+        this.authToken = this.localStorage.getItem('token');
       }
-      this.isUserLoggedIn = token ? true : false;
+      this.isUserLoggedIn = this.authToken ? true : false;
       this.isUserLoggedIn && this.getCurrentUserDetail();
     });
     this.sharedService.cartBehaviourSubj.subscribe(data => {
@@ -65,9 +65,16 @@ export class HeaderComponent implements OnInit {
       this.categorySelectedMenuIndex = data.categorySelectedMenuIndex;
       this.productSelectedMenuIndex = data.productSelectedMenuIndex;
     });
-    
+
+    this.sharedService.showLogin.subscribe(data => {
+      if (data) {
+        this.signIn = true;
+        jQuery('#myModal').modal('show');
+      }
+    });
   }
   getCurrentUserDetail() {
+    this.sharedService.setAuth(this.authToken);
     this.appService.getCurrentUser((success) => {
       this.userObj = success.data;
       this.sharedService.setUserData(this.userObj);

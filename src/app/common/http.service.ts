@@ -11,40 +11,79 @@ export class HttpService {
   headerObj: any;
   constructor(
     private http: HttpClient,
-    @Inject(PLATFORM_ID) private platformId: Object,
-    @Inject(LOCAL_STORAGE) private localStorage: any,
-  ) { 
-    if (isPlatformBrowser(this.platformId)) { 
-      this.optimusToken = this.localStorage.getItem('token');
-  }
-    
-  //let optimusToken = localStorage.getItem('token');
-  if(this.optimusToken) {
-    this.headerObj = {
-      headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'x-pressato-auth': JSON.parse(this.optimusToken)
-     })
- };
-  }
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(LOCAL_STORAGE) private localStorage: any,
+  ) {
+
   }
 
 
   getHttp(apiUrl, successFunc, errorFunc) {
-    
- 
+    if (!this.optimusToken) {
+      if (isPlatformBrowser(this.platformId)) {
+        this.optimusToken = this.localStorage.getItem('token');
+      }
+      if (this.optimusToken) {
+        this.headerObj = {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'x-pressato-auth': JSON.parse(this.optimusToken)
+          })
+        };
+      }
+    }
+
     return this.http.get(apiUrl, this.headerObj).subscribe(successFunc, errorFunc);
   }
 
   postHttp(apiUrl, data, successFunc, errorFunc) {
+    if (!this.optimusToken) {
+      if (isPlatformBrowser(this.platformId)) {
+        this.optimusToken = this.localStorage.getItem('token');
+      }
+      if (this.optimusToken) {
+        this.headerObj = {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'x-pressato-auth': JSON.parse(this.optimusToken)
+          })
+        };
+      }
+    }
     return this.http.post(apiUrl, data, this.headerObj).subscribe(successFunc, errorFunc);
   }
 
   putHttp(apiUrl, data, successFunc, errorFunc) {
+    if (!this.optimusToken) {
+      if (isPlatformBrowser(this.platformId)) {
+        this.optimusToken = this.localStorage.getItem('token');
+      }
+      if (this.optimusToken) {
+        this.headerObj = {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'x-pressato-auth': JSON.parse(this.optimusToken)
+          })
+        };
+      }
+    }
     return this.http.put(apiUrl, data, this.headerObj).subscribe(successFunc, errorFunc);
   }
 
   deleteHttp(apiUrl, successFunc, errorFunc, data?: any) {
+    if (!this.optimusToken) {
+      if (isPlatformBrowser(this.platformId)) {
+        this.optimusToken = this.localStorage.getItem('token');
+      }
+      if (this.optimusToken) {
+        this.headerObj = {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'x-pressato-auth': JSON.parse(this.optimusToken)
+          })
+        };
+      }
+    }
     return this.http.delete(apiUrl, this.headerObj).subscribe(successFunc, errorFunc);
   }
 }

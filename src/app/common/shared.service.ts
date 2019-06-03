@@ -13,11 +13,13 @@ export class SharedService {
   authBehaviourSubj = new BehaviorSubject(false);
   cartBehaviourSubj = new BehaviorSubject([]);
   showNotification = new BehaviorSubject('');
+  showLogin = new BehaviorSubject(false);
   headerActiveCategoryBehaviourSubj = new BehaviorSubject({ 'categorySelectedMenuIndex': -1, 'productSelectedMenuIndex': -1 });
   categoryList: Array<any> = [];
   orderDetail: any = [];
   userData: any;
   productList: any;
+  authToken: string;
   constructor(private appService: AppService,
     @Inject(PLATFORM_ID) private platformId: Object,
     @Inject(WINDOW) private window: Window,
@@ -41,8 +43,8 @@ export class SharedService {
     return this.productList;
   }
 
-  setAuth(authDetails: any) {
-    this.authBehaviourSubj.next(true);
+  setAuth(token: any) {
+    this.authToken = token;
   }
 
   setOrderDetail(orderDetail) {
@@ -63,6 +65,10 @@ export class SharedService {
   }
 
   addItemToCart(product) {
+    if (!this.authToken) {
+      this.showLogin.next(true);
+      return;
+    }
     let params = this.orderDetail.carts.find(data => data.product === product._id);
     let method;
     if (params) {

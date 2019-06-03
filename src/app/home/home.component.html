@@ -6,13 +6,30 @@
       <div class="row" id="wrapper">
         <div class="col p-20" *ngFor="let category of listOfCategory" [hidden]="category.hide">
           <div class="circle-section">
-            <p><img class="alignnone wp-image-382 size-full" [src]="category.logo" alt=""></p>
+            <p><img class="alignnone wp-image-382 size-full category-img" [src]="category.logo" alt=""></p>
             <div class="content">
               <h2 class="text-capitalize">{{category.name}}</h2>
               <p>{{category.shortDescription}}</p>
               <p><a class="btn" [routerLink]="'/category/'+category._id">Shop Now</a></p>
             </div>
           </div>
+          <!-- <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <p>{{category.name}}</p>
+                <hr class="w-100">
+                <img [src]="category.logo" alt="Avatar" style="max-width:200px;max-height:200px;">
+              </div>
+              <div class="flip-card-back">
+                <div class="content">
+                  <h2 class="text-capitalize">{{category.name}}</h2>
+                  <p>{{category.shortDescription}}</p>
+                  <p><a class="btn" [routerLink]="'/category/'+category._id">Shop Now</a></p>
+                </div>
+                
+              </div>
+            </div>
+          </div> -->
         </div>
       </div>
     </div>
