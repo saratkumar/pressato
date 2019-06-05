@@ -15,30 +15,37 @@ export class CheckoutComponent implements OnInit {
   selectedAddress: any;
   showNewForm: boolean = false;
   rzp1: any;
-  options = {
-    'key': 'rzp_test_YxH5LHChmDM45y',
-    'amount': '29935',
-    'name': 'Acme Corp',
-    'description': 'A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami',
-    'image': 'http://example.com/your_logo.png',
-    'handler': (response) => {
-      this.createOrder(response);
-    },
-    // 'callback_url': 'http://localhost:4200/my-orders',
-    /**
-      * You can track the modal lifecycle by * adding the below code in your options
-      */
-    'modal': {
-        'ondismiss': function(){
-            console.log('Checkout form closed');
-        }
-    }
-};
+  totalPrice: any;
+  options: any;
+  
   constructor(
     private appService: AppService, private router: Router, private sharedService: SharedService) { }
 
   ngOnInit() {
     this.getUserAdderssList();
+    this.sharedService.cartBehaviourSubj.subscribe(data => {
+      this.totalPrice = data['totalPrice'];
+      this.options =  {
+        'key': 'rzp_test_YxH5LHChmDM45y',
+        'amount': this.totalPrice,
+        'name': 'Acme Corp',
+        'description': 'A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami',
+        'image': 'http://example.com/your_logo.png',
+        'handler': (response) => {
+          this.createOrder(response);
+        },
+        // 'callback_url': 'http://localhost:4200/my-orders',
+        /**
+          * You can track the modal lifecycle by * adding the below code in your options
+          */
+        'modal': {
+            'ondismiss': function(){
+                console.log('Checkout form closed');
+            }
+        }
+    };
+    });
+    
   }
 
   get nativeWindow() : any {
