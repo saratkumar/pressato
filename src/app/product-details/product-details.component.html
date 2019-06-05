@@ -5,7 +5,12 @@
     </div>
     <div class="col-sm-12 col-12 col-md-7">
       <h3 class="product-name p-t-20 text-capitalize"> {{productDetails.name}}</h3>
-      <p class="product-price">{{productDetails.price}}</p>
+      
+      <p class="price-style-1" *ngIf="productDetails.discountPrice !== productDetails.actualPrice">
+        <span class="actual-price">₹ {{productDetails.actualPrice}}</span>
+        <span class="discount-price product-price p-l-10 f-s-16">{{productDetails.discountPrice}}</span>
+      </p>
+      <p class="product-price discount-price f-s-16" *ngIf="productDetails.discountPrice === productDetails.actualPrice"><span>{{productDetails.discountPrice}}</span></p>
       <div>
         <span *ngIf="productDetails.volume">
           {{ productDetails.volume }} {{productDetails.measuringUnit}}
@@ -24,7 +29,7 @@
       </div>
     </div>
   </div>
-  <div class=" row p-20 product-description-tab">
+  <div class=" row p-20 product-description-tab" *ngIf="productDetails.listOfIngredient && productDetails.listOfIngredient.length">
     <ul class="nav nav-tabs nav-tabs-fillup w-100" data-init-reponsive-tabs="dropdownfx" role="tablist">
       <li class="nav-item" (click)="tabChange('ingredients')">
         <a data-toggle="tab" class="active nav-link tab-menu " href="#slide1"><span>Ingredients</span></a>
@@ -44,36 +49,38 @@
       <div class="tab-pane slide-left active" id="slide1">
         <ng-container *ngIf="currentTab == 'ingredients'">
           <ul class="p-20">
-            <li>Cucumber</li>
-            <li>Spaniach</li>
-            <li>Bottle Gourd</li>
-            <li>Coriander</li>
-            <li>Ginger</li>
-            <li>Mint</li>
-            <li>Lemon</li>
-            <li>Himalayan Salt</li>
+            <li *ngFor="let data of productDetails.listOfIngredient"> {{data}}</li>
           </ul>
+          <ng-container *ngIf="productDetails.dressing && productDetails.dressing.length">
+            <h4> Dressing</h4>
+              <ul class="p-l-20">
+                  <li *ngFor="let data of productDetails.dressing"> {{data}}</li>
+              </ul>
+          </ng-container>
+          
         </ng-container>
         <ng-container *ngIf="currentTab == 'goodness'">
           <p class="p-20">
-            With over a kilo of vegetables pressed to extract the freshest juice, this drink is a green indulgence.
+            {{productDetails.goodness}}
+            <!-- With over a kilo of vegetables pressed to extract the freshest juice, this drink is a green indulgence.
             Cucumber, bottle gourd, and coriander are rich in vitamin K while spinach is rich in iron. Ginger, mint, and
             lemon contribute as healing elements to this drink, ginger and mint being rich in anti-inflammatory
             properties. This drink promotes weight loss, healing of urinary tract infections and reduces inflammation of
-            the liver. It also helps in treating problems related to digestive system like acidity and flatulence.
+            the liver. It also helps in treating problems related to digestive system like acidity and flatulence. -->
           </p>
         </ng-container>
         <ng-container *ngIf="currentTab == 'intention'">
           <p class="p-20">
-            Our cold-pressed juices are composed with your nutritional needs in mind. They not only make use of the
+            {{productDetails.intention}}
+            <!-- Our cold-pressed juices are composed with your nutritional needs in mind. They not only make use of the
             traditional ingredients for health-giving but that they also are carefully balanced to include a
-            comprehensive collection of the nutrients your body needs for natural and traditional lifestyle.
+            comprehensive collection of the nutrients your body needs for natural and traditional lifestyle. -->
           </p>
         </ng-container>
         <ng-container *ngIf="currentTab == 'nutritional'">
           <ul class="p-20">
-
-            <li> Energy (kcal) 14.3</li>
+              <li *ngFor="let data of productDetails.nutrient"> {{data}}</li>
+            <!-- <li> Energy (kcal) 14.3</li>
             <li> Fat (g) 0.1</li>
             <li> Carbohydrates (g) 3.6</li>
             <li> Total Sugar (g)2.2</li>
@@ -82,7 +89,7 @@
             <li> To be consume on the same day of delivery</li>
             <li> Shake Well</li>
             <li> Serve Chilled</li>
-            <li> Portion Size: 300m</li>
+            <li> Portion Size: 300m</li> -->
 
           </ul>
 
@@ -110,7 +117,7 @@
           </div>
           <div class="margin-auto text-center">
             <p class="text-uppercase m-0 font-bold">{{product.name}}</p>
-            <p class="product-price m-0">{{product.price}}<span>
+            <p class="product-price m-0">{{product.discountPrice}}<span>
                 {{ '-' + 300 }} {{product.measuringUnit}}
               </span></p>
             <div class="row p-t-b-10 justify-center">

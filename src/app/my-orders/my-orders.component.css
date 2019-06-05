@@ -18,3 +18,7 @@
 .b-r-1 {
     border-right: 1px solid #d8c7c7;
 }
+
+.price:before {
+    content: "₹ " !important;
+}

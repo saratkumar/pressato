@@ -93,7 +93,7 @@
     width: 100%;
     height: 100%;
     top: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background:  #ffffff4d;  /**rgba(0, 0, 0, 0.3); **/
     content: '';
     z-index: -1;
 }
@@ -101,9 +101,17 @@
 #wrapper .circle-section h2 {
     font-size: 20px;
     margin-bottom: 10px;
-    color: #ffffff;
+    color: #109b48;
     position: relative;
     padding-bottom: 10px;
+    top: -40px;
+}
+
+.product-title {
+
+  font-size: 22px;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 #wrapper .circle-section span {
@@ -124,11 +132,17 @@
 }
 
 #wrapper .circle-section p {
-    color: #f7f7f7;
+    color: #109b48;
 	    font-size: 12px;
     width: 85%;
     margin: 0 auto;
     display: block;
+}
+
+/* #wrapper .circle-section p  */
+#wrapper .circle-section:hover .category-img{
+  filter: blur(100px);
+  -webkit-filter: blur(100px); /* Safari 6.0 - 9.0 */
 }
 
 #wrapper .circle-section h2:after {
@@ -137,7 +151,7 @@
     bottom: 0;
     height: 2px;
     width: 70px;
-    background: #ffffff;
+    background: #109b48;
     content: "";
     margin: 0 auto;
    display: block;
@@ -209,3 +223,10 @@
     transform: rotateY(180deg);
   }
   /** Flip Ends Here **/
+
+  .listOfProducts {
+    background: #109b48;
+    color: white;
+  } 
+
+  

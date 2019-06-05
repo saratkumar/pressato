@@ -8,7 +8,7 @@
 }
 
 .product-price:before {
-    content: "₹ "
+    content: "₹ " !important;
 }
 
 .quantity {
@@ -80,4 +80,35 @@
 
 .custom-max-width {
     max-width: 400px;
+}
+
+.price-style-1 .actual-price {
+      /* color: rgba(red, 0.5); */
+      text-decoration: none;
+      position: relative;
+      
+    }
+.price-style-1 .actual-price::before {
+    content: " ";
+    display: block;
+    width: 100%;
+    border-top: 2px solid rgba(red, 0.8);
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    top: 10px;
+    left: 0;
+    -webkit-transform: rotate(-7deg);
+    transform: rotate(-7deg);
+    background: #109b48;
+      }
+    .price-style-1 .discount-price {
+      color: green;
+      /* font-size: 32px; */
+      text-decoration: none;
+      /* padding: 1em 1em 1em .5em; */
+    }
+
+.f-s-16 {
+     font-size: 16px;
 }

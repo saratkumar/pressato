@@ -25,18 +25,18 @@
                   </div>
                   <div class="col-9 col-sm-9 col-md-9">
                     <p class="product-name text-capitalize font-bold"> {{cart.productDetail.name}}</p>
-                    <p class="product-name "> 300 ml</p>
+                    <p class="product-name "> {{ cart.productDetail.volume }} {{cart.productDetail.measuringUnit}}</p>
                   </div>
                 </div>
               </div>
               <div class="col-2 b-r-1 text-center"> 
                 <p class="font-bold"> Price</p>
-                <p class="price">{{cart.productDetail.code}}<p>
+                <p class="price">{{cart.productDetail.discountPrice}}<p>
 
               </div>
               <div class="col-2 b-r-1 text-center"> 
                   <p class="font-bold"> Quantity</p>
-                  <p class="price">{{cart.productDetail.quantity}}<p>
+                  <p class="">{{cart.productDetail.quantity}}<p>
   
                 </div>
               <!-- <div class="col-2"><span class="price error">{{cart.productDetail.quantity}}</span></div> -->

@@ -2,31 +2,34 @@
   <div class="parallax"></div>
   <div class="listOfProducts b-s-1">
     <div class="col">
-      <h2 class="margin-auto p-20">Products </h2>
+      <h2 class="margin-auto p-20 product-title">Products </h2>
       <div class="row" id="wrapper">
         <div class="col p-20" *ngFor="let category of listOfCategory" [hidden]="category.hide">
-          <div class="circle-section">
+          <div class="circle-section cursor-pointer">
             <p><img class="alignnone wp-image-382 size-full category-img" [src]="category.logo" alt=""></p>
             <div class="content">
               <h2 class="text-capitalize">{{category.name}}</h2>
-              <p>{{category.shortDescription}}</p>
+              <p class="font-bold">{{category.shortDescription}}</p>
               <p><a class="btn" [routerLink]="'/category/'+category._id">Shop Now</a></p>
             </div>
           </div>
           <!-- <div class="flip-card">
             <div class="flip-card-inner">
               <div class="flip-card-front">
-                <p>{{category.name}}</p>
-                <hr class="w-100">
-                <img [src]="category.logo" alt="Avatar" style="max-width:200px;max-height:200px;">
+                  <div class="circle-section">
+                      <h2 class="text-capitalize">{{category.name}}</h2>
+                      <p><img class="alignnone wp-image-382 size-full category-img" [src]="category.logo" alt=""></p>
+                    </div>
+                
               </div>
               <div class="flip-card-back">
-                <div class="content">
-                  <h2 class="text-capitalize">{{category.name}}</h2>
-                  <p>{{category.shortDescription}}</p>
-                  <p><a class="btn" [routerLink]="'/category/'+category._id">Shop Now</a></p>
-                </div>
-                
+                  <div class="circle-section">
+                      <div class="content">
+                        <h2 class="text-capitalize">{{category.name}}</h2>
+                        <p>{{category.shortDescription}}</p>
+                        <p><a class="btn" [routerLink]="'/category/'+category._id">Shop Now</a></p>
+                      </div>
+                    </div>
               </div>
             </div>
           </div> -->
