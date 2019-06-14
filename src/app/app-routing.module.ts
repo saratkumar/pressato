@@ -16,6 +16,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { FaqComponent } from './faq/faq.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { HomeComponent } from './home/home.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {path: 'faq', component: FaqComponent},
   {path: 'my-orders', component: MyOrdersComponent},
+  {path: 'admin-dashboard', component: AdminDashboardComponent},
 ];
 
 @NgModule({

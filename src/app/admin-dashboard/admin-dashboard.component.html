@@ -1,0 +1,82 @@
+<div class="container">
+
+  <h4 class="p-20 color-grey"> Admin Dashboard</h4>
+
+  <div class="col-12 col-sm-12 col-md-12 m-b-10">
+
+    <!-- <div class="row font-bold">
+      <div class="col-2">Date</div>
+      <div class="col-4">Order Reference No.</div>
+      <div class="col-3">Payment Method</div>
+      <div class="col-3">Status</div>
+    </div> -->
+    <ng-container *ngFor="let data of listOfOrders;let orderindex=index">
+      <div class="row order-row m-t-10">
+        <div class="col-12">
+          <div class="row p-10 b-b-1">
+            <div class="col-4 hyperlink">{{data._id}}</div>
+            <div class="col-4 text-right"><span class="font-bold">Created On:</span> {{data.createdAt| date : 'dd-MMM-yyyy'}}</div>
+            <div class="col-4 text-right"><span class="font-bold">Status:</span> Waiting</div>
+          </div>
+          <div class="row p-10 b-b-1">
+            <div class="col-6 col-md-6">
+              <p> Billing Address</p>
+              <label class="p-t-10">
+                <p> {{data.address.name}}</p>
+                <p> {{data.address.addressLine1 + ',' + data.address.addressLine2}}</p>
+                <p> {{data.address.city+ ','+data.address.state + '-' + data.address.pincode}}</p>
+                <p> {{data.address.phoneExt + ' ' + data.address.phone}}</p>
+              </label>
+            </div>
+          </div>
+          <div class="row p-10" *ngFor="let cart of data.listOfProducts;let index=index">
+            <ng-container>
+              <div class="col-6 b-r-1">
+                <div class="row" >
+                  <div class="col-3 col-sm-3 col-md-2 d-none d-md-block">
+                    <img [src]="cart.logo" class="w-100 h-100">
+                  </div>
+                  <div class="col-9 col-sm-9 col-md-9">
+                    <p class="product-name text-capitalize font-bold"> {{cart.name}}</p>
+                    <p class="product-name "> {{ cart.volume }} {{cart.measuringUnit}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 b-r-1 text-center"> 
+                <p class="font-bold"> Price</p>
+                <p class="price">{{cart.discountPrice}}<p>
+
+              </div>
+              <div class="col-2 b-r-1 text-center"> 
+                  <p class="font-bold"> Quantity</p>
+                  <p class="">{{cart.quantity}}<p>
+  
+                </div>
+              </ng-container>
+              <!-- <div class="col-2"><span class="price error">{{cart.productDetail.quantity}}</span></div> -->
+            </div>
+        </div>
+        
+        <!-- <hr class="w-100"> -->
+      </div>
+      <!-- <div class="row p-t-10 p-10 order-data" data-toggle="collapse" [attr.data-target]="'#order'+(orderindex+1)">
+        
+        <div class="col-2">{{data.createdAt | date: 'short'}}</div>
+        <div class="col-4">{{data._id}}</div>
+        <div class="col-3">Pay on Cash</div>
+        <div class="col-3">Waiting</div>
+      </div> -->
+    </ng-container>
+    <div class="row" *ngIf="(!listOfOrders || !listOfOrders.length)">
+        <p>-No orders available.-</p>
+      </div>
+  </div>
+</div>
+
+<!-- <div class="col-4">
+          <p>{{data.address.name}}</p>
+        <p>{{data.address.addressLine1 + ',' + data.address.addressLine2}}</p>
+        <p>{{data.address.city + ',' + data.address.state}}</p>
+        <p>{{'India' + ',' + data.address.pincode}}</p>
+        <p>{{data.address.phoneExt + ' ' + data.address.phone}}</p>
+      </div></div> -->

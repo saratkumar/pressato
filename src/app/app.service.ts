@@ -29,6 +29,8 @@ export class AppService {
     'userAddress': environment.devUrl + '/v1/address/user',
     'subscription': environment.devUrl + '/v1/subscription',
     'contactUs': environment.devUrl + '/v1/contactus',
+    'allOrders': environment.devUrl + '/v1/order/all',
+    
   }
 
   postLoginUser(data, successFn, errorFn) {
@@ -119,5 +121,13 @@ export class AppService {
 
   postContactUs(data, successFn, errorFn) {
     return this.httpService.postHttp(this.appServiceConst.contactUs, data, successFn, errorFn);
+  }
+
+  getOrder(successFn, errorFn) {
+    return this.httpService.getHttp(this.appServiceConst.allOrders, successFn, errorFn);
+  }
+
+  getCartDetails(cartId, successFn, errorFn) {
+    return this.httpService.getHttp(this.appServiceConst.cart + '/' +cartId, successFn, errorFn);
   }
 }

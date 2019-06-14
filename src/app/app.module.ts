@@ -40,6 +40,7 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { CommonModules } from './common/common.module';
 import { NgtUniversalModule } from '@ng-toolkit/universal';
 import { AppService } from './app.service';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   imports: [
@@ -78,7 +79,8 @@ import { AppService } from './app.service';
     ReturnPolicyComponent,
     AboutUsComponent,
     FaqComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
+    AdminDashboardComponent
   ],
   providers: [ AppService ],
   bootstrap: [ AppComponent ]
