@@ -24,7 +24,7 @@ export class CheckoutComponent implements OnInit {
   ngOnInit() {
     this.getUserAdderssList();
     this.sharedService.cartBehaviourSubj.subscribe(data => {
-      this.totalPrice = data['totalPrice'];
+      this.totalPrice = data['totalPrice'] + data['deliveryCharge'];
       this.options =  {
         'key': 'rzp_test_xEABeZ1FMhgxAd',
         'amount': this.totalPrice,
@@ -85,8 +85,8 @@ export class CheckoutComponent implements OnInit {
       'trans': { 'paymentId': response.razorpay_payment_id, 'gateway': 'sds', 'isSuccess': true}
     };
     this.appService.createOrder(params, (success) => {
-    this.sharedService.cartBehaviourSubj.next([]);
     setTimeout(() => {
+      this.sharedService.cartBehaviourSubj.next([]);
       this.router.navigateByUrl('');
     }, 100);
     }, (error) => {});

@@ -16,7 +16,7 @@
   </div>
   <div class="col-4 col-sm-4 col-md-4">
     <span class="color-green-theme" *ngIf="isShippingFree">FREE</span>
-    <span class="price error" *ngIf="!isShippingFree">₹ {{shippingAmt}}</span>
+    <span class="price error" *ngIf="!isShippingFree">₹ {{shippingAmt / 100}}</span>
   </div>
 </div>
 <p class="hyperlink cursor-pointer p-t-10" data-toggle="collapse" data-target="#demo">Apply Coupon</p>
@@ -38,6 +38,6 @@
     <span class="font-bold">Total Amount to Pay:</span>
   </div>
   <div class="col-4 col-sm-4 col-md-4">
-    <span class="price error">₹ {{(totalPrice / 100) + shippingAmt}}</span>
+    <span class="price error">₹ {{(totalPrice / 100) + (shippingAmt/100)}}</span>
   </div>
 </div>
