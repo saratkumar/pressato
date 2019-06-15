@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
 import { SharedService } from '../common/shared.service';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../environments/environment.prod';
 
 @Component({
   selector: 'app-checkout',
