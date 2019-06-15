@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 const devUrl='http://127.0.0.1:3344'
 export const environment = {
+  razorPayId: 'rzp_test_xEABeZ1FMhgxAd',
   production: false,
   devUrl: devUrl
 };

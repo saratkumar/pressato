@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
 import { SharedService } from '../common/shared.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-checkout',
@@ -26,11 +27,9 @@ export class CheckoutComponent implements OnInit {
     this.sharedService.cartBehaviourSubj.subscribe(data => {
       this.totalPrice = data['totalPrice'] + data['deliveryCharge'];
       this.options =  {
-        'key': 'rzp_test_xEABeZ1FMhgxAd',
+        'key': environment.razorPayId,
         'amount': this.totalPrice,
-        'name': 'Acme Corp',
-        'description': 'A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami',
-        'image': 'http://example.com/your_logo.png',
+        'name': 'Pressato',
         'handler': (response) => {
           this.createOrder(response);
         },

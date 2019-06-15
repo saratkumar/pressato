@@ -44,7 +44,9 @@ export class HeaderComponent implements OnInit {
       this.isUserLoggedIn && this.getCurrentUserDetail();
     });
     this.sharedService.cartBehaviourSubj.subscribe(data => {
-      this.orderCount = data;
+      setTimeout(() => {
+        this.orderCount = data;
+      }, 100);
     });
     this.sharedService.showNotification.subscribe(data => {
       if(data === 'cart') {

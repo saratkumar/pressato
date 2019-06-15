@@ -113,7 +113,7 @@
       <div class="col-3 pad-5 margin-auto" *ngFor="let product of listOfRelatedProduct">
         <div class="product-card">
           <div class="related-product-banner text-center" routerLink='/category/{{product.category}}/{{product._id}}' (click)="goToRelatedProduct(product)">
-            <img [src]="product.detailedLogo" class="w-100 h-100 related-product-image">
+            <img [src]="'./assets/products/'+product.name+ '.jpg'" class="w-100 h-100 related-product-image">
           </div>
           <div class="margin-auto text-center">
             <p class="text-uppercase m-0 font-bold">{{product.name}}</p>
