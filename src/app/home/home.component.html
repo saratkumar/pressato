@@ -6,7 +6,7 @@
       <div class="row" id="wrapper">
         <div class="col p-20" *ngFor="let category of listOfCategory" [hidden]="category.hide">
           <div class="circle-section cursor-pointer">
-            <p><img class="alignnone wp-image-382 size-full category-img" [src]="category.logo" alt=""></p>
+            <p><img class="alignnone wp-image-382 size-full category-img" [src]="'./assets/categories/'+category.name+ '.jpg'" alt=""></p>
             <div class="content">
               <h2 class="text-capitalize">{{category.name}}</h2>
               <p class="font-bold">{{category.shortDescription}}</p>

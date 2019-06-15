@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppService } from '../../app.service';
 import { SharedService } from '../shared.service';
-
+declare var jQuery: any;
 @Component({
   selector: 'app-products',
   templateUrl: './product-list.component.html',
@@ -15,7 +15,8 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    jQuery('[data-toggle="tooltip"]').tooltip();
+    console.log(this.productsList);
   }
 
 

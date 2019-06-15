@@ -87,7 +87,7 @@ export class CheckoutComponent implements OnInit {
     this.appService.createOrder(params, (success) => {
     this.sharedService.cartBehaviourSubj.next([]);
     setTimeout(() => {
-      this.router.navigateByUrl('/my-orders');  
+      this.router.navigateByUrl('');
     }, 100);
     }, (error) => {});
   }

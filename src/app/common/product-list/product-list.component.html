@@ -1,9 +1,10 @@
-<div class="product-list-container">
+<div class="product-list-container" style="display:table">
   
-  <div class="product-list row">
-    <div class="product col-sm-12 col-md-4 col-lg-4 text-center mb-3" *ngFor="let product of productsList" >
+  <div class="product-list row" >
+    <div class="product col-sm-12 col-md-3 col-lg-3 text-center mb-3" *ngFor="let product of productsList" style="display:table-cell">
       <div class="product-content p-3">
-          <img class="mb-2" [src]="product.logo" [routerLink]="product._id"/>
+          <!-- <img class="mb-2" [src]="product.logo" [routerLink]="product._id"/> -->
+          <img class="mb-2 w-100" [src]="'./assets/products/'+product.name+ '.jpg'" [routerLink]="product._id"/>
           <!-- <div [innerHtml]="product.name" class="font-weight-bold text-capitalize"></div> -->
           <div class="price">₹ {{product.discountPrice}}</div>
           <div class="row p-t-10">
@@ -12,17 +13,18 @@
             </div>
             <div class="col-6 pl-1">
                 <button type="submit" class="float-left button add-to-cart alt" (click)="addToCart(product)">add to cart</button>
+                <i class="fa fa-info-circle p-t-10" data-toggle="tooltip" [title]="(product.ingredient || product.benefits)"aria-hidden="true"></i>
             </div>
           </div>
           <div class="p-3">
             <span *ngIf="product.volume">
-                {{ product.quantity }} {{product.measuringUnit}}
+                {{ product.quantity }} {{product.measuringUnit}} 
             </span>
             <span *ngIf="product.noOfDays">No of days: {{product.noOfDays}}</span>
           </div>
-          <div class="ingredient">
+          <!-- <div class="ingredient">
             {{ product.ingredient || product.benefits}}
-          </div>
+          </div> -->
       </div>
     </div>
   </div>
