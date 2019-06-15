@@ -26,7 +26,7 @@ export class CheckoutComponent implements OnInit {
     this.sharedService.cartBehaviourSubj.subscribe(data => {
       this.totalPrice = data['totalPrice'];
       this.options =  {
-        'key': 'rzp_test_YxH5LHChmDM45y',
+        'key': 'rzp_test_xEABeZ1FMhgxAd',
         'amount': this.totalPrice,
         'name': 'Acme Corp',
         'description': 'A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami',

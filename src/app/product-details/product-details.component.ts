@@ -21,6 +21,7 @@ export class ProductDetailsComponent implements OnInit {
         this.productDetails = success.data;
         this.productDetails.quantity = 1;
         this.productDetails.listOfIngredient = this.productDetails.ingredient && this.productDetails.ingredient.split(',');
+        this.productDetails.nutrient = this.productDetails.nutrient && this.productDetails.nutrient.split(',');
         this.productDetails.dressing = this.productDetails.dressing && this.productDetails.dressing.split(',');
       }, (error) => {});
       this.appService.getRelatedProducts(params['category'], params['product'], (success) => {

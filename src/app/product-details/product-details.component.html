@@ -1,7 +1,7 @@
 <div class="col-12 col-md-12 col-sm-12" *ngIf="productDetails">
   <div class="row">
     <div class="col-sm-12 col-12 col-md-4 p-t-15">
-      <img src="{{productDetails.detailedLogo}}" class="w-100 h-95 banner-border custom-max-width">
+      <img [src]="'./assets/products/'+productDetails.name+ '.jpg'" class="w-100 h-95 banner-border custom-max-width">
     </div>
     <div class="col-sm-12 col-12 col-md-7">
       <h3 class="product-name p-t-20 text-capitalize"> {{productDetails.name}}</h3>
