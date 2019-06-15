@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
   showAddedCartAlert: boolean = false;
   notifier: NotifierService;
   authToken: string;
+  isAdmin: any;
   constructor(private appService: AppService, private router: Router, private sharedService: SharedService, private activatedRoute: ActivatedRoute,
     notifierService: NotifierService,
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -77,6 +78,7 @@ export class HeaderComponent implements OnInit {
     this.sharedService.setAuth(this.authToken);
     this.appService.getCurrentUser((success) => {
       this.userObj = success.data;
+      this.isAdmin = success.data.isAdmin;
       this.sharedService.setUserData(this.userObj);
       this.appService.getCurrentUserOrderDetail((success)=> {
         this.orderCount = success.data;
