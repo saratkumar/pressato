@@ -1,7 +1,7 @@
 <div class="col-12 col-md-12 col-sm-12" *ngIf="productDetails">
   <div class="row">
     <div class="col-sm-12 col-12 col-md-4 p-t-15">
-      <img [src]="'./assets/products/'+productDetails.name+ '.jpg'" class="w-100 h-95 banner-border custom-max-width">
+      <img [src]="'./assets/products/'+productDetails.detailedLogo" class="w-100 h-95 banner-border custom-max-width">
     </div>
     <div class="col-sm-12 col-12 col-md-7">
       <h3 class="product-name p-t-20 text-capitalize"> {{productDetails.name}}</h3>
@@ -107,18 +107,18 @@
     </div>
   </div>
 
-  <h3 class="p-t-b-10">Related Products</h3>
+  <h3 class="p-t-b-10" *ngIf="listOfRelatedProduct && listOfRelatedProduct.length">Related Products</h3>
   <div class="col-12 col-md-12 col-sm-12 m-t-b-10">
     <div class="row">
-      <div class="col-3 pad-5 margin-auto" *ngFor="let product of listOfRelatedProduct">
+      <div class="col-sm-12 col-12 col-md-3 pad-5 margin-auto" *ngFor="let product of listOfRelatedProduct">
         <div class="product-card">
           <div class="related-product-banner text-center" routerLink='/category/{{product.category}}/{{product._id}}' (click)="goToRelatedProduct(product)">
-            <img [src]="'./assets/products/'+product.name+ '.jpg'" class="w-100 h-100 related-product-image">
+            <img [src]="'./assets/products/'+product.detailedLogo" class="w-100 h-100 related-product-image">
           </div>
           <div class="margin-auto text-center">
             <p class="text-uppercase m-0 font-bold">{{product.name}}</p>
             <p class="product-price m-0">{{product.discountPrice}}<span>
-                {{ '-' + 300 }} {{product.measuringUnit}}
+                {{ '-' + product.volume }} {{product.measuringUnit}}
               </span></p>
             <div class="row p-t-b-10 justify-center">
               <input type="number" class="quantity mr-1 w-25" step="1" min="0" max="" name="quantity" value="1" [(ngModel)]="product.quantity">

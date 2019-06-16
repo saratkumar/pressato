@@ -29,7 +29,7 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link menu-text cursor-pointer" (click)="signIn = false;" data-toggle="modal"
-                    data-target="#myModal">signup</a>
+                    data-target="#myModal">sign up</a>
                 </li>
 
 
@@ -55,7 +55,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" [routerLink]="'my-orders'">My Orders</a>
-=                        <a class="dropdown-item" [routerLink]="'my-orders'" *ngIf="isAdmin">Admin Dashboard</a>
+                        <a class="dropdown-item" [routerLink]="'my-orders'" *ngIf="isAdmin">Admin Dashboard</a>
                         <a class="dropdown-item" (click)="onLogout()">Logout</a>
                     </div>
                   </div>
@@ -208,6 +208,8 @@
             *ngFor="let product of category.products">{{product.name}}</div>
         </div>
       </ng-container>
+      <p class="accordian-menu" [routerLink]="'/cart'" (click)="openNav()">cart</p>
+      <p class="accordian-menu" [routerLink]="'/admin-dashboard'" (click)="openNav()" *ngIf="isAdmin">Admin Dashboard</p>
       <!-- <p data-toggle="collapse" data-target="#probiotic" class="accordian-menu active-submenu collapsed">proboitic
       </p>
       <div id="probiotic" class="collapse ml-2 color-white" (click)="openNav()">

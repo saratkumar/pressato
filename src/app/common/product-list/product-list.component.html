@@ -4,9 +4,14 @@
     <div class="product col-sm-12 col-md-3 col-lg-3 text-center mb-3" *ngFor="let product of productsList">
       <div class="product-content p-3">
           <!-- <img class="mb-2" [src]="product.logo" [routerLink]="product._id"/> -->
-          <img class="mb-2 w-100" [src]="'./assets/products/'+product.name+ '.jpg'" [routerLink]="product._id"/>
+          <img class="mb-2 w-100" [src]="'./assets/products/'+product.detailedLogo" [routerLink]="product._id"/>
           <!-- <div [innerHtml]="product.name" class="font-weight-bold text-capitalize"></div> -->
-          <div class="price">₹ {{product.discountPrice}}</div>
+          <p class="price-style-1" *ngIf="product.discountPrice !== product.actualPrice">
+              <span class="actual-price">₹ {{product.actualPrice}}</span>
+              <span class="discount-price product-price p-l-10 f-s-16">{{product.discountPrice}}</span>
+            </p>
+            <p class="product-price discount-price f-s-16" *ngIf="product.discountPrice === product.actualPrice"><span>{{product.discountPrice}}</span></p>
+          <!-- <div class="price">₹ {{product.discountPrice}}</div> -->
           <div class="row p-t-10">
             <div class="col-6 pr-1">
                 <input type="number" class="float-right quantity mr-1" step="1" min="1" max="" name="quantity" value="1" [(ngModel)]="product.quantity">
@@ -18,7 +23,7 @@
           </div>
           <div class="p-3">
             <span *ngIf="product.volume">
-                {{ product.quantity }} {{product.measuringUnit}} 
+                {{ product.volume }} {{product.measuringUnit}}
             </span>
             <span *ngIf="product.noOfDays">No of days: {{product.noOfDays}}</span>
           </div>
