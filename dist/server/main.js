@@ -3715,7 +3715,7 @@ exports.TermsAndConditionsComponent = TermsAndConditionsComponent;
 Object.defineProperty(exports, "__esModule", { value: true });
 var devUrl = 'http://13.235.88.38';
 exports.environment = {
-    razorPayId: 'rzp_test_xEABeZ1FMhgxAd',
+    razorPayId: 'rzp_live_pX1OPYud5B68jy',
     production: true,
     devUrl: devUrl
 };
@@ -3738,7 +3738,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // The list of file replacements can be found in `angular.json`.
 var devUrl = 'http://127.0.0.1:3344';
 exports.environment = {
-    razorPayId: 'rzp_test_xEABeZ1FMhgxAd',
+    razorPayId: 'rzp_live_pX1OPYud5B68jy',
     production: false,
     devUrl: devUrl
 };
