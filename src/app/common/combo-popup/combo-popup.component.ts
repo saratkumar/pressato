@@ -12,7 +12,7 @@ export class ComboPopupComponent implements OnInit {
   categoryList: any;
   productList: any;
   @Input('comboName') comboName: any;
-  @Input('isProductDetail') isProductDetail: boolean;
+  @Input('isProductDetail') isProductDetail: any;
   @Output('productIds') productIds = new EventEmitter();
   selectedValue: any = {};
   constructor(private sharedService: SharedService) { }
