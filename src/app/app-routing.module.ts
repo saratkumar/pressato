@@ -17,6 +17,7 @@ import { FaqComponent } from './faq/faq.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { HomeComponent } from './home/home.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { ComboPopupComponent } from './common/combo-popup/combo-popup.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -39,6 +40,7 @@ const routes: Routes = [
   {path: 'faq', component: FaqComponent},
   {path: 'my-orders', component: MyOrdersComponent},
   {path: 'admin-dashboard', component: AdminDashboardComponent},
+  {path: 'popup', component: ComboPopupComponent},
 ];
 
 @NgModule({

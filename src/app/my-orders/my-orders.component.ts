@@ -26,6 +26,11 @@ export class MyOrdersComponent implements OnInit {
         order.cartIds.forEach(cartData => {
           listOfProductList.forEach(prod => {
             if(cartData.product === prod._id) {
+              if (cartData.product.productMeta) {
+                prod.productMeta = cartData.product.productMeta;
+                prod.product1 = listOfProductList.find(data => data._id === cartData.product.productMeta[0]);
+                prod.product2 = listOfProductList.find(data => data._id === cartData.product.productMeta[1]);
+              }
               cartData.productDetail = prod;
             }
           });

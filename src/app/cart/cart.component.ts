@@ -22,15 +22,19 @@ export class CartComponent implements OnInit {
    
   }
   getCartDetails() {
-    let products = this.sharedService.getProductList();
+    
     this.appService.getCurrentUserOrderDetail((success) => {
-      
+      let products = this.sharedService.getProductList(); 
       this.sharedService.cartBehaviourSubj.next(success.data);
       this.listOfOrder = [];
       if(success.data && success.data.carts) {
         success.data.carts.forEach(cart => {
           products.forEach(prod => {
             if(prod._id === cart.product) {
+              if (cart.productMeta) {
+                cart.product1 = products.find(data => data._id === cart.productMeta[0]);
+                cart.product2 = products.find(data => data._id === cart.productMeta[1]);
+              }
               prod.order = cart;
               this.listOfOrder.push(prod);
             } 

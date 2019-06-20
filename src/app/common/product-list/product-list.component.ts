@@ -24,4 +24,9 @@ export class ProductListComponent implements OnInit {
     this.sharedService.addItemToCart(product);
   }
 
+  getProductIdsFromCombo(ev, product) {
+    product.productMeta = ev;
+    this.sharedService.addItemToCart(product);
+  }
+
 }

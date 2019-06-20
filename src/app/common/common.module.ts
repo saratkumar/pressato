@@ -13,6 +13,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedService } from './shared.service';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { AppService } from '../app.service';
+import { ComboPopupComponent } from './combo-popup/combo-popup.component';
 
 const customNotifierOptions: NotifierOptions = {
     position: {
@@ -68,6 +69,7 @@ const customNotifierOptions: NotifierOptions = {
         ProductListComponent,
         LoginComponent,
         NewUserComponent,
+        ComboPopupComponent,
     ],
     providers: [ HttpService, SharedService, AppService ],
     exports: [
@@ -81,7 +83,8 @@ const customNotifierOptions: NotifierOptions = {
         ProductListComponent,
         FormsModule,
         HttpClientModule,
-        NotifierModule
+        NotifierModule,
+        ComboPopupComponent
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

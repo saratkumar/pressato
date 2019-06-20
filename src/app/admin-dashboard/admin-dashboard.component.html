@@ -38,6 +38,7 @@
                   </div>
                   <div class="col-9 col-sm-9 col-md-9">
                     <p class="product-name text-capitalize font-bold"> {{cart.name}}</p>
+                    <p *ngIf=cart.productMeta>{{'[' + cart.product1.name + ' + ' + cart.product2.name + ']'}}</p>
                     <p class="product-name "> {{ cart.volume }} {{cart.measuringUnit}}</p>
                   </div>
                 </div>

@@ -18,6 +18,7 @@ import { ReturnPolicyComponent } from './return-policy/return-policy.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { FaqComponent } from './faq/faq.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { ComboPopupComponent } from './common/combo-popup/combo-popup.component';
 
 export const AppRoutes: Routes = [
   
@@ -37,7 +38,7 @@ export const AppRoutes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {path: 'faq', component: FaqComponent},
   {path: 'my-orders', component: MyOrdersComponent},
-  
+  {path: 'popup', component: ComboPopupComponent},
 //   {
 //     path: '',
 //     component: CategoryComponent,

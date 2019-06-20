@@ -45,4 +45,9 @@ export class ProductDetailsComponent implements OnInit {
   goToRelatedProduct(product) {
     this.sharedService.ScrollToTop();
   }
+
+  getProductIdsFromCombo(ev, product) {
+    product.productMeta = ev;
+    this.sharedService.addItemToCart(product);
+  }
 }
