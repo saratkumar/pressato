@@ -13,10 +13,12 @@ export class PriceSummaryComponent implements OnInit {
   isShippingFree: boolean = false;
   shippingAmt: number = 0;
   showCouponError: boolean = false;
+  price: any;
   constructor(private sharedService: SharedService, private appService: AppService) { }
 
   ngOnInit() {
     this.sharedService.cartBehaviourSubj.subscribe(data => {
+      this.price = data['price'];
       this.totalPrice = data['totalPrice'];
       this.isShippingFree = data['isShippingFree'];
       this.shippingAmt = data['deliveryCharge'] ? data['deliveryCharge'] : 0

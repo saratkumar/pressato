@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
     
     this.appService.getCurrentUserOrderDetail((success) => {
       let products = this.sharedService.getProductList(); 
-      this.sharedService.cartBehaviourSubj.next(success.data);
+      this.sharedService.setOrderDetail(success.data);
       this.listOfOrder = [];
       if(success.data && success.data.carts) {
         success.data.carts.forEach(cart => {

@@ -986,7 +986,7 @@ var CartComponent = /** @class */ (function () {
         var _this = this;
         this.appService.getCurrentUserOrderDetail(function (success) {
             var products = _this.sharedService.getProductList();
-            _this.sharedService.cartBehaviourSubj.next(success.data);
+            _this.sharedService.setOrderDetail(success.data);
             _this.listOfOrder = [];
             if (success.data && success.data.carts) {
                 success.data.carts.forEach(function (cart) {
@@ -2825,7 +2825,7 @@ var SharedService = /** @class */ (function () {
             this.showLogin.next(true);
             return;
         }
-        var params = this.orderDetail.carts.find(function (data) { return data._id === product._id; });
+        var params = this.orderDetail.carts && this.orderDetail.carts.find(function (data) { return data._id === product._id; });
         var method;
         if (params) {
             params.quantity = product.quantity;
@@ -2833,11 +2833,12 @@ var SharedService = /** @class */ (function () {
         }
         else {
             method = 'postAddToCart';
-            params = { "isDeleted": false, "isBilled": false, "quantity": product.quantity, "additionalNotes": "", "address": "5cbe10be2771967f4327f3d4", "user": this.userData._id, "product": product.product };
+            params = { "isDeleted": false, "isBilled": false, "quantity": product.quantity, "additionalNotes": "", "address": "5cbe10be2771967f4327f3d4", "user": this.userData._id, "product": product._id };
             params.productMeta = product.productMeta && product.productMeta;
         }
         this.appService[method](params, function (successFn) {
             _this.appService.getCurrentUserOrderDetail(function (success) {
+                _this.orderDetail = success.data;
                 _this.cartBehaviourSubj.next(success.data);
                 if (method === 'postAddToCart') {
                     _this.showNotification.next('cart');
@@ -3473,7 +3474,7 @@ function View_PriceSummaryComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵel
     } return ad; }, null, null)), i1.ɵdid(27, 16384, null, 0, i3.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i3.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵprd(1024, null, i3.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i3.DefaultValueAccessor]), i1.ɵdid(29, 671744, null, 0, i3.NgModel, [[8, null], [8, null], [8, null], [6, i3.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i3.NgControl, null, [i3.NgModel]), i1.ɵdid(31, 16384, null, 0, i3.NgControlStatus, [[4, i3.NgControl]], null, null), (_l()(), i1.ɵeld(32, 0, null, null, 2, "div", [["class", "col-4 col-sm-4 col-md-4"]], null, null, null, null, null)), (_l()(), i1.ɵeld(33, 0, null, null, 1, "button", [["class", "btn btn-link"], ["type", "submit"]], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.applyCoupon() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, [" Apply"])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PriceSummaryComponent_3)), i1.ɵdid(36, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(37, 0, null, null, 0, "hr", [["class", "w-100"]], null, null, null, null, null)), (_l()(), i1.ɵeld(38, 0, null, null, 6, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵeld(39, 0, null, null, 2, "div", [["class", "col-8 col-sm-8 col-md-8"]], null, null, null, null, null)), (_l()(), i1.ɵeld(40, 0, null, null, 1, "span", [["class", "font-bold"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Total Amount to Pay:"])), (_l()(), i1.ɵeld(42, 0, null, null, 2, "div", [["class", "col-4 col-sm-4 col-md-4"]], null, null, null, null, null)), (_l()(), i1.ɵeld(43, 0, null, null, 1, "span", [["class", "price error"]], null, null, null, null, null)), (_l()(), i1.ɵted(44, null, ["\u20B9 ", ""]))], function (_ck, _v) { var _co = _v.component; var currVal_1 = _co.isShippingFree; _ck(_v, 16, 0, currVal_1); var currVal_2 = !_co.isShippingFree; _ck(_v, 18, 0, currVal_2); var currVal_10 = _co.couponCode; _ck(_v, 29, 0, currVal_10); var currVal_12 = (_co.showCouponError && _co.couponCode); _ck(_v, 36, 0, currVal_12); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = (_co.totalPrice / 100); _ck(_v, 9, 0, currVal_0); var currVal_3 = i1.ɵnov(_v, 31).ngClassUntouched; var currVal_4 = i1.ɵnov(_v, 31).ngClassTouched; var currVal_5 = i1.ɵnov(_v, 31).ngClassPristine; var currVal_6 = i1.ɵnov(_v, 31).ngClassDirty; var currVal_7 = i1.ɵnov(_v, 31).ngClassValid; var currVal_8 = i1.ɵnov(_v, 31).ngClassInvalid; var currVal_9 = i1.ɵnov(_v, 31).ngClassPending; _ck(_v, 26, 0, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7, currVal_8, currVal_9); var currVal_11 = !_co.couponCode; _ck(_v, 33, 0, currVal_11); var currVal_13 = ((_co.totalPrice / 100) + (_co.shippingAmt / 100)); _ck(_v, 44, 0, currVal_13); }); }
+    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, [" Apply"])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PriceSummaryComponent_3)), i1.ɵdid(36, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(37, 0, null, null, 0, "hr", [["class", "w-100"]], null, null, null, null, null)), (_l()(), i1.ɵeld(38, 0, null, null, 6, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵeld(39, 0, null, null, 2, "div", [["class", "col-8 col-sm-8 col-md-8"]], null, null, null, null, null)), (_l()(), i1.ɵeld(40, 0, null, null, 1, "span", [["class", "font-bold"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Total Amount to Pay:"])), (_l()(), i1.ɵeld(42, 0, null, null, 2, "div", [["class", "col-4 col-sm-4 col-md-4"]], null, null, null, null, null)), (_l()(), i1.ɵeld(43, 0, null, null, 1, "span", [["class", "price error"]], null, null, null, null, null)), (_l()(), i1.ɵted(44, null, ["\u20B9 ", ""]))], function (_ck, _v) { var _co = _v.component; var currVal_1 = _co.isShippingFree; _ck(_v, 16, 0, currVal_1); var currVal_2 = !_co.isShippingFree; _ck(_v, 18, 0, currVal_2); var currVal_10 = _co.couponCode; _ck(_v, 29, 0, currVal_10); var currVal_12 = (_co.showCouponError && _co.couponCode); _ck(_v, 36, 0, currVal_12); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.price; _ck(_v, 9, 0, currVal_0); var currVal_3 = i1.ɵnov(_v, 31).ngClassUntouched; var currVal_4 = i1.ɵnov(_v, 31).ngClassTouched; var currVal_5 = i1.ɵnov(_v, 31).ngClassPristine; var currVal_6 = i1.ɵnov(_v, 31).ngClassDirty; var currVal_7 = i1.ɵnov(_v, 31).ngClassValid; var currVal_8 = i1.ɵnov(_v, 31).ngClassInvalid; var currVal_9 = i1.ɵnov(_v, 31).ngClassPending; _ck(_v, 26, 0, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7, currVal_8, currVal_9); var currVal_11 = !_co.couponCode; _ck(_v, 33, 0, currVal_11); var currVal_13 = (_co.totalPrice / 100); _ck(_v, 44, 0, currVal_13); }); }
 exports.View_PriceSummaryComponent_0 = View_PriceSummaryComponent_0;
 function View_PriceSummaryComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-price-summary", [], null, null, null, View_PriceSummaryComponent_0, RenderType_PriceSummaryComponent)), i1.ɵdid(1, 114688, null, 0, i4.PriceSummaryComponent, [i5.SharedService, i6.AppService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_PriceSummaryComponent_Host_0 = View_PriceSummaryComponent_Host_0;
@@ -3508,6 +3509,7 @@ var PriceSummaryComponent = /** @class */ (function () {
     PriceSummaryComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.sharedService.cartBehaviourSubj.subscribe(function (data) {
+            _this.price = data['price'];
             _this.totalPrice = data['totalPrice'];
             _this.isShippingFree = data['isShippingFree'];
             _this.shippingAmt = data['deliveryCharge'] ? data['deliveryCharge'] : 0;

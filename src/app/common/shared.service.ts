@@ -82,6 +82,7 @@ export class SharedService {
 
     this.appService[method](params, (successFn) => {
       this.appService.getCurrentUserOrderDetail((success) => {
+        this.orderDetail = success.data;
         this.cartBehaviourSubj.next(success.data);
         if (method === 'postAddToCart') {
           this.showNotification.next('cart');
