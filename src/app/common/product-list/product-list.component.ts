@@ -16,7 +16,6 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     jQuery('[data-toggle="tooltip"]').tooltip();
-    console.log(this.productsList);
   }
 
 

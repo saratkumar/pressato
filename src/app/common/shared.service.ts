@@ -76,7 +76,7 @@ export class SharedService {
       method = 'updateCart';
     } else {
       method = 'postAddToCart';
-      params = { "isDeleted": false, "isBilled": false, "quantity": product.quantity, "additionalNotes": "", "address": "5cbe10be2771967f4327f3d4", "user": this.userData._id, "product": product._id }
+      params = { "isDeleted": false, "isBilled": false, "quantity": product.quantity, "additionalNotes": "", "address": "5cbe10be2771967f4327f3d4", "user": this.userData._id, "product": product.product }
       params.productMeta = product.productMeta && product.productMeta;
     }
 

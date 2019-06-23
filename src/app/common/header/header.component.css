@@ -5,6 +5,17 @@
     text-align: center
 }
 
+.menu-text:hover {
+    color: #109B48 !important;
+    cursor: pointer;
+}
+
+.header-theme {
+  background: #333;
+  border-bottom: 2px solid #109B48;
+  padding:0px;
+}
+
 .text-align-left {
     text-align: left;
 }

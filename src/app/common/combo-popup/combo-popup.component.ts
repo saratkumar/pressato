@@ -18,11 +18,6 @@ export class ComboPopupComponent implements OnInit {
   constructor(private sharedService: SharedService) { }
 
   ngOnInit() {
-    setTimeout(() => {
-      // this.categoryList = JSON.parse(JSON.stringify(this.sharedService.getCategoryList()));
-      // this.productList = JSON.parse(JSON.stringify(this.sharedService.getProductList()));
-      
-    }, 1000);
 
   }
 
@@ -31,8 +26,8 @@ export class ComboPopupComponent implements OnInit {
       let productList;
       switch (this.comboName) {
         case 'salad + smoothie':
-          categoryList = this.sharedService.getCategoryList();
-          productList = this.sharedService.getProductList();
+          categoryList = JSON.parse(JSON.stringify(this.sharedService.getCategoryList()));
+          productList = JSON.parse(JSON.stringify(this.sharedService.getProductList()));
           this.listOfCategory = categoryList.filter((data: any) =>
             (data.name === 'salads' || data.name === 'smoothies'));
           this.listOfCategory.forEach(category => {
@@ -49,8 +44,8 @@ export class ComboPopupComponent implements OnInit {
           });
           break;
         case 'salad + whey smoothies':
-            categoryList = this.sharedService.getCategoryList();
-          productList = this.sharedService.getProductList();
+          categoryList = JSON.parse(JSON.stringify(this.sharedService.getCategoryList()));
+          productList = JSON.parse(JSON.stringify(this.sharedService.getProductList()));
           this.listOfCategory = categoryList.filter((data: any) =>
             (data.name === 'salads' || data.name === 'smoothies'));
           this.listOfCategory.forEach(category => {
@@ -67,8 +62,8 @@ export class ComboPopupComponent implements OnInit {
           });
           break;
         case 'salad + cold pressed juice':
-            categoryList = this.sharedService.getCategoryList();
-          productList = this.sharedService.getProductList();
+          categoryList = JSON.parse(JSON.stringify(this.sharedService.getCategoryList()));
+          productList = JSON.parse(JSON.stringify(this.sharedService.getProductList()));
           this.listOfCategory = categoryList.filter((data: any) =>
             (data.name === 'salads' || data.name === 'cold pressed juices'));
           this.listOfCategory.forEach(category => {
@@ -85,8 +80,8 @@ export class ComboPopupComponent implements OnInit {
           });
           break;
         case 'salad + probiotics':
-            categoryList = this.sharedService.getCategoryList();
-          productList = this.sharedService.getProductList();
+          categoryList = JSON.parse(JSON.stringify(this.sharedService.getCategoryList()));
+          productList = JSON.parse(JSON.stringify(this.sharedService.getProductList()));
           this.listOfCategory = categoryList.filter((data: any) =>
             (data.name === 'salads' || data.name === 'probiotics'));
           this.listOfCategory.forEach(category => {
@@ -103,8 +98,8 @@ export class ComboPopupComponent implements OnInit {
           });
           break;
         case 'cold pressed juice + power bowl':
-            categoryList = this.sharedService.getCategoryList();
-          productList = this.sharedService.getProductList();
+          categoryList = JSON.parse(JSON.stringify(this.sharedService.getCategoryList()));
+          productList = JSON.parse(JSON.stringify(this.sharedService.getProductList()));
           this.listOfCategory = categoryList.filter((data: any) =>
             (data.name === 'salads' || data.name === 'cold pressed juices'));
           this.listOfCategory.forEach(category => {
@@ -118,8 +113,8 @@ export class ComboPopupComponent implements OnInit {
           });
           break;
       }
-      jQuery('#commonPopup').modal('toggle');
-
+      console.log(this.listOfCategory, 'listOfCategory');
+      (this.listOfCategory && this.listOfCategory.length) && jQuery('#commonPopup').modal('toggle');
   }
 
   proceedFurther() {

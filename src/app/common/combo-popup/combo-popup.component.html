@@ -8,18 +8,19 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-            <h4 class="modal-title">Combo Selection</h4>
+            <h5 class="modal-title">Please select combo</h5>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           
         </div>
-        <div class="modal-body text-left">
+        <div class="modal-body text-left" *ngIf="listOfCategory && listOfCategory.length">
             <ng-container *ngFor="let category of listOfCategory;">
-                <h5 class="text-uppercase"> {{category.name}} </h5>
+                <h5 class="text-uppercase category-name"> {{category.name}} </h5>
                 <div class="col-md-12 col-12 col-sm-12">
                   <div class="row">
                     <ng-container *ngFor="let prod of category.products;let index=index">
-                      <div class="col-md-6 col-12 col-sm-12" *ngIf="prod.category === category._id">
-                        <input type="radio" name="{{category._id}}" [value]="prod._id" [(ngModel)]="selectedValue[prod._id]"> {{prod.name}}
+                      <div class="col-md-6 col-12 col-sm-12 p-1" *ngIf="prod.category === category._id">
+                        <label class="radio-inline">
+                        <input type="radio" class="form-radio" name="{{category._id}}" [value]="prod._id" [(ngModel)]="selectedValue[prod._id]"> {{prod.name}}</label>
                       </div>
                     </ng-container>
                   </div>

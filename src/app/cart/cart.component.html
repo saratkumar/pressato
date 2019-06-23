@@ -16,7 +16,7 @@
               </div>
               <div class="col-9 col-sm-9 col-md-9">
                 <h4 class="product-name"> {{cart.name}}</h4>
-                <p *ngIf=cart.order.productMeta>{{'[' + cart.order.product1.name + ' + ' + cart.order.product2.name + ']'}}</p>
+                <p *ngIf="cart.order.productMeta && cart.order.productMeta.length">{{'[' + cart.order.product1.name + ' + ' + cart.order.product2.name + ']'}}</p>
                 <p><span class="stock-text"> In stock </span> <span class="p-l-10 delete-error text-underline"
                     (click)="removeFromCart(index, cart.order)">Delete</span></p>
               </div>

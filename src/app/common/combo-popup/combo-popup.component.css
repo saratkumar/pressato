@@ -14,3 +14,56 @@
     line-height: 1.125rem;
     border: solid 1px #2c2c2c;
 }
+
+.form-radio
+{
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     display: inline-block;
+     position: relative;
+     background-color: transparent;
+     color: #666;
+     top: 6px;
+     height: 20px;
+     width: 20px;
+     border: 1px solid #109B48;
+     border-radius: 50px;
+     cursor: pointer;     
+     margin-right: 7px;
+     outline: none;
+}
+.form-radio:checked::before
+{
+    position: absolute;
+    font: 13px/1 'Open Sans', sans-serif;
+    left: 4px;
+    top: 1px;
+    content: '\02143';
+    -webkit-transform: rotate(40deg);
+    transform: rotate(40deg);
+    font-weight: bold;
+    font-size: 14px;
+    color: #109B48;
+}
+.form-radio:hover
+{
+     /* background-color: #f7f7f7; */
+}
+.form-radio:checked
+{
+     background-color: #f1f1f1;
+}
+label
+{
+     font: 15px/1.7 'Open Sans', sans-serif;
+     color: #333;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+     cursor: pointer;
+} 
+
+.category-name {
+    font-size: 14px;
+    font-weight: bold
+}
