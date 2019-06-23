@@ -69,14 +69,14 @@ export class SharedService {
       this.showLogin.next(true);
       return;
     }
-    let params = this.orderDetail.carts.find(data => data._id === product._id);
+    let params = this.orderDetail.carts && this.orderDetail.carts.find(data => data._id === product._id);
     let method;
     if (params) {
       params.quantity = product.quantity;
       method = 'updateCart';
     } else {
       method = 'postAddToCart';
-      params = { "isDeleted": false, "isBilled": false, "quantity": product.quantity, "additionalNotes": "", "address": "5cbe10be2771967f4327f3d4", "user": this.userData._id, "product": product.product }
+      params = { "isDeleted": false, "isBilled": false, "quantity": product.quantity, "additionalNotes": "", "address": "5cbe10be2771967f4327f3d4", "user": this.userData._id, "product": product._id }
       params.productMeta = product.productMeta && product.productMeta;
     }
 
