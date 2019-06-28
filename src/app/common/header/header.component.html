@@ -200,9 +200,9 @@
     <div class="col-12 col-sm-12 p-t-20 text-uppercase">
       <p class="accordian-menu" [routerLink]="''" (click)="openNav()">home</p>
       <ng-container *ngFor="let category of categoryList;">
-        <p data-toggle="collapse" [attr.data-target]="'#demo'+category._id" class="accordian-menu active-submenu collapsed">
+        <a data-toggle="collapse" [attr.data-target]="'#demo'+category._id" class="accordian-menu active-submenu collapsed">
           {{category.name}}
-        </p>
+        </a>
         <div [attr.id]="'demo'+category._id" class="collapse  ml-2 color-white" (click)="openNav()">
           <div class="p-10 accordian-submenu" routerLink="category/{{category._id}}/{{product._id}}"
             *ngFor="let product of category.products">{{product.name}}</div>
