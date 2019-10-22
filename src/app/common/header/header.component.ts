@@ -5,6 +5,8 @@ import { SharedService } from '../shared.service';
 import { NotifierService } from 'angular-notifier';
 import { LOCAL_STORAGE } from '@ng-toolkit/universal'; 
 import { isPlatformBrowser } from '@angular/common';
+import { AuthService } from 'angular-6-social-login';
+import { Socialusers } from '../Models/sociallogin';
 declare var jQuery: any;
 @Component({
   selector: 'app-header',
@@ -12,6 +14,7 @@ declare var jQuery: any;
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  socialusers = new Socialusers();  
   showSideMenu: boolean = false;
   signIn: boolean = false;
   isUserLoggedIn: boolean = false;
@@ -30,12 +33,16 @@ export class HeaderComponent implements OnInit {
   constructor(private appService: AppService, private router: Router, private sharedService: SharedService, private activatedRoute: ActivatedRoute,
     notifierService: NotifierService,
     @Inject(PLATFORM_ID) private platformId: Object,
-    @Inject(LOCAL_STORAGE) private localStorage: any
+    @Inject(LOCAL_STORAGE) private localStorage: any,
+    public OAuth: AuthService
     ) {this.notifier = notifierService; }
 
   ngOnInit() {
     this.getCategoryList();
     
+    this.socialusers = JSON.parse(localStorage.getItem('socialusers'));
+    console.log(this.socialusers.image);  
+
     this.sharedService.authBehaviourSubj.subscribe(data => {
       if (isPlatformBrowser(this.platformId)) {
         this.authToken = this.localStorage.getItem('token');
@@ -131,6 +138,10 @@ export class HeaderComponent implements OnInit {
       }
       this.sharedService.authBehaviourSubj.next(false);
       this.sharedService.cartBehaviourSubj.next([]);
+      this.OAuth.signOut().then(data => {
+        debugger;
+        this.router.navigateByUrl('');
+      }); 
       this.router.navigateByUrl('');
 
     }, (error) => {});

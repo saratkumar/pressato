@@ -1,6 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AppService } from '../../app.service';
 import { SharedService } from '../shared.service';
+import { Socialusers } from '../Models/sociallogin';
+import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angular-6-social-login';
+import { SocialLoginService } from '../social-login.service';
+import { Router } from '@angular/router';
+import { debug } from 'util';
 declare var jQuery:any; 
 
 @Component({
@@ -12,9 +17,16 @@ export class LoginComponent implements OnInit {
   params: Object = {};
   showError: boolean = false;
   @Output() signUp = new EventEmitter();
+
+  response;
+  socialusers = new Socialusers();
+  
   constructor(
     private appService: AppService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    public OAuth: AuthService,
+    private SocialloginService: SocialLoginService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -34,5 +46,35 @@ export class LoginComponent implements OnInit {
       this.showError = true;
     });
   }
+
+
+  public socialSignIn(socialProvider: string) {
+    let socialPlatformProvider;
+    if (socialProvider === 'facebook') {
+      socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+    } else if (socialProvider === 'google') {
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+    }
+    this.OAuth.signIn(socialPlatformProvider).then(socialusers => {
+      debugger;
+      console.log(socialProvider, socialusers);
+      console.log(socialusers);
+      this.Savesresponse(socialusers);
+    });
+
+    
+  } 
+
+  Savesresponse(socialusers: Socialusers) {
+    this.SocialloginService.Savesresponse(socialusers).subscribe((res: any) => {
+      debugger;
+      console.log(res);
+      this.socialusers = res;
+      this.response = res.userDetail;
+      localStorage.setItem('socialusers', JSON.stringify(this.socialusers));
+      console.log(localStorage.setItem('socialusers', JSON.stringify(this.socialusers)));
+      this.router.navigate([`/`]);
+    })
+  } 
 
 }

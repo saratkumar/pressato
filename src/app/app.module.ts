@@ -42,6 +42,24 @@ import { NgtUniversalModule } from '@ng-toolkit/universal';
 import { AppService } from './app.service';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
+import { GoogleLoginProvider, FacebookLoginProvider, AuthService } from 'angular-6-social-login';
+import { SocialLoginModule, AuthServiceConfig } from 'angular-6-social-login'; 
+export function socialConfigs() {
+  const config = new AuthServiceConfig(
+    [
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider('app -id')
+      },
+      {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider('485140945919-ds5kg374baag2l1rgirvnn1gabh0ajbq.apps.googleusercontent.com')
+      }
+    ]
+  );
+  return config;
+}  
+
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({ appId: 'tour-of-heroes' }),
@@ -82,7 +100,10 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     MyOrdersComponent,
     AdminDashboardComponent
   ],
-  providers: [ AppService ],
+  providers: [AppService, AuthService, {
+    provide: AuthServiceConfig,
+    useFactory: socialConfigs
+  } ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
