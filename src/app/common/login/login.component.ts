@@ -47,6 +47,15 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  guestUser() {
+    this.appService.postLoginAsGuestUser('', (success) => {
+      localStorage.setItem('token', JSON.stringify(success.data.authToken));
+      this.sharedService.authBehaviourSubj.next(true);
+      jQuery("#myModal").modal("hide");
+    }, (error) => {
+      // this.showError = true;
+    });
+  }
 
   public socialSignIn(socialProvider: string) {
     let socialPlatformProvider;
@@ -76,5 +85,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate([`/`]);
     })
   } 
+
+  
 
 }

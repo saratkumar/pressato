@@ -27,3 +27,21 @@
 .modal-body {
     min-height:400px;
   }
+
+  .google-button {
+       background: white;
+       color: red;
+  }
+
+  .font-color-red { 
+      color: red
+  }
+
+  .or-separator {
+    margin-top: -29px;
+    margin-left: calc(90% / 2);
+    z-index: 1;
+    font-weight: bold;
+    background-color: white;
+    width: 38px;
+  }

@@ -41,12 +41,17 @@
 
               <button type="submit" class="btn w-100 text-uppercase black-theme color-white"
                 [disabled]="!f.form.valid">sign in</button>
+                
+                
+              <button type="button" class="btn w-100 text-uppercase m-t-10 google-button"
+                (click)="socialSignIn('google')">sign
+                in using <i class="fa fa-google font-color-red" aria-hidden="true"></i></button>
+                <hr class="w-100 m-t-5">
+                <div class="or-separator">(OR)</div>
+                <button type="button" class="btn w-100 text-uppercase black-theme color-white m-t-10" (click)="guestUser()">Continue as Guest</button>
               <div class="row col-12 col-md-12 col-sm-12 f-s-12 p-t-10">
                 <span class="error">*</span>We do not share your personal details with anyone
               </div>
-<button (click)="socialSignIn('google')" class="loginBtn loginBtn--google">
-  Login with Google
-</button>
             </form>
           </div>
         </div>

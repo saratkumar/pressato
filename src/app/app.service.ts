@@ -14,6 +14,7 @@ export class AppService {
 
   appServiceConst = {
     'login' : environment.devUrl +  '/v1/sessions',
+    'guestUser': environment.devUrl + '/v1/guestUser',
     'logout': environment.devUrl + '/v1/sessions',
     'newUser': environment.devUrl + '/v1/users',
     'category': environment.devUrl + '/v1/category',
@@ -35,6 +36,10 @@ export class AppService {
 
   postLoginUser(data, successFn, errorFn) {
     return this.httpService.postHttp(this.appServiceConst.login, data, successFn, errorFn);
+  }
+
+  postLoginAsGuestUser(data, successFn, errorFn) {
+    return this.httpService.postHttp(this.appServiceConst.guestUser, data, successFn, errorFn);
   }
 
   postNewUser(data, successFn, errorFn) {
