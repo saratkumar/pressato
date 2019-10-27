@@ -4142,7 +4142,8 @@ exports.TermsAndConditionsComponent = TermsAndConditionsComponent;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var devUrl = 'https://pressato.in';
+//const devUrl='https://pressato.in';
+var devUrl = 'http://127.0.0.1:3344';
 exports.environment = {
     razorPayId: 'rzp_live_pX1OPYud5B68jy',
     production: true,
