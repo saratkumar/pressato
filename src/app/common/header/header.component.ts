@@ -41,7 +41,6 @@ export class HeaderComponent implements OnInit {
     this.getCategoryList();
     
     this.socialusers = JSON.parse(localStorage.getItem('socialusers'));
-    console.log(this.socialusers.image);  
 
     this.sharedService.authBehaviourSubj.subscribe(data => {
       if (isPlatformBrowser(this.platformId)) {
