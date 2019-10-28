@@ -131,18 +131,24 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout() {
+    if(this.userObj && !this.userObj.provider) {
+      this.logoutFromSite();
+    } else {
+      this.OAuth.signOut().then(data => {
+        this.logoutFromSite();
+      });
+    }
+  }
+
+  logoutFromSite() {
     this.appService.logout((success) => {
-      if (isPlatformBrowser(this.platformId)) { 
+      if (isPlatformBrowser(this.platformId)) {
         this.localStorage.removeItem('token');
       }
       this.sharedService.authBehaviourSubj.next(false);
       this.sharedService.cartBehaviourSubj.next([]);
-      this.OAuth.signOut().then(data => {
-        debugger;
-        this.router.navigateByUrl('');
-      }); 
       this.router.navigateByUrl('');
 
-    }, (error) => {});
+    }, (error) => { });
   }
 }
