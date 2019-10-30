@@ -45,6 +45,7 @@ export class HeaderComponent implements OnInit {
     this.sharedService.authBehaviourSubj.subscribe(data => {
       if (isPlatformBrowser(this.platformId)) {
         this.authToken = this.localStorage.getItem('token');
+        this.sharedService.setAuth(this.authToken);
       }
       this.isUserLoggedIn = this.authToken ? true : false;
       this.isUserLoggedIn && this.getCurrentUserDetail();
@@ -83,7 +84,6 @@ export class HeaderComponent implements OnInit {
     });
   }
   getCurrentUserDetail() {
-    this.sharedService.setAuth(this.authToken);
     this.appService.getCurrentUser((success) => {
       this.userObj = success.data;
       this.isAdmin = success.data.isAdmin;
@@ -147,6 +147,9 @@ export class HeaderComponent implements OnInit {
       }
       this.sharedService.authBehaviourSubj.next(false);
       this.sharedService.cartBehaviourSubj.next([]);
+      this.sharedService.setAuth('');
+      this.sharedService.setCartItem('');
+      this.sharedService.setUserData('');
       this.router.navigateByUrl('');
 
     }, (error) => { });

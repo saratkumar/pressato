@@ -20,6 +20,7 @@ export class SharedService {
   userData: any;
   productList: any;
   authToken: string;
+  cartItems: any;
   constructor(private appService: AppService,
     @Inject(PLATFORM_ID) private platformId: Object,
     @Inject(WINDOW) private window: Window,
@@ -47,6 +48,10 @@ export class SharedService {
     this.authToken = token;
   }
 
+  getAuth() {
+    return this.authToken;
+  }
+
   setOrderDetail(orderDetail) {
     this.orderDetail = orderDetail;
     this.cartBehaviourSubj.next(orderDetail);
@@ -64,8 +69,17 @@ export class SharedService {
     return this.userData;
   }
 
+  setCartItem(product): any {
+    this.cartItems = product;
+  }
+
+  getCartItem() {
+    return this.cartItems;
+  }
+
   addItemToCart(product) {
     if (!this.authToken) {
+      this.setCartItem(product);
       this.showLogin.next(true);
       return;
     }

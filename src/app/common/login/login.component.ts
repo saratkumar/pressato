@@ -42,6 +42,12 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', JSON.stringify(success.data.authToken));
       this.sharedService.authBehaviourSubj.next(true);
       jQuery("#myModal").modal("hide");
+      setTimeout(() => {
+        let cartItem = this.sharedService.getCartItem();
+        if (cartItem) {
+          this.sharedService.addItemToCart(cartItem);
+        }
+      }, 100);
     }, (error)=> {
       this.showError = true;
     });
@@ -52,6 +58,13 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', JSON.stringify(success.data.authToken));
       this.sharedService.authBehaviourSubj.next(true);
       jQuery("#myModal").modal("hide");
+      setTimeout(() => {
+        let cartItem = this.sharedService.getCartItem();
+        if (cartItem) {
+          this.sharedService.addItemToCart(cartItem);
+        }
+      }, 100);
+      
     }, (error) => {
       // this.showError = true;
     });
@@ -65,9 +78,6 @@ export class LoginComponent implements OnInit {
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
     }
     this.OAuth.signIn(socialPlatformProvider).then(socialusers => {
-      debugger;
-      console.log(socialProvider, socialusers);
-      console.log(socialusers);
       this.Savesresponse(socialusers);
     });
 
