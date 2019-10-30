@@ -2199,16 +2199,23 @@ var HeaderComponent = /** @class */ (function () {
     };
     HeaderComponent.prototype.onLogout = function () {
         var _this = this;
+        if (this.userObj && !this.userObj.provider) {
+            this.logoutFromSite();
+        }
+        else {
+            this.OAuth.signOut().then(function (data) {
+                _this.logoutFromSite();
+            });
+        }
+    };
+    HeaderComponent.prototype.logoutFromSite = function () {
+        var _this = this;
         this.appService.logout(function (success) {
             if (common_1.isPlatformBrowser(_this.platformId)) {
                 _this.localStorage.removeItem('token');
             }
             _this.sharedService.authBehaviourSubj.next(false);
             _this.sharedService.cartBehaviourSubj.next([]);
-            _this.OAuth.signOut().then(function (data) {
-                debugger;
-                _this.router.navigateByUrl('');
-            });
             _this.router.navigateByUrl('');
         }, function (error) { });
     };
@@ -4142,8 +4149,8 @@ exports.TermsAndConditionsComponent = TermsAndConditionsComponent;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-//const devUrl='https://pressato.in';
-var devUrl = 'http://127.0.0.1:3344';
+var devUrl = 'https://pressato.in';
+//const devUrl = 'http://127.0.0.1:3344'
 exports.environment = {
     razorPayId: 'rzp_live_pX1OPYud5B68jy',
     production: true,
