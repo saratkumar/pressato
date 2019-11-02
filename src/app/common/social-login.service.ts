@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class SocialLoginService {
-  url = environment.devUrl + '/api/Login/Savesresponse';
+  url = environment.devUrl + '/v1/socialLogin';
   constructor(
     private http: HttpClient
   ) { }

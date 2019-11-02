@@ -37,6 +37,10 @@
       color: red
   }
 
+  .font-color-blue {
+      color: #3578E5;
+  }
+
   .or-separator {
     margin-top: -29px;
     margin-left: calc(90% / 2);

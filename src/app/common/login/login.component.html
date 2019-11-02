@@ -45,7 +45,10 @@
                 
               <button type="button" class="btn w-100 text-uppercase m-t-10 google-button"
                 (click)="socialSignIn('google')">sign
-                in using <i class="fa fa-google font-color-red" aria-hidden="true"></i></button>
+                in using <i class="fa fa-google font-color-red" aria-hidden="true"></i></button> 
+                <button type="button" class="btn w-100 text-uppercase m-t-10 google-button font-color-blue" (click)="socialSignIn('facebook')">sign
+                  in using <i class="fa fa-facebook-square font-color-blue" aria-hidden="true"></i></button>
+                
                 <hr class="w-100 m-t-5">
                 <div class="or-separator">(OR)</div>
                 <button type="button" class="btn w-100 text-uppercase black-theme color-white m-t-10" (click)="guestUser()">Continue as Guest</button>

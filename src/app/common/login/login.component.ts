@@ -86,13 +86,15 @@ export class LoginComponent implements OnInit {
 
   Savesresponse(socialusers: Socialusers) {
     this.SocialloginService.Savesresponse(socialusers).subscribe((res: any) => {
-      debugger;
-      console.log(res);
-      this.socialusers = res;
-      this.response = res.userDetail;
-      localStorage.setItem('socialusers', JSON.stringify(this.socialusers));
-      console.log(localStorage.setItem('socialusers', JSON.stringify(this.socialusers)));
-      this.router.navigate([`/`]);
+      localStorage.setItem('token', JSON.stringify(res.data.authToken));
+      this.sharedService.authBehaviourSubj.next(true);
+      jQuery("#myModal").modal("hide");
+      setTimeout(() => {
+        let cartItem = this.sharedService.getCartItem();
+        if (cartItem) {
+          this.sharedService.addItemToCart(cartItem);
+        }
+      }, 100);
     })
   } 
 
