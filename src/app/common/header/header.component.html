@@ -241,9 +241,9 @@
         <div class="accordian-submenu p-10" routerLink="category/smootheis/thalaiva">thalaiva</div>
       </div> -->
       <ng-container *ngIf="!isUserLoggedIn">
-        <p class="accordian-menu" [routerLink]="" (click)="openNav();signIn = true;" data-toggle="modal"
+        <p class="accordian-menu" [routerLink]="" (click)="openNav();showSignIn = true;" data-toggle="modal"
           data-target="#myModal">login</p>
-        <p class="accordian-menu" [routerLink]="" (click)="openNav();signIn = false;" data-toggle="modal"
+        <p class="accordian-menu" [routerLink]="" (click)="openNav();showSignIn = false;" data-toggle="modal"
           data-target="#myModal">register</p>
       </ng-container>
       <p class="accordian-menu" [routerLink]="" (click)="openNav();onLogout()" *ngIf="isUserLoggedIn">logout</p>

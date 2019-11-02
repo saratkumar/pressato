@@ -16,7 +16,7 @@ declare var jQuery: any;
 export class HeaderComponent implements OnInit {
   socialusers = new Socialusers();  
   showSideMenu: boolean = false;
-  signIn: boolean = false;
+  showSignIn: boolean = true;
   isUserLoggedIn: boolean = false;
   categoryList: Array<any> = [];
   userObj: any;
@@ -78,7 +78,7 @@ export class HeaderComponent implements OnInit {
 
     this.sharedService.showLogin.subscribe(data => {
       if (data) {
-        this.signIn = true;
+        this.showSignIn = true;
         jQuery('#myModal').modal('show');
       }
     });
