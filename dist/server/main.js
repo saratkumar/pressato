@@ -1948,10 +1948,10 @@ var styles_HeaderComponent = [i0.styles];
 var RenderType_HeaderComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_HeaderComponent, data: {} });
 exports.RenderType_HeaderComponent = RenderType_HeaderComponent;
 function View_HeaderComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 6, null, null, null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 2, "li", [["class", "nav-item"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "a", [["class", "nav-link menu-text cursor-pointer"], ["data-target", "#myModal"], ["data-toggle", "modal"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = ((_co.signIn = true) !== false);
+        var pd_0 = ((_co.showSignIn = true) !== false);
         ad = (pd_0 && ad);
     } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["login"])), (_l()(), i1.ɵeld(4, 0, null, null, 2, "li", [["class", "nav-item"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 1, "a", [["class", "nav-link menu-text cursor-pointer"], ["data-target", "#myModal"], ["data-toggle", "modal"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = ((_co.signIn = false) !== false);
+        var pd_0 = ((_co.showSignIn = false) !== false);
         ad = (pd_0 && ad);
     } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["sign up"]))], null, null); }
 function View_HeaderComponent_3(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "a", [["class", "dropdown-item"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
@@ -2743,11 +2743,12 @@ var NewUserComponent = /** @class */ (function () {
         this.showPasswordError = false;
         if (this.newUserObj.termsAndConditions && this.passwordCheck()) {
             this.appService.postNewUser(this.newUserObj, function (success) {
+                console.log("coming here");
                 jQuery("#myModal").modal("hide");
                 _this.sharedService.showNotification.next('signup');
             }, function (error) {
                 _this.showInternalError = true;
-                _this.errorMessage = error.message ? error.message : 'Please try after sometime.';
+                _this.errorMessage = error.message ? error.error.message ? error.error.message : 'Please try after sometime.' : 'Please try after sometime.';
             });
         }
         else if (!this.newUserObj.termsAndConditions) {
