@@ -36,12 +36,12 @@ export class NewUserComponent implements OnInit {
     this.showPasswordError = false;
     if(this.newUserObj.termsAndConditions && this.passwordCheck()) {
       this.appService.postNewUser(this.newUserObj, (success) => {
-        
+        console.log("coming here");
         jQuery("#myModal").modal("hide");
         this.sharedService.showNotification.next('signup')
       }, (error) => {
         this.showInternalError = true;
-        this.errorMessage = error.message ? error.message : 'Please try after sometime.'
+          this.errorMessage = error.message ? error.error.message ? error.error.message : 'Please try after sometime.' : 'Please try after sometime.'
       });
     } else if(!this.newUserObj.termsAndConditions){
       this.showTermsandConditionsError = true;

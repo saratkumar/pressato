@@ -24,11 +24,11 @@
 
               <ng-container *ngIf="!isUserLoggedIn">
                 <li class="nav-item">
-                  <a class="nav-link menu-text cursor-pointer" (click)="signIn = true;" data-toggle="modal"
+                  <a class="nav-link menu-text cursor-pointer" (click)="showSignIn = true;" data-toggle="modal"
                     data-target="#myModal">login</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link menu-text cursor-pointer" (click)="signIn = false;" data-toggle="modal"
+                  <a class="nav-link menu-text cursor-pointer" (click)="showSignIn = false;" data-toggle="modal"
                     data-target="#myModal">sign up</a>
                 </li>
 
