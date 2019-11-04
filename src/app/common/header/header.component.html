@@ -253,8 +253,8 @@
 
 <div class="modal" id="myModal">
   <div class="modal-dialog modal-lg">
-    <app-login *ngIf="signIn" (signUp)="signIn = !signIn"></app-login>
-    <app-new-user *ngIf="!signIn" (signIn)="signIn = !signIn"></app-new-user>
+    <app-login *ngIf="showSignIn" (signUp)="signIn = !signIn"></app-login>
+    <app-new-user *ngIf="!showSignIn" (signIn)="signIn = !signIn"></app-new-user>
   </div>
 </div>
 

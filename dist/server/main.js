@@ -634,7 +634,7 @@ function socialConfigs() {
     var config = new angular_6_social_login_2.AuthServiceConfig([
         {
             id: angular_6_social_login_1.FacebookLoginProvider.PROVIDER_ID,
-            provider: new angular_6_social_login_1.FacebookLoginProvider('app -id')
+            provider: new angular_6_social_login_1.FacebookLoginProvider('454848338471742')
         },
         {
             id: angular_6_social_login_1.GoogleLoginProvider.PROVIDER_ID,
@@ -2001,14 +2001,14 @@ function View_HeaderComponent_10(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 
         ad = (pd_0 && ad);
     } if (("click" === en)) {
         _co.openNav();
-        var pd_1 = ((_co.signIn = true) !== false);
+        var pd_1 = ((_co.showSignIn = true) !== false);
         ad = (pd_1 && ad);
     } return ad; }, null, null)), i1.ɵdid(2, 16384, null, 0, i2.RouterLink, [i2.Router, i2.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], null, null), (_l()(), i1.ɵted(-1, null, ["login"])), (_l()(), i1.ɵeld(4, 0, null, null, 2, "p", [["class", "accordian-menu"], ["data-target", "#myModal"], ["data-toggle", "modal"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (i1.ɵnov(_v, 5).onClick() !== false);
         ad = (pd_0 && ad);
     } if (("click" === en)) {
         _co.openNav();
-        var pd_1 = ((_co.signIn = false) !== false);
+        var pd_1 = ((_co.showSignIn = false) !== false);
         ad = (pd_1 && ad);
     } return ad; }, null, null)), i1.ɵdid(5, 16384, null, 0, i2.RouterLink, [i2.Router, i2.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], null, null), (_l()(), i1.ɵted(-1, null, ["register"]))], null, null); }
 function View_HeaderComponent_11(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "p", [["class", "accordian-menu"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
@@ -2060,7 +2060,7 @@ function View_HeaderComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0
     } if (("click" === en)) {
         var pd_1 = (_co.openNav() !== false);
         ad = (pd_1 && ad);
-    } return ad; }, null, null)), i1.ɵdid(57, 16384, null, 0, i2.RouterLink, [i2.Router, i2.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, null, ["cart"])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_HeaderComponent_9)), i1.ɵdid(60, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_HeaderComponent_10)), i1.ɵdid(62, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_HeaderComponent_11)), i1.ɵdid(64, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(65, 0, null, null, 5, "div", [["class", "modal"], ["id", "myModal"]], null, null, null, null, null)), (_l()(), i1.ɵeld(66, 0, null, null, 4, "div", [["class", "modal-dialog modal-lg"]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_HeaderComponent_12)), i1.ɵdid(68, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_HeaderComponent_13)), i1.ɵdid(70, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(71, 0, null, null, 1, "notifier-container", [["class", "notifier__container"]], null, null, null, i13.View_ɵf_0, i13.RenderType_ɵf)), i1.ɵdid(72, 245760, null, 0, i14.ɵf, [i1.ChangeDetectorRef, i14.ɵg, i14.NotifierService], null, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = "/"; _ck(_v, 11, 0, currVal_0); var currVal_1 = !_co.isUserLoggedIn; _ck(_v, 16, 0, currVal_1); var currVal_4 = ""; _ck(_v, 19, 0, currVal_4); var currVal_5 = _co.isUserLoggedIn; _ck(_v, 22, 0, currVal_5); var currVal_8 = "cart"; _ck(_v, 25, 0, currVal_8); var currVal_9 = (_co.orderCount && ((_co.orderCount.carts == null) ? null : _co.orderCount.carts.length)); _ck(_v, 29, 0, currVal_9); var currVal_17 = _co.categoryList; _ck(_v, 41, 0, currVal_17); var currVal_18 = ""; _ck(_v, 52, 0, currVal_18); var currVal_19 = _co.categoryList; _ck(_v, 55, 0, currVal_19); var currVal_20 = "/cart"; _ck(_v, 57, 0, currVal_20); var currVal_21 = _co.isAdmin; _ck(_v, 60, 0, currVal_21); var currVal_22 = !_co.isUserLoggedIn; _ck(_v, 62, 0, currVal_22); var currVal_23 = _co.isUserLoggedIn; _ck(_v, 64, 0, currVal_23); var currVal_24 = _co.signIn; _ck(_v, 68, 0, currVal_24); var currVal_25 = !_co.signIn; _ck(_v, 70, 0, currVal_25); _ck(_v, 72, 0); }, function (_ck, _v) { var currVal_2 = i1.ɵnov(_v, 19).target; var currVal_3 = i1.ɵnov(_v, 19).href; _ck(_v, 18, 0, currVal_2, currVal_3); var currVal_6 = i1.ɵnov(_v, 25).target; var currVal_7 = i1.ɵnov(_v, 25).href; _ck(_v, 24, 0, currVal_6, currVal_7); var currVal_10 = i1.ɵnov(_v, 38).ngClassUntouched; var currVal_11 = i1.ɵnov(_v, 38).ngClassTouched; var currVal_12 = i1.ɵnov(_v, 38).ngClassPristine; var currVal_13 = i1.ɵnov(_v, 38).ngClassDirty; var currVal_14 = i1.ɵnov(_v, 38).ngClassValid; var currVal_15 = i1.ɵnov(_v, 38).ngClassInvalid; var currVal_16 = i1.ɵnov(_v, 38).ngClassPending; _ck(_v, 34, 0, currVal_10, currVal_11, currVal_12, currVal_13, currVal_14, currVal_15, currVal_16); }); }
+    } return ad; }, null, null)), i1.ɵdid(57, 16384, null, 0, i2.RouterLink, [i2.Router, i2.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, null, ["cart"])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_HeaderComponent_9)), i1.ɵdid(60, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_HeaderComponent_10)), i1.ɵdid(62, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_HeaderComponent_11)), i1.ɵdid(64, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(65, 0, null, null, 5, "div", [["class", "modal"], ["id", "myModal"]], null, null, null, null, null)), (_l()(), i1.ɵeld(66, 0, null, null, 4, "div", [["class", "modal-dialog modal-lg"]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_HeaderComponent_12)), i1.ɵdid(68, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_HeaderComponent_13)), i1.ɵdid(70, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(71, 0, null, null, 1, "notifier-container", [["class", "notifier__container"]], null, null, null, i13.View_ɵf_0, i13.RenderType_ɵf)), i1.ɵdid(72, 245760, null, 0, i14.ɵf, [i1.ChangeDetectorRef, i14.ɵg, i14.NotifierService], null, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = "/"; _ck(_v, 11, 0, currVal_0); var currVal_1 = !_co.isUserLoggedIn; _ck(_v, 16, 0, currVal_1); var currVal_4 = ""; _ck(_v, 19, 0, currVal_4); var currVal_5 = _co.isUserLoggedIn; _ck(_v, 22, 0, currVal_5); var currVal_8 = "cart"; _ck(_v, 25, 0, currVal_8); var currVal_9 = (_co.orderCount && ((_co.orderCount.carts == null) ? null : _co.orderCount.carts.length)); _ck(_v, 29, 0, currVal_9); var currVal_17 = _co.categoryList; _ck(_v, 41, 0, currVal_17); var currVal_18 = ""; _ck(_v, 52, 0, currVal_18); var currVal_19 = _co.categoryList; _ck(_v, 55, 0, currVal_19); var currVal_20 = "/cart"; _ck(_v, 57, 0, currVal_20); var currVal_21 = _co.isAdmin; _ck(_v, 60, 0, currVal_21); var currVal_22 = !_co.isUserLoggedIn; _ck(_v, 62, 0, currVal_22); var currVal_23 = _co.isUserLoggedIn; _ck(_v, 64, 0, currVal_23); var currVal_24 = _co.showSignIn; _ck(_v, 68, 0, currVal_24); var currVal_25 = !_co.showSignIn; _ck(_v, 70, 0, currVal_25); _ck(_v, 72, 0); }, function (_ck, _v) { var currVal_2 = i1.ɵnov(_v, 19).target; var currVal_3 = i1.ɵnov(_v, 19).href; _ck(_v, 18, 0, currVal_2, currVal_3); var currVal_6 = i1.ɵnov(_v, 25).target; var currVal_7 = i1.ɵnov(_v, 25).href; _ck(_v, 24, 0, currVal_6, currVal_7); var currVal_10 = i1.ɵnov(_v, 38).ngClassUntouched; var currVal_11 = i1.ɵnov(_v, 38).ngClassTouched; var currVal_12 = i1.ɵnov(_v, 38).ngClassPristine; var currVal_13 = i1.ɵnov(_v, 38).ngClassDirty; var currVal_14 = i1.ɵnov(_v, 38).ngClassValid; var currVal_15 = i1.ɵnov(_v, 38).ngClassInvalid; var currVal_16 = i1.ɵnov(_v, 38).ngClassPending; _ck(_v, 34, 0, currVal_10, currVal_11, currVal_12, currVal_13, currVal_14, currVal_15, currVal_16); }); }
 exports.View_HeaderComponent_0 = View_HeaderComponent_0;
 function View_HeaderComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-header", [], null, null, null, View_HeaderComponent_0, RenderType_HeaderComponent)), i1.ɵdid(1, 114688, null, 0, i15.HeaderComponent, [i6.AppService, i2.Router, i7.SharedService, i2.ActivatedRoute, i14.NotifierService, i1.PLATFORM_ID, i16.LOCAL_STORAGE, i8.AuthService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_HeaderComponent_Host_0 = View_HeaderComponent_Host_0;
@@ -2099,7 +2099,7 @@ var HeaderComponent = /** @class */ (function () {
         this.OAuth = OAuth;
         this.socialusers = new sociallogin_1.Socialusers();
         this.showSideMenu = false;
-        this.signIn = false;
+        this.showSignIn = true;
         this.isUserLoggedIn = false;
         this.categoryList = [];
         this.orderDetail = [];
@@ -2115,6 +2115,7 @@ var HeaderComponent = /** @class */ (function () {
         this.sharedService.authBehaviourSubj.subscribe(function (data) {
             if (common_1.isPlatformBrowser(_this.platformId)) {
                 _this.authToken = _this.localStorage.getItem('token');
+                _this.sharedService.setAuth(_this.authToken);
             }
             _this.isUserLoggedIn = _this.authToken ? true : false;
             _this.isUserLoggedIn && _this.getCurrentUserDetail();
@@ -2148,14 +2149,13 @@ var HeaderComponent = /** @class */ (function () {
         });
         this.sharedService.showLogin.subscribe(function (data) {
             if (data) {
-                _this.signIn = true;
+                _this.showSignIn = true;
                 jQuery('#myModal').modal('show');
             }
         });
     };
     HeaderComponent.prototype.getCurrentUserDetail = function () {
         var _this = this;
-        this.sharedService.setAuth(this.authToken);
         this.appService.getCurrentUser(function (success) {
             _this.userObj = success.data;
             _this.isAdmin = success.data.isAdmin;
@@ -2216,6 +2216,9 @@ var HeaderComponent = /** @class */ (function () {
             }
             _this.sharedService.authBehaviourSubj.next(false);
             _this.sharedService.cartBehaviourSubj.next([]);
+            _this.sharedService.setAuth('');
+            _this.sharedService.setCartItem('');
+            _this.sharedService.setUserData('');
             _this.router.navigateByUrl('');
         }, function (error) { });
     };
@@ -2248,67 +2251,67 @@ var HttpService = /** @class */ (function () {
         this.localStorage = localStorage;
     }
     HttpService.prototype.getHttp = function (apiUrl, successFunc, errorFunc) {
-        if (!this.optimusToken) {
-            if (common_1.isPlatformBrowser(this.platformId)) {
-                this.optimusToken = this.localStorage.getItem('token');
-            }
-            if (this.optimusToken) {
-                this.headerObj = {
-                    headers: new http_1.HttpHeaders({
-                        'Content-Type': 'application/json',
-                        'x-pressato-auth': JSON.parse(this.optimusToken)
-                    })
-                };
-            }
+        // if (!this.optimusToken) {
+        if (common_1.isPlatformBrowser(this.platformId)) {
+            this.optimusToken = this.localStorage.getItem('token');
         }
+        if (this.optimusToken) {
+            this.headerObj = {
+                headers: new http_1.HttpHeaders({
+                    'Content-Type': 'application/json',
+                    'x-pressato-auth': JSON.parse(this.optimusToken)
+                })
+            };
+        }
+        // }
         return this.http.get(apiUrl, this.headerObj).subscribe(successFunc, errorFunc);
     };
     HttpService.prototype.postHttp = function (apiUrl, data, successFunc, errorFunc) {
-        if (!this.optimusToken) {
-            if (common_1.isPlatformBrowser(this.platformId)) {
-                this.optimusToken = this.localStorage.getItem('token');
-            }
-            if (this.optimusToken) {
-                this.headerObj = {
-                    headers: new http_1.HttpHeaders({
-                        'Content-Type': 'application/json',
-                        'x-pressato-auth': JSON.parse(this.optimusToken)
-                    })
-                };
-            }
+        // if (!this.optimusToken) {
+        if (common_1.isPlatformBrowser(this.platformId)) {
+            this.optimusToken = this.localStorage.getItem('token');
         }
+        if (this.optimusToken) {
+            this.headerObj = {
+                headers: new http_1.HttpHeaders({
+                    'Content-Type': 'application/json',
+                    'x-pressato-auth': JSON.parse(this.optimusToken)
+                })
+            };
+        }
+        // }
         return this.http.post(apiUrl, data, this.headerObj).subscribe(successFunc, errorFunc);
     };
     HttpService.prototype.putHttp = function (apiUrl, data, successFunc, errorFunc) {
-        if (!this.optimusToken) {
-            if (common_1.isPlatformBrowser(this.platformId)) {
-                this.optimusToken = this.localStorage.getItem('token');
-            }
-            if (this.optimusToken) {
-                this.headerObj = {
-                    headers: new http_1.HttpHeaders({
-                        'Content-Type': 'application/json',
-                        'x-pressato-auth': JSON.parse(this.optimusToken)
-                    })
-                };
-            }
+        // if (!this.optimusToken) {
+        if (common_1.isPlatformBrowser(this.platformId)) {
+            this.optimusToken = this.localStorage.getItem('token');
         }
+        if (this.optimusToken) {
+            this.headerObj = {
+                headers: new http_1.HttpHeaders({
+                    'Content-Type': 'application/json',
+                    'x-pressato-auth': JSON.parse(this.optimusToken)
+                })
+            };
+        }
+        // }
         return this.http.put(apiUrl, data, this.headerObj).subscribe(successFunc, errorFunc);
     };
     HttpService.prototype.deleteHttp = function (apiUrl, successFunc, errorFunc, data) {
-        if (!this.optimusToken) {
-            if (common_1.isPlatformBrowser(this.platformId)) {
-                this.optimusToken = this.localStorage.getItem('token');
-            }
-            if (this.optimusToken) {
-                this.headerObj = {
-                    headers: new http_1.HttpHeaders({
-                        'Content-Type': 'application/json',
-                        'x-pressato-auth': JSON.parse(this.optimusToken)
-                    })
-                };
-            }
+        // if (!this.optimusToken) {
+        if (common_1.isPlatformBrowser(this.platformId)) {
+            this.optimusToken = this.localStorage.getItem('token');
         }
+        if (this.optimusToken) {
+            this.headerObj = {
+                headers: new http_1.HttpHeaders({
+                    'Content-Type': 'application/json',
+                    'x-pressato-auth': JSON.parse(this.optimusToken)
+                })
+            };
+        }
+        // }
         return this.http.delete(apiUrl, this.headerObj).subscribe(successFunc, errorFunc);
     };
     HttpService.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function HttpService_Factory() { return new HttpService(i0.ɵɵinject(i1.HttpClient), i0.ɵɵinject(i0.PLATFORM_ID), i0.ɵɵinject(i2.LOCAL_STORAGE)); }, token: HttpService, providedIn: "root" });
@@ -2335,7 +2338,7 @@ exports.HttpService = HttpService;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles = [".close-button[_ngcontent-%COMP%] {\r\n    \r\n    position: absolute;\r\n    right: -11px;\r\n    top: -11px;\r\n    background-color: white;\r\n    border-radius: 50%;\r\n    font-weight: 400;\r\n    cursor: pointer;\r\n    z-index: 1;\r\n}\r\n\r\n.close-button[_ngcontent-%COMP%] {\r\n    width:25px;\r\n    height: 25px;\r\n    padding-left: 6px;\r\n    font-weight: bold;\r\n}\r\n\r\n.sidebar[_ngcontent-%COMP%] {\r\n    background: url('popup-sidebar.png');\r\n    background-position: center;\r\n    background-size: cover;\r\n    min-height:400px\r\n}\r\n\r\n.modal-body[_ngcontent-%COMP%] {\r\n    min-height:400px;\r\n  }\r\n\r\n.google-button[_ngcontent-%COMP%] {\r\n       background: white;\r\n       color: red;\r\n  }\r\n\r\n.font-color-red[_ngcontent-%COMP%] { \r\n      color: red\r\n  }\r\n\r\n.or-separator[_ngcontent-%COMP%] {\r\n    margin-top: -29px;\r\n    margin-left: calc(90% / 2);\r\n    z-index: 1;\r\n    font-weight: bold;\r\n    background-color: white;\r\n    width: 38px;\r\n  }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tbW9uL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxxQkFBcUI7SUFDckIsa0JBQWtCO0lBQ2xCLFlBQVk7SUFDWixVQUFVO0lBQ1YsdUJBQXVCO0lBQ3ZCLGtCQUFrQjtJQUNsQixnQkFBZ0I7SUFDaEIsZUFBZTtJQUNmLFVBQVU7QUFDZDs7QUFFQTtJQUNJLFVBQVU7SUFDVixZQUFZO0lBQ1osaUJBQWlCO0lBQ2pCLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLG9DQUEwRDtJQUMxRCwyQkFBMkI7SUFDM0Isc0JBQXNCO0lBQ3RCO0FBQ0o7O0FBRUE7SUFDSSxnQkFBZ0I7RUFDbEI7O0FBRUE7T0FDSyxpQkFBaUI7T0FDakIsVUFBVTtFQUNmOztBQUVBO01BQ0k7RUFDSjs7QUFFQTtJQUNFLGlCQUFpQjtJQUNqQiwwQkFBMEI7SUFDMUIsVUFBVTtJQUNWLGlCQUFpQjtJQUNqQix1QkFBdUI7SUFDdkIsV0FBVztFQUNiIiwiZmlsZSI6InNyYy9hcHAvY29tbW9uL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2xvc2UtYnV0dG9uIHtcclxuICAgIC8qIGZvbnQtc2l6ZTogMjlweDsgKi9cclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHJpZ2h0OiAtMTFweDtcclxuICAgIHRvcDogLTExcHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICAgIGZvbnQtd2VpZ2h0OiA0MDA7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICB6LWluZGV4OiAxO1xyXG59XHJcblxyXG4uY2xvc2UtYnV0dG9uIHtcclxuICAgIHdpZHRoOjI1cHg7XHJcbiAgICBoZWlnaHQ6IDI1cHg7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDZweDtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4uc2lkZWJhciB7XHJcbiAgICBiYWNrZ3JvdW5kOiB1cmwoJy4uLy4uLy4uL2Fzc2V0cy9sb2dpbi9wb3B1cC1zaWRlYmFyLnBuZycpO1xyXG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xyXG4gICAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcclxuICAgIG1pbi1oZWlnaHQ6NDAwcHhcclxufVxyXG5cclxuLm1vZGFsLWJvZHkge1xyXG4gICAgbWluLWhlaWdodDo0MDBweDtcclxuICB9XHJcblxyXG4gIC5nb29nbGUtYnV0dG9uIHtcclxuICAgICAgIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gICAgICAgY29sb3I6IHJlZDtcclxuICB9XHJcblxyXG4gIC5mb250LWNvbG9yLXJlZCB7IFxyXG4gICAgICBjb2xvcjogcmVkXHJcbiAgfVxyXG5cclxuICAub3Itc2VwYXJhdG9yIHtcclxuICAgIG1hcmdpbi10b3A6IC0yOXB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IGNhbGMoOTAlIC8gMik7XHJcbiAgICB6LWluZGV4OiAxO1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxuICAgIHdpZHRoOiAzOHB4O1xyXG4gIH0iXX0= */"];
+var styles = [".close-button[_ngcontent-%COMP%] {\r\n    \r\n    position: absolute;\r\n    right: -11px;\r\n    top: -11px;\r\n    background-color: white;\r\n    border-radius: 50%;\r\n    font-weight: 400;\r\n    cursor: pointer;\r\n    z-index: 1;\r\n}\r\n\r\n.close-button[_ngcontent-%COMP%] {\r\n    width:25px;\r\n    height: 25px;\r\n    padding-left: 6px;\r\n    font-weight: bold;\r\n}\r\n\r\n.sidebar[_ngcontent-%COMP%] {\r\n    background: url('popup-sidebar.png');\r\n    background-position: center;\r\n    background-size: cover;\r\n    min-height:400px\r\n}\r\n\r\n.modal-body[_ngcontent-%COMP%] {\r\n    min-height:400px;\r\n  }\r\n\r\n.google-button[_ngcontent-%COMP%] {\r\n       background: white;\r\n       color: red;\r\n  }\r\n\r\n.font-color-red[_ngcontent-%COMP%] { \r\n      color: red\r\n  }\r\n\r\n.font-color-blue[_ngcontent-%COMP%] {\r\n      color: #3578E5;\r\n  }\r\n\r\n.or-separator[_ngcontent-%COMP%] {\r\n    margin-top: -29px;\r\n    margin-left: calc(90% / 2);\r\n    z-index: 1;\r\n    font-weight: bold;\r\n    background-color: white;\r\n    width: 38px;\r\n  }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tbW9uL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxxQkFBcUI7SUFDckIsa0JBQWtCO0lBQ2xCLFlBQVk7SUFDWixVQUFVO0lBQ1YsdUJBQXVCO0lBQ3ZCLGtCQUFrQjtJQUNsQixnQkFBZ0I7SUFDaEIsZUFBZTtJQUNmLFVBQVU7QUFDZDs7QUFFQTtJQUNJLFVBQVU7SUFDVixZQUFZO0lBQ1osaUJBQWlCO0lBQ2pCLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLG9DQUEwRDtJQUMxRCwyQkFBMkI7SUFDM0Isc0JBQXNCO0lBQ3RCO0FBQ0o7O0FBRUE7SUFDSSxnQkFBZ0I7RUFDbEI7O0FBRUE7T0FDSyxpQkFBaUI7T0FDakIsVUFBVTtFQUNmOztBQUVBO01BQ0k7RUFDSjs7QUFFQTtNQUNJLGNBQWM7RUFDbEI7O0FBRUE7SUFDRSxpQkFBaUI7SUFDakIsMEJBQTBCO0lBQzFCLFVBQVU7SUFDVixpQkFBaUI7SUFDakIsdUJBQXVCO0lBQ3ZCLFdBQVc7RUFDYiIsImZpbGUiOiJzcmMvYXBwL2NvbW1vbi9sb2dpbi9sb2dpbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNsb3NlLWJ1dHRvbiB7XHJcbiAgICAvKiBmb250LXNpemU6IDI5cHg7ICovXHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICByaWdodDogLTExcHg7XHJcbiAgICB0b3A6IC0xMXB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgICBmb250LXdlaWdodDogNDAwO1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgei1pbmRleDogMTtcclxufVxyXG5cclxuLmNsb3NlLWJ1dHRvbiB7XHJcbiAgICB3aWR0aDoyNXB4O1xyXG4gICAgaGVpZ2h0OiAyNXB4O1xyXG4gICAgcGFkZGluZy1sZWZ0OiA2cHg7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuLnNpZGViYXIge1xyXG4gICAgYmFja2dyb3VuZDogdXJsKCcuLi8uLi8uLi9hc3NldHMvbG9naW4vcG9wdXAtc2lkZWJhci5wbmcnKTtcclxuICAgIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlcjtcclxuICAgIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XHJcbiAgICBtaW4taGVpZ2h0OjQwMHB4XHJcbn1cclxuXHJcbi5tb2RhbC1ib2R5IHtcclxuICAgIG1pbi1oZWlnaHQ6NDAwcHg7XHJcbiAgfVxyXG5cclxuICAuZ29vZ2xlLWJ1dHRvbiB7XHJcbiAgICAgICBiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuICAgICAgIGNvbG9yOiByZWQ7XHJcbiAgfVxyXG5cclxuICAuZm9udC1jb2xvci1yZWQgeyBcclxuICAgICAgY29sb3I6IHJlZFxyXG4gIH1cclxuXHJcbiAgLmZvbnQtY29sb3ItYmx1ZSB7XHJcbiAgICAgIGNvbG9yOiAjMzU3OEU1O1xyXG4gIH1cclxuXHJcbiAgLm9yLXNlcGFyYXRvciB7XHJcbiAgICBtYXJnaW4tdG9wOiAtMjlweDtcclxuICAgIG1hcmdpbi1sZWZ0OiBjYWxjKDkwJSAvIDIpO1xyXG4gICAgei1pbmRleDogMTtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgICB3aWR0aDogMzhweDtcclxuICB9Il19 */"];
 exports.styles = styles;
 
 
@@ -2375,10 +2378,10 @@ function View_LoginComponent_3(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0,
 function View_LoginComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "invalid-feedback"]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_LoginComponent_3)), i1.ɵdid(2, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var currVal_0 = i1.ɵnov(_v.parent, 32).errors["required"]; _ck(_v, 2, 0, currVal_0); }, null); }
 function View_LoginComponent_5(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "div", [["class", "error"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Password is required"]))], null, null); }
 function View_LoginComponent_4(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "invalid-feedback"]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_LoginComponent_5)), i1.ɵdid(2, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var currVal_0 = i1.ɵnov(_v.parent, 47).errors["required"]; _ck(_v, 2, 0, currVal_0); }, null); }
-function View_LoginComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 65, "div", [["class", "modal-content"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "span", [["class", "close-button"], ["data-dismiss", "modal"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 0, "i", [["aria-hidden", "true"], ["class", "fa fa-times"]], null, null, null, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 62, "div", [["class", "modal-body p-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(4, 0, null, null, 61, "div", [["class", "col-12 col-sm-12 col-md-12"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 60, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 0, "div", [["class", "col-sm-6 col-md-6 d-none d-md-block d-lg-block sidebar"]], null, null, null, null, null)), (_l()(), i1.ɵeld(7, 0, null, null, 58, "div", [["class", "col-12 col-sm-6 col-md-6"]], null, null, null, null, null)), (_l()(), i1.ɵeld(8, 0, null, null, 1, "p", [["class", "text-uppercase text-center p-10 m-0"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" sign in"])), (_l()(), i1.ɵeld(10, 0, null, null, 3, "p", [["class", "text-uppercase text-center p-1 m-0"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" NOT REGISTERED? "])), (_l()(), i1.ɵeld(12, 0, null, null, 1, "span", [["class", "cursor-pointer hyperlink"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+function View_LoginComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 68, "div", [["class", "modal-content"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "span", [["class", "close-button"], ["data-dismiss", "modal"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 0, "i", [["aria-hidden", "true"], ["class", "fa fa-times"]], null, null, null, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 65, "div", [["class", "modal-body p-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(4, 0, null, null, 64, "div", [["class", "col-12 col-sm-12 col-md-12"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 63, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 0, "div", [["class", "col-sm-6 col-md-6 d-none d-md-block d-lg-block sidebar"]], null, null, null, null, null)), (_l()(), i1.ɵeld(7, 0, null, null, 61, "div", [["class", "col-12 col-sm-6 col-md-6"]], null, null, null, null, null)), (_l()(), i1.ɵeld(8, 0, null, null, 1, "p", [["class", "text-uppercase text-center p-10 m-0"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" sign in"])), (_l()(), i1.ɵeld(10, 0, null, null, 3, "p", [["class", "text-uppercase text-center p-1 m-0"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" NOT REGISTERED? "])), (_l()(), i1.ɵeld(12, 0, null, null, 1, "span", [["class", "cursor-pointer hyperlink"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.onSignUp() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["SIGN UP"])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_LoginComponent_1)), i1.ɵdid(15, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(16, 0, null, null, 49, "div", [["class", "col-md-12 col-12 col-sm-12 margin-auto text-left p-20"]], null, null, null, null, null)), (_l()(), i1.ɵeld(17, 0, null, null, 48, "form", [["name", "form"], ["novalidate", ""]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngSubmit"], [null, "submit"], [null, "reset"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("submit" === en)) {
+    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["SIGN UP"])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_LoginComponent_1)), i1.ɵdid(15, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(16, 0, null, null, 52, "div", [["class", "col-md-12 col-12 col-sm-12 margin-auto text-left p-20"]], null, null, null, null, null)), (_l()(), i1.ɵeld(17, 0, null, null, 51, "form", [["name", "form"], ["novalidate", ""]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngSubmit"], [null, "submit"], [null, "reset"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("submit" === en)) {
         var pd_0 = (i1.ɵnov(_v, 19).onSubmit($event) !== false);
         ad = (pd_0 && ad);
     } if (("reset" === en)) {
@@ -2420,10 +2423,13 @@ function View_LoginComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0,
     } return ad; }, null, null)), i1.ɵdid(43, 16384, null, 0, i3.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i3.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵdid(44, 16384, null, 0, i3.RequiredValidator, [], { required: [0, "required"] }, null), i1.ɵprd(1024, null, i3.NG_VALIDATORS, function (p0_0) { return [p0_0]; }, [i3.RequiredValidator]), i1.ɵprd(1024, null, i3.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i3.DefaultValueAccessor]), i1.ɵdid(47, 671744, [["password", 4]], 0, i3.NgModel, [[2, i3.ControlContainer], [6, i3.NG_VALIDATORS], [8, null], [6, i3.NG_VALUE_ACCESSOR]], { name: [0, "name"], model: [1, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i3.NgControl, null, [i3.NgModel]), i1.ɵdid(49, 16384, null, 0, i3.NgControlStatus, [[4, i3.NgControl]], null, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_LoginComponent_4)), i1.ɵdid(51, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(52, 0, null, null, 1, "button", [["class", "btn w-100 text-uppercase black-theme color-white"], ["type", "submit"]], [[8, "disabled", 0]], null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["sign in"])), (_l()(), i1.ɵeld(54, 0, null, null, 2, "button", [["class", "btn w-100 text-uppercase m-t-10 google-button"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.socialSignIn("google") !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["sign in using "])), (_l()(), i1.ɵeld(56, 0, null, null, 0, "i", [["aria-hidden", "true"], ["class", "fa fa-google font-color-red"]], null, null, null, null, null)), (_l()(), i1.ɵeld(57, 0, null, null, 0, "hr", [["class", "w-100 m-t-5"]], null, null, null, null, null)), (_l()(), i1.ɵeld(58, 0, null, null, 1, "div", [["class", "or-separator"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["(OR)"])), (_l()(), i1.ɵeld(60, 0, null, null, 1, "button", [["class", "btn w-100 text-uppercase black-theme color-white m-t-10"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["sign in using "])), (_l()(), i1.ɵeld(56, 0, null, null, 0, "i", [["aria-hidden", "true"], ["class", "fa fa-google font-color-red"]], null, null, null, null, null)), (_l()(), i1.ɵeld(57, 0, null, null, 2, "button", [["class", "btn w-100 text-uppercase m-t-10 google-button font-color-blue"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+        var pd_0 = (_co.socialSignIn("facebook") !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["sign in using "])), (_l()(), i1.ɵeld(59, 0, null, null, 0, "i", [["aria-hidden", "true"], ["class", "fa fa-facebook-square font-color-blue"]], null, null, null, null, null)), (_l()(), i1.ɵeld(60, 0, null, null, 0, "hr", [["class", "w-100 m-t-5"]], null, null, null, null, null)), (_l()(), i1.ɵeld(61, 0, null, null, 1, "div", [["class", "or-separator"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["(OR)"])), (_l()(), i1.ɵeld(63, 0, null, null, 1, "button", [["class", "btn w-100 text-uppercase black-theme color-white m-t-10"], ["type", "button"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.guestUser() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["Continue as Guest"])), (_l()(), i1.ɵeld(62, 0, null, null, 3, "div", [["class", "row col-12 col-md-12 col-sm-12 f-s-12 p-t-10"]], null, null, null, null, null)), (_l()(), i1.ɵeld(63, 0, null, null, 1, "span", [["class", "error"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["*"])), (_l()(), i1.ɵted(-1, null, ["We do not share your personal details with anyone "]))], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.showError; _ck(_v, 15, 0, currVal_0); var currVal_16 = ""; _ck(_v, 29, 0, currVal_16); var currVal_17 = "username"; var currVal_18 = _co.params["email"]; _ck(_v, 32, 0, currVal_17, currVal_18); var currVal_19 = (i1.ɵnov(_v, 19).submitted && i1.ɵnov(_v, 32).invalid); _ck(_v, 36, 0, currVal_19); var currVal_28 = ""; _ck(_v, 44, 0, currVal_28); var currVal_29 = "password"; var currVal_30 = _co.params["password"]; _ck(_v, 47, 0, currVal_29, currVal_30); var currVal_31 = (i1.ɵnov(_v, 19).submitted && i1.ɵnov(_v, 47).invalid); _ck(_v, 51, 0, currVal_31); }, function (_ck, _v) { var currVal_1 = i1.ɵnov(_v, 21).ngClassUntouched; var currVal_2 = i1.ɵnov(_v, 21).ngClassTouched; var currVal_3 = i1.ɵnov(_v, 21).ngClassPristine; var currVal_4 = i1.ɵnov(_v, 21).ngClassDirty; var currVal_5 = i1.ɵnov(_v, 21).ngClassValid; var currVal_6 = i1.ɵnov(_v, 21).ngClassInvalid; var currVal_7 = i1.ɵnov(_v, 21).ngClassPending; _ck(_v, 17, 0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7); var currVal_8 = (i1.ɵnov(_v, 29).required ? "" : null); var currVal_9 = i1.ɵnov(_v, 34).ngClassUntouched; var currVal_10 = i1.ɵnov(_v, 34).ngClassTouched; var currVal_11 = i1.ɵnov(_v, 34).ngClassPristine; var currVal_12 = i1.ɵnov(_v, 34).ngClassDirty; var currVal_13 = i1.ɵnov(_v, 34).ngClassValid; var currVal_14 = i1.ɵnov(_v, 34).ngClassInvalid; var currVal_15 = i1.ɵnov(_v, 34).ngClassPending; _ck(_v, 27, 0, currVal_8, currVal_9, currVal_10, currVal_11, currVal_12, currVal_13, currVal_14, currVal_15); var currVal_20 = (i1.ɵnov(_v, 44).required ? "" : null); var currVal_21 = i1.ɵnov(_v, 49).ngClassUntouched; var currVal_22 = i1.ɵnov(_v, 49).ngClassTouched; var currVal_23 = i1.ɵnov(_v, 49).ngClassPristine; var currVal_24 = i1.ɵnov(_v, 49).ngClassDirty; var currVal_25 = i1.ɵnov(_v, 49).ngClassValid; var currVal_26 = i1.ɵnov(_v, 49).ngClassInvalid; var currVal_27 = i1.ɵnov(_v, 49).ngClassPending; _ck(_v, 42, 0, currVal_20, currVal_21, currVal_22, currVal_23, currVal_24, currVal_25, currVal_26, currVal_27); var currVal_32 = !i1.ɵnov(_v, 19).form.valid; _ck(_v, 52, 0, currVal_32); }); }
+    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["Continue as Guest"])), (_l()(), i1.ɵeld(65, 0, null, null, 3, "div", [["class", "row col-12 col-md-12 col-sm-12 f-s-12 p-t-10"]], null, null, null, null, null)), (_l()(), i1.ɵeld(66, 0, null, null, 1, "span", [["class", "error"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["*"])), (_l()(), i1.ɵted(-1, null, ["We do not share your personal details with anyone "]))], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.showError; _ck(_v, 15, 0, currVal_0); var currVal_16 = ""; _ck(_v, 29, 0, currVal_16); var currVal_17 = "username"; var currVal_18 = _co.params["email"]; _ck(_v, 32, 0, currVal_17, currVal_18); var currVal_19 = (i1.ɵnov(_v, 19).submitted && i1.ɵnov(_v, 32).invalid); _ck(_v, 36, 0, currVal_19); var currVal_28 = ""; _ck(_v, 44, 0, currVal_28); var currVal_29 = "password"; var currVal_30 = _co.params["password"]; _ck(_v, 47, 0, currVal_29, currVal_30); var currVal_31 = (i1.ɵnov(_v, 19).submitted && i1.ɵnov(_v, 47).invalid); _ck(_v, 51, 0, currVal_31); }, function (_ck, _v) { var currVal_1 = i1.ɵnov(_v, 21).ngClassUntouched; var currVal_2 = i1.ɵnov(_v, 21).ngClassTouched; var currVal_3 = i1.ɵnov(_v, 21).ngClassPristine; var currVal_4 = i1.ɵnov(_v, 21).ngClassDirty; var currVal_5 = i1.ɵnov(_v, 21).ngClassValid; var currVal_6 = i1.ɵnov(_v, 21).ngClassInvalid; var currVal_7 = i1.ɵnov(_v, 21).ngClassPending; _ck(_v, 17, 0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7); var currVal_8 = (i1.ɵnov(_v, 29).required ? "" : null); var currVal_9 = i1.ɵnov(_v, 34).ngClassUntouched; var currVal_10 = i1.ɵnov(_v, 34).ngClassTouched; var currVal_11 = i1.ɵnov(_v, 34).ngClassPristine; var currVal_12 = i1.ɵnov(_v, 34).ngClassDirty; var currVal_13 = i1.ɵnov(_v, 34).ngClassValid; var currVal_14 = i1.ɵnov(_v, 34).ngClassInvalid; var currVal_15 = i1.ɵnov(_v, 34).ngClassPending; _ck(_v, 27, 0, currVal_8, currVal_9, currVal_10, currVal_11, currVal_12, currVal_13, currVal_14, currVal_15); var currVal_20 = (i1.ɵnov(_v, 44).required ? "" : null); var currVal_21 = i1.ɵnov(_v, 49).ngClassUntouched; var currVal_22 = i1.ɵnov(_v, 49).ngClassTouched; var currVal_23 = i1.ɵnov(_v, 49).ngClassPristine; var currVal_24 = i1.ɵnov(_v, 49).ngClassDirty; var currVal_25 = i1.ɵnov(_v, 49).ngClassValid; var currVal_26 = i1.ɵnov(_v, 49).ngClassInvalid; var currVal_27 = i1.ɵnov(_v, 49).ngClassPending; _ck(_v, 42, 0, currVal_20, currVal_21, currVal_22, currVal_23, currVal_24, currVal_25, currVal_26, currVal_27); var currVal_32 = !i1.ɵnov(_v, 19).form.valid; _ck(_v, 52, 0, currVal_32); }); }
 exports.View_LoginComponent_0 = View_LoginComponent_0;
 function View_LoginComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-login", [], null, null, null, View_LoginComponent_0, RenderType_LoginComponent)), i1.ɵdid(1, 114688, null, 0, i4.LoginComponent, [i5.AppService, i6.SharedService, i7.AuthService, i8.SocialLoginService, i9.Router], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_LoginComponent_Host_0 = View_LoginComponent_Host_0;
@@ -2473,6 +2479,12 @@ var LoginComponent = /** @class */ (function () {
             localStorage.setItem('token', JSON.stringify(success.data.authToken));
             _this.sharedService.authBehaviourSubj.next(true);
             jQuery("#myModal").modal("hide");
+            setTimeout(function () {
+                var cartItem = _this.sharedService.getCartItem();
+                if (cartItem) {
+                    _this.sharedService.addItemToCart(cartItem);
+                }
+            }, 100);
         }, function (error) {
             _this.showError = true;
         });
@@ -2483,6 +2495,12 @@ var LoginComponent = /** @class */ (function () {
             localStorage.setItem('token', JSON.stringify(success.data.authToken));
             _this.sharedService.authBehaviourSubj.next(true);
             jQuery("#myModal").modal("hide");
+            setTimeout(function () {
+                var cartItem = _this.sharedService.getCartItem();
+                if (cartItem) {
+                    _this.sharedService.addItemToCart(cartItem);
+                }
+            }, 100);
         }, function (error) {
             // this.showError = true;
         });
@@ -2497,22 +2515,21 @@ var LoginComponent = /** @class */ (function () {
             socialPlatformProvider = angular_6_social_login_1.GoogleLoginProvider.PROVIDER_ID;
         }
         this.OAuth.signIn(socialPlatformProvider).then(function (socialusers) {
-            debugger;
-            console.log(socialProvider, socialusers);
-            console.log(socialusers);
             _this.Savesresponse(socialusers);
         });
     };
     LoginComponent.prototype.Savesresponse = function (socialusers) {
         var _this = this;
         this.SocialloginService.Savesresponse(socialusers).subscribe(function (res) {
-            debugger;
-            console.log(res);
-            _this.socialusers = res;
-            _this.response = res.userDetail;
-            localStorage.setItem('socialusers', JSON.stringify(_this.socialusers));
-            console.log(localStorage.setItem('socialusers', JSON.stringify(_this.socialusers)));
-            _this.router.navigate(["/"]);
+            localStorage.setItem('token', JSON.stringify(res.data.authToken));
+            _this.sharedService.authBehaviourSubj.next(true);
+            jQuery("#myModal").modal("hide");
+            setTimeout(function () {
+                var cartItem = _this.sharedService.getCartItem();
+                if (cartItem) {
+                    _this.sharedService.addItemToCart(cartItem);
+                }
+            }, 100);
         });
     };
     return LoginComponent;
@@ -2936,6 +2953,9 @@ var SharedService = /** @class */ (function () {
     SharedService.prototype.setAuth = function (token) {
         this.authToken = token;
     };
+    SharedService.prototype.getAuth = function () {
+        return this.authToken;
+    };
     SharedService.prototype.setOrderDetail = function (orderDetail) {
         this.orderDetail = orderDetail;
         this.cartBehaviourSubj.next(orderDetail);
@@ -2949,9 +2969,16 @@ var SharedService = /** @class */ (function () {
     SharedService.prototype.getUserData = function () {
         return this.userData;
     };
+    SharedService.prototype.setCartItem = function (product) {
+        this.cartItems = product;
+    };
+    SharedService.prototype.getCartItem = function () {
+        return this.cartItems;
+    };
     SharedService.prototype.addItemToCart = function (product) {
         var _this = this;
         if (!this.authToken) {
+            this.setCartItem(product);
             this.showLogin.next(true);
             return;
         }
@@ -3014,7 +3041,7 @@ var i1 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http")
 var SocialLoginService = /** @class */ (function () {
     function SocialLoginService(http) {
         this.http = http;
-        this.url = environment_1.environment.devUrl + '/api/Login/Savesresponse';
+        this.url = environment_1.environment.devUrl + '/v1/socialLogin';
     }
     SocialLoginService.prototype.Savesresponse = function (response) {
         return this.http.post(this.url, response);
