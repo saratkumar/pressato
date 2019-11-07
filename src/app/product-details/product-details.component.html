@@ -124,8 +124,8 @@
             <div class="row p-t-b-10 justify-center">
               <input type="number" class="quantity mr-1 w-25" step="1" min="0" max="" name="quantity" value="1" [(ngModel)]="product.quantity">
               <!-- <button class="btn float-left add-cart-button pad-5" (click)=addToCart(productDetails)>add to cart</button> -->
-              <button class="btn float-left add-cart-button pad-5" (click)="addToCart(productDetails)" *ngIf="productDetails.name.indexOf('+') === -1">add to cart</button>
-                <app-combo-popup [comboName]="productDetails.name" isProductDetail="true" (productIds)="getProductIdsFromCombo($event, productDetails)" *ngIf="productDetails.name.indexOf('+') > -1"></app-combo-popup>
+              <button class="btn float-left add-cart-button pad-5" (click)="addToCart(product)" *ngIf="productDetails.name.indexOf('+') === -1">add to cart</button>
+                <app-combo-popup [comboName]="product.name" isProductDetail="true" (productIds)="getProductIdsFromCombo($event, product)" *ngIf="product.name.indexOf('+') > -1"></app-combo-popup>
               
             </div>
           </div>
