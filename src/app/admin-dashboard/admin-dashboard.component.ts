@@ -26,12 +26,25 @@ export class AdminDashboardComponent implements OnInit {
         order.listOfProducts = [];
         order.cartIds.forEach(cartData => {
           this.appService.getCartDetails(cartData, (cartDetail) => {
-            order.listOfProducts.push(listOfProductList.find(prod => cartDetail.data.product === prod._id).map(data => {
-              if(data.productMeta) {
-                data.product1 = listOfProductList.find(product => product._id === data.productMeta[0]);
-                data.product2 = listOfProductList.find(product => product._id === data.productMeta[1]);
+            listOfProductList.forEach(prod => {
+              if (cartDetail.data.product === prod._id) {
+                if (prod.productMeta) {
+                  prod.product1 = listOfProductList.find(product => product._id === data.productMeta[0]);
+                  prod.product2 = listOfProductList.find(product => product._id === data.productMeta[1]);
+                }
+                order.listOfProducts.push(prod);
               }
-            }));
+            })
+            // let temp = listOfProductList.find(prod => cartDetail.data.product === prod._id);
+            // if(temp) {
+            //   order.listOfProducts.push(temp.map(data => {
+            //     if (data.productMeta) {
+            //       data.product1 = listOfProductList.find(product => product._id === data.productMeta[0]);
+            //       data.product2 = listOfProductList.find(product => product._id === data.productMeta[1]);
+            //     }
+            //   }));
+            // }
+             
             // listOfProductList.forEach(prod => {
             //   if(cartDetail.data.product === prod._id) {
             //     console.log(prod);
