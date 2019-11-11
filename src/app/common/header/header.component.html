@@ -55,7 +55,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" [routerLink]="'my-orders'">My Orders</a>
-                        <a class="dropdown-item" [routerLink]="'my-orders'" *ngIf="isAdmin">Admin Dashboard</a>
+                        <a class="dropdown-item" [routerLink]="'admin-dashboard'" *ngIf="isAdmin">Admin Dashboard</a>
                         <a class="dropdown-item" (click)="onLogout()">Logout</a>
                     </div>
                   </div>
