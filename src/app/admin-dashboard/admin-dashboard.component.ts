@@ -29,8 +29,8 @@ export class AdminDashboardComponent implements OnInit {
             listOfProductList.forEach(prod => {
               if (cartDetail.data.product === prod._id) {
                 if (prod.productMeta) {
-                  prod.product1 = listOfProductList.find(product => product._id === data.productMeta[0]);
-                  prod.product2 = listOfProductList.find(product => product._id === data.productMeta[1]);
+                  prod.product1 = listOfProductList.find(product => product._id === prod.productMeta[0]);
+                  prod.product2 = listOfProductList.find(product => product._id === prod.productMeta[1]);
                 }
                 order.listOfProducts.push(prod);
               }
