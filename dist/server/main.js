@@ -365,12 +365,24 @@ var AdminDashboardComponent = /** @class */ (function () {
                 order.listOfProducts = [];
                 order.cartIds.forEach(function (cartData) {
                     _this.appService.getCartDetails(cartData, function (cartDetail) {
-                        order.listOfProducts.push(listOfProductList.find(function (prod) { return cartDetail.data.product === prod._id; }).map(function (data) {
-                            if (data.productMeta) {
-                                data.product1 = listOfProductList.find(function (product) { return product._id === data.productMeta[0]; });
-                                data.product2 = listOfProductList.find(function (product) { return product._id === data.productMeta[1]; });
+                        listOfProductList.forEach(function (prod) {
+                            if (cartDetail.data.product === prod._id) {
+                                if (prod.productMeta) {
+                                    prod.product1 = listOfProductList.find(function (product) { return product._id === prod.productMeta[0]; });
+                                    prod.product2 = listOfProductList.find(function (product) { return product._id === prod.productMeta[1]; });
+                                }
+                                order.listOfProducts.push(prod);
                             }
-                        }));
+                        });
+                        // let temp = listOfProductList.find(prod => cartDetail.data.product === prod._id);
+                        // if(temp) {
+                        //   order.listOfProducts.push(temp.map(data => {
+                        //     if (data.productMeta) {
+                        //       data.product1 = listOfProductList.find(product => product._id === data.productMeta[0]);
+                        //       data.product2 = listOfProductList.find(product => product._id === data.productMeta[1]);
+                        //     }
+                        //   }));
+                        // }
                         // listOfProductList.forEach(prod => {
                         //   if(cartDetail.data.product === prod._id) {
                         //     console.log(prod);
@@ -1957,7 +1969,7 @@ function View_HeaderComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0
 function View_HeaderComponent_3(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "a", [["class", "dropdown-item"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
         var pd_0 = (i1.ɵnov(_v, 1).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), i1.ɵdid(1, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, null, ["Admin Dashboard"]))], function (_ck, _v) { var currVal_2 = "my-orders"; _ck(_v, 1, 0, currVal_2); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 1).target; var currVal_1 = i1.ɵnov(_v, 1).href; _ck(_v, 0, 0, currVal_0, currVal_1); }); }
+    } return ad; }, null, null)), i1.ɵdid(1, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, null, ["Admin Dashboard"]))], function (_ck, _v) { var currVal_2 = "admin-dashboard"; _ck(_v, 1, 0, currVal_2); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 1).target; var currVal_1 = i1.ɵnov(_v, 1).href; _ck(_v, 0, 0, currVal_0, currVal_1); }); }
 function View_HeaderComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 11, "li", [["class", "nav-item"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 10, "div", [["class", "dropdown"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "a", [["aria-expanded", "false"], ["aria-haspopup", "true"], ["class", "dropdown-toggle nav-link menu-text cursor-pointer"], ["data-toggle", "dropdown"], ["id", "dropdownMenuButton"]], null, null, null, null, null)), (_l()(), i1.ɵted(3, null, [" Hi ", "! "])), (_l()(), i1.ɵeld(4, 0, null, null, 7, "div", [["aria-labelledby", "dropdownMenuButton"], ["class", "dropdown-menu"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 2, "a", [["class", "dropdown-item"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
         var pd_0 = (i1.ɵnov(_v, 6).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
         ad = (pd_0 && ad);
