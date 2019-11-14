@@ -2135,6 +2135,7 @@ var HeaderComponent = /** @class */ (function () {
         this.localStorage = localStorage;
         this.OAuth = OAuth;
         this.socialusers = new sociallogin_1.Socialusers();
+        this.PROVIDER = { 'GUEST': 'guest' };
         this.showSideMenu = false;
         this.showSignIn = true;
         this.isUserLoggedIn = false;
@@ -2236,7 +2237,7 @@ var HeaderComponent = /** @class */ (function () {
     };
     HeaderComponent.prototype.onLogout = function () {
         var _this = this;
-        if (this.userObj && !this.userObj.provider) {
+        if (this.userObj && (!this.userObj.provider || this.userObj.provider === this.PROVIDER.GUEST)) {
             this.logoutFromSite();
         }
         else {
