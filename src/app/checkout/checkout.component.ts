@@ -18,7 +18,8 @@ export class CheckoutComponent implements OnInit {
   rzp1: any;
   totalPrice: any;
   options: any;
-  
+  userInfo: any = { provider: ''}
+  PROVIDER = {'GUEST': 'guest'};
   constructor(
     private appService: AppService, private router: Router, private sharedService: SharedService) { }
 
@@ -44,6 +45,11 @@ export class CheckoutComponent implements OnInit {
         }
     };
     });
+    setTimeout(() => {
+      this.userInfo = this.sharedService.getUserData();
+      this.addressObj.email = this.userInfo['email'];  
+    }, 500);
+    
     
   }
 
