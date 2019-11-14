@@ -1,4 +1,4 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject, ɵɵProvidersFeature } from '@angular/core';
 import { AppService } from '../../app.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SharedService } from '../shared.service';
@@ -15,6 +15,7 @@ declare var jQuery: any;
 })
 export class HeaderComponent implements OnInit {
   socialusers = new Socialusers();  
+  PROVIDER = { 'GUEST': 'guest' };
   showSideMenu: boolean = false;
   showSignIn: boolean = true;
   isUserLoggedIn: boolean = false;
@@ -131,7 +132,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout() {
-    if(this.userObj && !this.userObj.provider) {
+    if(this.userObj && (!this.userObj.provider || this.userObj.provider === this.PROVIDER.GUEST)) {
       this.logoutFromSite();
     } else {
       this.OAuth.signOut().then(data => {
