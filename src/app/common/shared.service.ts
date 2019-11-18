@@ -14,6 +14,7 @@ export class SharedService {
   cartBehaviourSubj = new BehaviorSubject([]);
   showNotification = new BehaviorSubject('');
   showLogin = new BehaviorSubject(false);
+  userInfo = new BehaviorSubject('');
   headerActiveCategoryBehaviourSubj = new BehaviorSubject({ 'categorySelectedMenuIndex': -1, 'productSelectedMenuIndex': -1 });
   categoryList: Array<any> = [];
   orderDetail: any = [];
@@ -21,10 +22,16 @@ export class SharedService {
   productList: any;
   authToken: string;
   cartItems: any;
+  
   constructor(private appService: AppService,
     @Inject(PLATFORM_ID) private platformId: Object,
     @Inject(WINDOW) private window: Window,
-    @Inject(LOCAL_STORAGE) private localStorage: any) { }
+    @Inject(LOCAL_STORAGE) private localStorage: any) { 
+
+      this.userInfo.subscribe(data => {
+        this.userData = data;
+      })
+    }
 
 
   setCategoryList(categoryList) {
@@ -62,7 +69,8 @@ export class SharedService {
   }
 
   setUserData(userObj) {
-    this.userData = userObj;
+    // this.userData = userObj;
+    // this.userInfo.next(userObj)
   }
 
   getUserData() {

@@ -88,7 +88,8 @@ export class HeaderComponent implements OnInit {
     this.appService.getCurrentUser((success) => {
       this.userObj = success.data;
       this.isAdmin = success.data.isAdmin;
-      this.sharedService.setUserData(this.userObj);
+      this.sharedService.userInfo.next(this.userObj);
+      // this.sharedService.setUserData(this.userObj);
       this.appService.getCurrentUserOrderDetail((success)=> {
         this.orderCount = success.data;
         this.sharedService.setOrderDetail(this.orderCount);
@@ -148,9 +149,9 @@ export class HeaderComponent implements OnInit {
       }
       this.sharedService.authBehaviourSubj.next(false);
       this.sharedService.cartBehaviourSubj.next([]);
+      this.sharedService.userInfo.next('');
       this.sharedService.setAuth('');
       this.sharedService.setCartItem('');
-      this.sharedService.setUserData('');
       this.router.navigateByUrl('');
 
     }, (error) => { });

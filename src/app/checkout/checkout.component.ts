@@ -45,10 +45,15 @@ export class CheckoutComponent implements OnInit {
         }
     };
     });
-    setTimeout(() => {
-      this.userInfo = this.sharedService.getUserData();
-      this.addressObj.email = this.userInfo['email'];  
-    }, 500);
+    this.sharedService.userInfo.subscribe(data => {
+      this.userInfo = data;
+      this.addressObj.email = this.userInfo && this.userInfo['email'];  
+    })
+    // setTimeout(() => {
+
+    //   this.userInfo = this.sharedService.getUserData();
+    //   this.addressObj.email = this.userInfo &&this.userInfo['email'];  
+    // }, 500);
     
     
   }
